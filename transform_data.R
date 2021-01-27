@@ -5,6 +5,7 @@ library(DBI)
 library(RMySQL)
 library(tidyr)
 library(readr)
+library(git2r)
 
 #Funktion Datenbankverbindung schliessen
 dbDisconnectAll <- function(){
@@ -49,7 +50,7 @@ impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
                   999,999,999,999,999)
 
 colnames(impfdaten_dw) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veränderung","Geliefert","Verimpft_Anteil")
+                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Ver?nderung","Geliefert","Verimpft_Anteil")
 
 for (i in 1:26) {
 
@@ -67,7 +68,7 @@ new_data <- data.frame(kanton_short,last_date_string,verimpft,verimpft_pro_perso
                        geliefert,verimpft_anteil)
 
 colnames(new_data) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veränderung","Geliefert","Verimpft_Anteil")
+                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Ver?nderung","Geliefert","Verimpft_Anteil")
 
 impfdaten_dw <- rbind(impfdaten_dw,new_data)
   
@@ -78,7 +79,7 @@ impfdaten_dw <- impfdaten_dw[-1,]
 impfdaten_dw$Verimpft <- format(impfdaten_dw$Verimpft,big.mark = "'")
 impfdaten_dw$Verimpft_pro_Tag <- format(round(impfdaten_dw$Verimpft_pro_Tag,0),big.mark = "'")
 impfdaten_dw$Verimpft_pro_Tag_Vorwoche <- format(round(impfdaten_dw$Verimpft_pro_Tag_Vorwoche,0),big.mark = "'")
-impfdaten_dw$Veränderung <- round(impfdaten_dw$Veränderung,0)
+impfdaten_dw$Ver?nderung <- round(impfdaten_dw$Ver?nderung,0)
 impfdaten_dw$Geliefert <- format(impfdaten_dw$Geliefert,big.mark = "'")
 impfdaten_dw$Verimpft_Anteil <- round(impfdaten_dw$Verimpft_Anteil,0)
 
@@ -87,12 +88,17 @@ impfdaten_dw <- merge(impfdaten_dw,kantone)
 
 #Create_Text
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang por 100 Einwohner <b>",
-                              impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgeführt.",
+                              impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgef?hrt.",
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.<br><br>",
                               "In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
-                              "</b> Personen geimpft. Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",
-                              impfdaten_dw$Veränderung,"%</b>.<br><br>",
+                              "</b> Personen geimpft. Im Vergleich zur Vorwoche eintspricht dies einer Ver?nderung von <b>",
+                              impfdaten_dw$Ver?nderung,"%</b>.<br><br>",
                               "Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
                               "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>",
                               "<i>Stand: ",impfdaten_dw$Datum,"</i>")
                               
+#Make Commit
+git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
+gitadd()
+gitcommit()
+gitpush()
