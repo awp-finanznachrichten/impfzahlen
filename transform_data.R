@@ -1,25 +1,60 @@
-library(tabulizer)
+library(git2r)
 library(dplyr)
 library(readxl)
 library(DBI)
 library(RMySQL)
 library(tidyr)
 library(readr)
-library(git2r)
 
-#Funktion Datenbankverbindung schliessen
+
+#Funktionen
 dbDisconnectAll <- function(){
   ile <- length(dbListConnections(MySQL())  )
   lapply( dbListConnections(MySQL()), function(x) dbDisconnect(x) )
   cat(sprintf("%s connection(s) closed.\n", ile))
 }
 
-setwd("C:/Users/simon/OneDrive/R/Impfungen")
+gitcommit <- function(msg = "commit from Rstudio", dir = getwd()){
+  cmd = sprintf("git commit -m\"%s\"",msg)
+  system(cmd)
+}
+
+gitstatus <- function(dir = getwd()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git status"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+gitadd <- function(dir = getwd()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git add --all"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+gitpush <- function(dir = getwd()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git push"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+setwd("C:/Users/simon/OneDrive/R/impfzahlen")
 
 #Impfdaten abrufen
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu')
 rs <- dbSendQuery(mydb, "SELECT * FROM impfungen")
-impfdaten <- fetch(rs,n=-1)
+impfdaten <- DBI::fetch(rs,n=-1)
 
 dbDisconnectAll()
 
@@ -50,7 +85,7 @@ impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
                   999,999,999,999,999)
 
 colnames(impfdaten_dw) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Ver?nderung","Geliefert","Verimpft_Anteil")
+                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil")
 
 for (i in 1:26) {
 
@@ -68,7 +103,7 @@ new_data <- data.frame(kanton_short,last_date_string,verimpft,verimpft_pro_perso
                        geliefert,verimpft_anteil)
 
 colnames(new_data) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Ver?nderung","Geliefert","Verimpft_Anteil")
+                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil")
 
 impfdaten_dw <- rbind(impfdaten_dw,new_data)
   
@@ -79,7 +114,7 @@ impfdaten_dw <- impfdaten_dw[-1,]
 impfdaten_dw$Verimpft <- format(impfdaten_dw$Verimpft,big.mark = "'")
 impfdaten_dw$Verimpft_pro_Tag <- format(round(impfdaten_dw$Verimpft_pro_Tag,0),big.mark = "'")
 impfdaten_dw$Verimpft_pro_Tag_Vorwoche <- format(round(impfdaten_dw$Verimpft_pro_Tag_Vorwoche,0),big.mark = "'")
-impfdaten_dw$Ver?nderung <- round(impfdaten_dw$Ver?nderung,0)
+impfdaten_dw$Veraenderung <- round(impfdaten_dw$Veraenderung,0)
 impfdaten_dw$Geliefert <- format(impfdaten_dw$Geliefert,big.mark = "'")
 impfdaten_dw$Verimpft_Anteil <- round(impfdaten_dw$Verimpft_Anteil,0)
 
@@ -88,15 +123,18 @@ impfdaten_dw <- merge(impfdaten_dw,kantone)
 
 #Create_Text
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang por 100 Einwohner <b>",
-                              impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgef?hrt.",
+                              impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgeführt.",
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.<br><br>",
                               "In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
-                              "</b> Personen geimpft. Im Vergleich zur Vorwoche eintspricht dies einer Ver?nderung von <b>",
-                              impfdaten_dw$Ver?nderung,"%</b>.<br><br>",
+                              "</b> Personen geimpft. Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",
+                              impfdaten_dw$Veraenderung,"%</b>.<br><br>",
                               "Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
                               "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>",
                               "<i>Stand: ",impfdaten_dw$Datum,"</i>")
-                              
+
+#Write File
+write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE)
+                           
 #Make Commit
 git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
 gitadd()
