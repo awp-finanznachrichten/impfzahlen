@@ -132,7 +132,7 @@ gitpush()
 
 
 #Change Title of Datawrapper-Chart
-dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfungen durchgeführt. Das entspricht <b>",impfungen_ch,"</b>."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfungen durchgeführt. Das entspricht <b>",impfungen_ch,"</b> Impfungen."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
 dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
