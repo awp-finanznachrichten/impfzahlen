@@ -5,51 +5,11 @@ library(DBI)
 library(RMySQL)
 library(tidyr)
 library(readr)
-
-#Blabla
-#Funktionen
-dbDisconnectAll <- function(){
-  ile <- length(dbListConnections(MySQL())  )
-  lapply( dbListConnections(MySQL()), function(x) dbDisconnect(x) )
-  cat(sprintf("%s connection(s) closed.\n", ile))
-}
-
-gitcommit <- function(msg = "commit from Rstudio", dir = getwd()){
-  cmd = sprintf("git commit -m\"%s\"",msg)
-  system(cmd)
-}
-
-gitstatus <- function(dir = getwd()){
-  cmd_list <- list(
-    cmd1 = tolower(substr(dir,1,2)),
-    cmd2 = paste("cd",dir),
-    cmd3 = "git status"
-  )
-  cmd <- paste(unlist(cmd_list),collapse = " & ")
-  shell(cmd)
-}
-
-gitadd <- function(dir = getwd()){
-  cmd_list <- list(
-    cmd1 = tolower(substr(dir,1,2)),
-    cmd2 = paste("cd",dir),
-    cmd3 = "git add --all"
-  )
-  cmd <- paste(unlist(cmd_list),collapse = " & ")
-  shell(cmd)
-}
-
-gitpush <- function(dir = getwd()){
-  cmd_list <- list(
-    cmd1 = tolower(substr(dir,1,2)),
-    cmd2 = paste("cd",dir),
-    cmd3 = "git push"
-  )
-  cmd <- paste(unlist(cmd_list),collapse = " & ")
-  shell(cmd)
-}
+library(stringr)
 
 setwd("C:/Users/simon/OneDrive/R/impfzahlen")
+
+source("functions.R")
 
 #Impfdaten abrufen
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu')
@@ -126,11 +86,40 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgeführt.",
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.<br><br>",
                               "In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
-                              "</b> Personen geimpft. Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",
-                              impfdaten_dw$Veraenderung,"%</b>.<br><br>",
+                              "</b> Personen geimpft.",
+                              " Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
+                              "<br><br>",
                               "Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
                               "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>",
                               "<i>Stand: ",impfdaten_dw$Datum,"</i>")
+
+#Create_Text
+impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>",
+                              impfdaten_dw$Verimpft_pro_Person,"</b> injections pour 100 habitants ont été réalisées jusqu’ici.",
+                              " Cela représente en tout <b>",impfdaten_dw$Verimpft,"</b> vaccinations.<br><br>",
+                              "La semaine dernière, <b>",impfdaten_dw$Verimpft_pro_Tag,
+                              "</b> personnes ont été vaccinées chaque jour en moyenne.",
+                              " Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.",
+                              "<br><br>",
+                              "Au total, <b>",impfdaten_dw$Geliefert,"</b> doses de vaccin ont été livrées jusqu’ici dans le canton de ",
+                              impfdaten_dw$Kanton_f,". Sur ce nombre, <b>",impfdaten_dw$Verimpft_Anteil,
+                              "%</b> ont été utilisés.<br><br>",
+                              "<i>Etat: ",impfdaten_dw$Datum,"</i>")
+
+impfdaten_dw$Text_d <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a questo momento sono state effettuate <b>",
+                              impfdaten_dw$Verimpft_pro_Person,"</b> iniezioni ogni 100 abitanti.",
+                              " In cifre assolute, si tratta di <b>",impfdaten_dw$Verimpft,"</b> vaccinazioni.<br><br>",
+                              "La scorsa settimana, in media <b>",impfdaten_dw$Verimpft_pro_Tag,
+                              "</b> persone sono state vaccinate giornalmente",
+                              " (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.",
+                              "<br><br>",
+                              "In totale, fino ad ora al canton ",impfdaten_dw$Kanton_i," sono state consegnate <b>",impfdaten_dw$Geliefert,
+                              "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.<br><br>",
+                              "<i>Stato: ",impfdaten_dw$Datum,"</i>")
+
+impfdaten_dw <- excuse_my_french(impfdaten_dw)
+
+
 
 
 #Write File

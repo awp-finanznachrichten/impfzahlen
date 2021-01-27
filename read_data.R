@@ -4,17 +4,12 @@ library(readxl)
 library(DBI)
 library(RMySQL)
 
-#Funktion Datenbankverbindung schliessen
-dbDisconnectAll <- function(){
-  ile <- length(dbListConnections(MySQL())  )
-  lapply( dbListConnections(MySQL()), function(x) dbDisconnect(x) )
-  cat(sprintf("%s connection(s) closed.\n", ile))
-}
+setwd("C:/Users/simon/OneDrive/R/impfzahlen/")
 
-setwd("C:/Users/simon/OneDrive/R/Impfungen/Daten")
+source("functions.R")
 
 
-impfdaten <- read_excel("20210124_Impfdaten_BAG.xlsx")
+impfdaten <- read_excel("Daten/20210124_Impfdaten_BAG.xlsx")
 impfdaten$`Gelieferte Impfdosen` <- gsub("'","",impfdaten$`Gelieferte Impfdosen`)
 impfdaten$`Gelieferte Impfdosen` <- gsub("'","",impfdaten$`Gelieferte Impfdosen`)
 impfdaten$`Gelieferte Impfdosen` <- as.numeric(gsub("'","",impfdaten$`Gelieferte Impfdosen`))
