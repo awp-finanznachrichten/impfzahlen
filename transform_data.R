@@ -6,6 +6,7 @@ library(RMySQL)
 library(tidyr)
 library(readr)
 library(stringr)
+library(DatawRappr)
 
 setwd("C:/Users/simon/OneDrive/R/impfzahlen")
 
@@ -18,7 +19,9 @@ impfdaten <- DBI::fetch(rs,n=-1)
 
 dbDisconnectAll()
 
+impfungen_ch <- format(impfdaten[nrow(impfdaten)-1,4],big.mark = "'")
 impfdaten <- impfdaten[,-c(1,4,31)]
+
 
 #Kantonsnamen abrufen
 kantone <- read_csv("Daten/MASTERFILE_GDE_NEW.csv")
@@ -128,3 +131,15 @@ git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
 gitadd()
 gitcommit()
 gitpush()
+
+#Change Title of Datawrapper-Chart
+#datawrapper_auth(api_key = "1arySpmA6PFkfUeLkxkJLcLtemFW2kc58jZJz9yVuQCsSYYMFQ23kx7DYk9a6zya")
+
+dw_edit_chart("8nBMe",intro=paste0("Insgesamt wurden in der Schweiz bislang <b>",impfungen_ch,"</b> Impfungen durchgeführt. Stand: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("8nBMe")
+
+dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_ch,"</b> injections ont été réalisées jusqu'ici. Etat: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("Ty61K")
+
+dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state effettuate <b>",impfungen_ch,"</b> iniezioni. Stato: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("OmzDG")
