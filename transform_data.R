@@ -106,7 +106,7 @@ impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>"
                               "%</b> ont été utilisés.<br><br>",
                               "<i>Etat: ",impfdaten_dw$Datum,"</i>")
 
-impfdaten_dw$Text_d <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a questo momento sono state effettuate <b>",
+impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a questo momento sono state effettuate <b>",
                               impfdaten_dw$Verimpft_pro_Person,"</b> iniezioni ogni 100 abitanti.",
                               " In cifre assolute, si tratta di <b>",impfdaten_dw$Verimpft,"</b> vaccinazioni.<br><br>",
                               "La scorsa settimana, in media <b>",impfdaten_dw$Verimpft_pro_Tag,
@@ -123,7 +123,7 @@ impfdaten_dw <- excuse_my_french(impfdaten_dw)
 
 
 #Write File
-write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE)
+write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE, fileEncoding = "UTF-8")
                            
 #Make Commit
 git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
