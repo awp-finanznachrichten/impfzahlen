@@ -71,6 +71,7 @@ impfdaten_dw <- rbind(impfdaten_dw,new_data)
 
 #Adapt dw Data
 impfdaten_dw <- impfdaten_dw[-1,]
+impfdaten_dw$Verimpft_pro_Person <- round(impfdaten_dw$Verimpft_pro_Person,1)
 impfdaten_dw$Verimpft <- format(impfdaten_dw$Verimpft,big.mark = "'")
 impfdaten_dw$Verimpft_pro_Tag <- format(round(impfdaten_dw$Verimpft_pro_Tag,0),big.mark = "'")
 impfdaten_dw$Verimpft_pro_Tag_Vorwoche <- format(round(impfdaten_dw$Verimpft_pro_Tag_Vorwoche,0),big.mark = "'")
