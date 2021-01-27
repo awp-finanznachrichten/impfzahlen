@@ -20,6 +20,7 @@ impfdaten <- DBI::fetch(rs,n=-1)
 dbDisconnectAll()
 
 impfungen_ch <- format(impfdaten[nrow(impfdaten)-1,4],big.mark = "'")
+impfungen_anteil_ch <- round(impfdaten[nrow(impfdaten),4],1)
 impfdaten <- impfdaten[,-c(1,4,31)]
 
 
@@ -93,8 +94,7 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               "</b> Personen geimpft.",
                               #" Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
                               " Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
-                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>",
-                              "<i>Stand: ",impfdaten_dw$Datum,"</i>")
+                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>")
 
 #Create_Text
 impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>",
@@ -105,8 +105,7 @@ impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>"
                               #" Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.",
                               " Au total, <b>",impfdaten_dw$Geliefert,"</b> doses de vaccin ont été livrées jusqu’ici dans le canton de ",
                               impfdaten_dw$Kanton_f,". Sur ce nombre, <b>",impfdaten_dw$Verimpft_Anteil,
-                              "%</b> ont été utilisés.<br><br>",
-                              "<i>Etat: ",impfdaten_dw$Datum,"</i>")
+                              "%</b> ont été utilisés.<br><br>")
 
 impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a questo momento sono state effettuate <b>",
                               impfdaten_dw$Verimpft_pro_Person,"</b> iniezioni ogni 100 abitanti.",
@@ -115,8 +114,7 @@ impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a quest
                               "</b> persone sono state vaccinate giornalmente.",
                               #" (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.",
                               " In totale, fino ad ora al canton ",impfdaten_dw$Kanton_i," sono state consegnate <b>",impfdaten_dw$Geliefert,
-                              "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.<br><br>",
-                              "<i>Stato: ",impfdaten_dw$Datum,"</i>")
+                              "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.<br><br>")
 
 impfdaten_dw <- excuse_my_french(impfdaten_dw)
 
@@ -132,14 +130,15 @@ gitadd()
 gitcommit()
 gitpush()
 
+?dw_edit_chart
 #Change Title of Datawrapper-Chart
 #datawrapper_auth(api_key = "1arySpmA6PFkfUeLkxkJLcLtemFW2kc58jZJz9yVuQCsSYYMFQ23kx7DYk9a6zya")
 
-dw_edit_chart("8nBMe",intro=paste0("Insgesamt wurden in der Schweiz bislang <b>",impfungen_ch,"</b> Impfungen durchgeführt. Stand: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("8nBMe",intro=paste0("Insgesamt wurden in der Schweiz bislang <b>",impfungen_ch,"</b> Impfungen durchgeführt (<b>",impfungen_anteil_ch,"</b> pro 100 Einwohner)."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
-dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_ch,"</b> injections ont été réalisées jusqu'ici. Etat: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_ch,"</b> injections ont été réalisées jusqu'ici (<b>",impfungen_anteil_ch,"</b> pour 100 habitants)."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("Ty61K")
 
-dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state effettuate <b>",impfungen_ch,"</b> iniezioni. Stato: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state effettuate <b>",impfungen_ch,"</b> iniezioni (<b>",impfungen_anteil_ch,"</b> per 100 abitanti)."), annotate=paste0("Stato: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("OmzDG")
