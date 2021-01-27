@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 library(git2r)
-=======
->>>>>>> 21a6f7274e0323d0a8b17b6ccd0d4893148066ef
 library(dplyr)
 library(readxl)
 library(DBI)
@@ -9,10 +6,6 @@ library(RMySQL)
 library(tidyr)
 library(readr)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 21a6f7274e0323d0a8b17b6ccd0d4893148066ef
 #Funktionen
 dbDisconnectAll <- function(){
   ile <- length(dbListConnections(MySQL())  )
@@ -55,11 +48,7 @@ gitpush <- function(dir = getwd()){
   shell(cmd)
 }
 
-<<<<<<< HEAD
 setwd("C:/Users/simon/OneDrive/R/impfzahlen")
-=======
-setwd("C:/Automatisierungen/impfzahlen")
->>>>>>> 21a6f7274e0323d0a8b17b6ccd0d4893148066ef
 
 #Impfdaten abrufen
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu')
@@ -142,14 +131,10 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>",
                               "<i>Stand: ",impfdaten_dw$Datum,"</i>")
 
-<<<<<<< HEAD
+
 #Write File
 write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE)
                            
-=======
-write_csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE)
-
->>>>>>> 21a6f7274e0323d0a8b17b6ccd0d4893148066ef
 #Make Commit
 git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
 gitadd()
