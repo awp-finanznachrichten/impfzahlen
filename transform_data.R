@@ -1,4 +1,3 @@
-library(tabulizer)
 library(dplyr)
 library(readxl)
 library(DBI)
@@ -7,14 +6,49 @@ library(tidyr)
 library(readr)
 library(git2r)
 
-#Funktion Datenbankverbindung schliessen
+#Funktionen
 dbDisconnectAll <- function(){
   ile <- length(dbListConnections(MySQL())  )
   lapply( dbListConnections(MySQL()), function(x) dbDisconnect(x) )
   cat(sprintf("%s connection(s) closed.\n", ile))
 }
 
-setwd("C:/Users/simon/OneDrive/R/Impfungen")
+gitcommit <- function(msg = "commit from Rstudio", dir = getwd()){
+  cmd = sprintf("git commit -m\"%s\"",msg)
+  system(cmd)
+}
+
+gitstatus <- function(dir = getwd()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git status"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+gitadd <- function(dir = getwd()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git add --all"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+gitpush <- function(dir = getwd()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git push"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+setwd("C:/Automatisierungen/impfzahlen")
 
 #Impfdaten abrufen
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu')
