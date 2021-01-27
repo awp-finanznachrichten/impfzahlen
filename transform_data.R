@@ -6,7 +6,6 @@ library(tidyr)
 library(readr)
 library(git2r)
 
-#bliblablu
 #Funktionen
 dbDisconnectAll <- function(){
   ile <- length(dbListConnections(MySQL())  )
@@ -137,3 +136,4 @@ git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
 gitadd()
 gitcommit()
 gitpush()
+
