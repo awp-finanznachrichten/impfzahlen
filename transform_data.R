@@ -6,6 +6,7 @@ library(tidyr)
 library(readr)
 library(git2r)
 
+#bliblablu
 #Funktionen
 dbDisconnectAll <- function(){
   ile <- length(dbListConnections(MySQL())  )
