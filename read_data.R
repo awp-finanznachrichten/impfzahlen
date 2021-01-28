@@ -1,4 +1,3 @@
-library(tabulizer)
 library(dplyr)
 library(readxl)
 library(DBI)

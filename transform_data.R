@@ -51,6 +51,7 @@ impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
 colnames(impfdaten_dw) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
                             "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil")
 
+
 for (i in 1:26) {
 
 kanton_short <- long_verimpft_aktuell$area[i]
@@ -131,7 +132,7 @@ gitcommit()
 gitpush()
 
 
-#Change Title of Datawrapper-Chart
+#Change Title of Datawrapper-Chart and publish Charts
 dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfungen durchgeführt. Das entspricht <b>",impfungen_ch,"</b> Impfungen."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
