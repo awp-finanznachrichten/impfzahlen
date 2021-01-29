@@ -8,7 +8,7 @@ setwd("C:/Users/simon/OneDrive/R/impfzahlen/")
 source("functions.R")
 
 
-impfdaten <- read_excel("Daten/20210124_Impfdaten_BAG.xlsx")
+impfdaten <- read_excel("Daten/20210127_Impfdaten_BAG.xlsx")
 impfdaten$`Gelieferte Impfdosen` <- gsub("'","",impfdaten$`Gelieferte Impfdosen`)
 impfdaten$`Gelieferte Impfdosen` <- gsub("'","",impfdaten$`Gelieferte Impfdosen`)
 impfdaten$`Gelieferte Impfdosen` <- as.numeric(gsub("'","",impfdaten$`Gelieferte Impfdosen`))
@@ -20,8 +20,8 @@ letter <- c("a","a","b","c")
 
 for (i in 2:ncol(impfdaten)) {
 
-ID <- paste0("20210124","_",letter[i])
-datum <- "2021-01-24"
+ID <- paste0("20210127","_",letter[i])
+datum <- "2021-01-27"
 Typ <- colnames(impfdaten)[i]
 
 #In Datenbank einlesen
