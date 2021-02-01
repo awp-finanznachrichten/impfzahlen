@@ -6,11 +6,9 @@ library(git2r)
 library(tidyr)
 library(readr)
 library(stringr)
-#library(DatawRappr)
+library(DatawRappr)
 library(RCurl)
-install.packages("glue")
 
-devtools::install_github("munichrocker/DatawRappr")
 
 setwd("C:/Automatisierungen/impfzahlen/")
 
@@ -20,7 +18,7 @@ source("load_data.R")
 current_date <- Sys.Date()
 url <- "https://www.covid19.admin.ch/de/overview"
 
-repeat{
+#repeat{
   
 Sys.sleep(2)
 
@@ -58,27 +56,28 @@ date_verabreicht <- gsub(",.*","",date_verabreicht)
 date_verabreicht <- gsub(".*: ","",date_verabreicht)
 date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
 
-if ( (date_ausgeliefert == current_date-2) & (date_verabreicht == current_date-2) ) {
+#if ( (date_ausgeliefert == current_date-2) & (date_verabreicht == current_date-2) ) {
 
 #Get Flash-Data and create Flash DE/FR
-source("create_flashes.R", encoding= "UTF-8")
+#source("create_flashes.R", encoding= "UTF-8")
     
 #Get Data from CSV and read in Database
-source("read_data_website.R", encoding= "UTF-8")
+#source("read_data_website.R", encoding= "UTF-8")
   
 #Create Meldungen DE/FR
   
-#Update Datawrapper Maps  
+#Update Datawrapper Maps
+source("update_datawrapper.R", encoding = "UTF-8")
   
 #Send Mail  
   
-break  
+#break  
   
-} else {
+#} else {
 
-print("Keine aktuellen Impfdaten gefunden")    
+#print("Keine aktuellen Impfdaten gefunden")    
   
-}  
+#}  
 
-}
+#}
 
