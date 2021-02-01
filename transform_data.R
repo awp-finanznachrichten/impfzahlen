@@ -38,8 +38,8 @@ last_date <- long$datum[nrow(long)]
 last_date_string <- format(last_date,"%d.%m.%Y")
 
 long_verimpft_aktuell <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date,]
-long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-3,] #7
-long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-3,] #14
+long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,] #7
+long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,] #14
 long_verimpft_second_last_week$value <- long_verimpft_second_last_week$value - 1000
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
