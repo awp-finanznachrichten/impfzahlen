@@ -17,7 +17,6 @@ source("load_data.R")
 current_date <- Sys.Date()
 url <- "https://www.covid19.admin.ch/de/overview"
 
-
 repeat{
   
 Sys.sleep(2)
@@ -79,3 +78,4 @@ print("Keine aktuellen Impfdaten gefunden")
 }  
 
 }
+

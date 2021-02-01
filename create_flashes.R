@@ -49,6 +49,7 @@ ID <- as.numeric(ID)
 ID_new <- ID+1
 cat(ID_new, file="C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt")
 
+
 #Flash-Vorlage laden
 vorlage <- read_file("./Vorlage_Flashes/Vorlage_Flashes.txt")
 
@@ -105,7 +106,6 @@ library(blatr)
        server = "smtp.juergruettimann.ch",
        u = "awp-robot@juergruettimann.ch",
        pw = "SimonWolanin123")
-  
   
 }  
 
