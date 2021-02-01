@@ -8,6 +8,9 @@ library(readr)
 library(stringr)
 #library(DatawRappr)
 library(RCurl)
+install.packages("glue")
+
+devtools::install_github("munichrocker/DatawRappr")
 
 setwd("C:/Automatisierungen/impfzahlen/")
 
