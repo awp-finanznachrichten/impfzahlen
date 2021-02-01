@@ -120,7 +120,7 @@ gitcommit()
 gitpush()
 
 #Change Title of Datawrapper-Chart and publish Charts
-#datawrapper_auth("BMcG33cGBCp2FpqF1BSN5lHhKrw2W8Ait4AYbDEjkjVgCiWe07iqoX5pwHXdW36g")
+datawrapper_auth("BMcG33cGBCp2FpqF1BSN5lHhKrw2W8Ait4AYbDEjkjVgCiWe07iqoX5pwHXdW36g")
 dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen. Für einen optimalen Schutz sind zwei Impfdosen pro Person nötig."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
