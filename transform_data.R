@@ -1,13 +1,3 @@
-library(git2r)
-library(dplyr)
-library(readxl)
-library(DBI)
-library(RMySQL)
-library(tidyr)
-library(readr)
-library(stringr)
-library(DatawRappr)
-
 setwd("C:/Users/simon/OneDrive/R/impfzahlen")
 
 source("functions.R")
@@ -133,11 +123,11 @@ gitpush()
 
 
 #Change Title of Datawrapper-Chart and publish Charts
-dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfungen durchgeführt. Das entspricht <b>",impfungen_ch,"</b> Impfungen."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen. Für einen optimalen Schutz sind zwei Impfdosen pro Person nötig."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
-dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations. Pour garantir und protection optimale, deux doses de vaccin sont nécessaires."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("Ty61K")
 
-dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state effettuate <b>",impfungen_anteil_ch,"</b> iniezioni ogni 100 abitanti. In cifre assolute, si tratta di <b>",impfungen_ch,"</b> vaccinazioni."), annotate=paste0("Stato: ",impfdaten_dw$Datum[1]))
+dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state effettuate <b>",impfungen_anteil_ch,"</b> iniezioni ogni 100 abitanti. In cifre assolute, si tratta di <b>",impfungen_ch,"</b> vaccinazioni. Per und protezione vaccinale ottimale, due dosi sone necessaire."), annotate=paste0("Stato: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("OmzDG")
