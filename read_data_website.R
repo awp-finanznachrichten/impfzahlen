@@ -3,7 +3,9 @@ link <- webpage %>%
   html_nodes(xpath = "//li/a") %>%
   html_attr("href")
 
-link <- paste0("https://www.covid19.admin.ch",link[21])
+correct_link <- which(grepl("api",link))[1]
+
+link <- paste0("https://www.covid19.admin.ch",link[correct_link])
 
 #Download Data from CSV
 temp <- tempfile()

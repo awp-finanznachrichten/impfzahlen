@@ -61,8 +61,6 @@ impfdaten_dw <- rbind(impfdaten_dw,new_data)
   
 }
 
-
-
 #Adapt dw Data
 impfdaten_dw <- impfdaten_dw[-1,]
 impfdaten_dw$Verimpft_pro_Person <- round(impfdaten_dw$Verimpft_pro_Person,1)
@@ -92,9 +90,9 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.",
                               " In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> Personen geimpft.",
-                              #" Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
+                              #" Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung," Prozent</b>.",
                               " Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
-                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>")
+                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil," Prozent</b> verabreicht.<br><br>")
 
 #Create_Text
 impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>",

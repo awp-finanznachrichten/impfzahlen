@@ -44,12 +44,17 @@ if (hour > 22) {
 webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 
 #Datum Check ausgeliefert und verabreicht
-date_geliefert <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[3]
+datum_extract <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))
+
+correct_datum_1 <- which(grepl("Quelle: LBA",datum_extract))
+correct_datum_2 <- correct_datum_1+1
+
+date_geliefert <- datum_extract[correct_datum_1]
 date_geliefert <- gsub(",.*","",date_geliefert)
 date_geliefert <- gsub(".*: ","",date_geliefert)
 date_geliefert <- as.Date(date_geliefert,format="%d.%m.%Y")
 
-date_verabreicht <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[4]
+date_verabreicht <- datum_extract[correct_datum_2]
 date_verabreicht <- gsub(",.*","",date_verabreicht)
 date_verabreicht <- gsub(".*: ","",date_verabreicht)
 date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
@@ -65,13 +70,16 @@ source("read_data_website.R", encoding= "UTF-8")
 if (readin_check == TRUE) {  
   
 #Create Meldungen DE/FR
+
   
 #Update Datawrapper Maps
 source("update_datawrapper.R", encoding = "UTF-8")
   
+#Send Mail   
+  
 }  
   
-#Send Mail  
+ 
   
 break  
   
