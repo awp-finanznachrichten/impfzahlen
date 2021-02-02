@@ -86,6 +86,7 @@ for (y in 1:nrow(impfdaten_dw)) {
   
 }  
 
+View(impfdaten_dw)
 
 #Create_Text
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang pro 100 Einwohner <b>",
@@ -93,7 +94,7 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.",
                               " In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> Personen geimpft.",
-                              " Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
+                              " Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
                               " Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
                               "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>")
 

@@ -1,0 +1,226 @@
+
+R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(dplyr)
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package 'dplyr' was built under R version 3.6.3 
+> library(DBI)
+> library(RMySQL)
+> library(rvest)
+Loading required package: xml2
+Warning message:
+package 'rvest' was built under R version 3.6.1 
+> library(git2r)
+
+Attaching package: 'git2r'
+
+The following object is masked from 'package:RMySQL':
+
+    fetch
+
+The following object is masked from 'package:DBI':
+
+    fetch
+
+The following object is masked from 'package:dplyr':
+
+    pull
+
+Warning message:
+package 'git2r' was built under R version 3.6.3 
+> library(tidyr)
+Warning message:
+package 'tidyr' was built under R version 3.6.3 
+> library(readr)
+
+Attaching package: 'readr'
+
+The following object is masked from 'package:rvest':
+
+    guess_encoding
+
+> library(stringr)
+> library(DatawRappr)
+> library(RCurl)
+Loading required package: bitops
+
+Attaching package: 'RCurl'
+
+The following object is masked from 'package:tidyr':
+
+    complete
+
+The following objects are masked from 'package:git2r':
+
+    clone, push, reset
+
+> 
+> setwd("C:/Automatisierungen/impfzahlen/")
+> 
+> source("functions.R")
+> source("load_data.R")
+1 connection(s) closed.
+Warning message:
+Closing open result sets 
+> 
+> current_date <- Sys.Date()
+> url <- "https://www.covid19.admin.ch/de/overview"
+> 
+> repeat{
++   
++ Sys.sleep(2)
++ 
++ hour <- format(Sys.time(),"%H")
++ hour <- as.numeric(hour)
++ 
++ if (hour > 22) {
++   
++   library(blatr)
++   
++   blat(f = "robot-notification@awp.ch",
++        to = "robot-notification@awp.ch, redakt@awp.ch",
++        s = "Keine Impf-Zahlen gefunden",
++        body= "Es wurden heute keine Zahlen auf der BAG-Seite gefunden.\n\n
++          AWP-Robot",
++        server = "smtp.juergruettimann.ch",
++        u = "awp-robot@juergruettimann.ch",
++        pw = "SimonWolanin123")
++   
++   break  
++ }  
++ 
++ 
++ 
++ webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
++ 
++ #Datum Check ausgeliefert und verabreicht
++ date_geliefert <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[3]
++ date_geliefert <- gsub(",.*","",date_geliefert)
++ date_geliefert <- gsub(".*: ","",date_geliefert)
++ date_geliefert <- as.Date(date_geliefert,format="%d.%m.%Y")
++ 
++ date_verabreicht <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[4]
++ date_verabreicht <- gsub(",.*","",date_verabreicht)
++ date_verabreicht <- gsub(".*: ","",date_verabreicht)
++ date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
++ 
++ if ( date_verabreicht == current_date-2 ) {
++ 
++ #Get Flash-Data and create Flash DE/FR
++ source("create_flashes.R", encoding= "UTF-8")
++     
++ #Get Data from CSV and read in Database
++ source("read_data_website.R", encoding= "UTF-8")
++   
++ #Create Meldungen DE/FR
++   
++ #Update Datawrapper Maps
++ source("update_datawrapper.R", encoding = "UTF-8")
++   
++ #Send Mail  
++   
++ break  
++   
++ } else {
++ 
++ print("Keine aktuellen Impfdaten gefunden")    
++   
++ }  
++ 
++ }
+Blat v3.2.3 (build : Oct 19 2014 15:35:00)
+64-bit Windows, Full, Unicode
+
+Sending stdin.txt to robot-notification@awp.ch
+Subject: Neue Impf-Zahlen gefunden
+Login name is robot-notification@awp.ch
+trying URL 'https://www.covid19.admin.ch/api/data/20210202-ujkw5u02/downloads/sources-csv.zip'
+Content type 'application/zip' length 5833622 bytes (5.6 MB)
+==================================================
+downloaded 5.6 MB
+
+1 connection(s) closed.
+1 connection(s) closed.
+Parsed with column specification:
+cols(
+  Gemeinde_Nr = col_double(),
+  Kanton_Short = col_character(),
+  Gemeinde_d = col_character(),
+  Gemeinde_f = col_character(),
+  Gemeinde_i = col_character(),
+  Gemeinde_KT_d = col_character(),
+  Gemeinde_KT_f = col_character(),
+  Gemeinde_KT_i = col_character(),
+  Kanton_d = col_character(),
+  Kanton_f = col_character(),
+  Kanton_i = col_character(),
+  Kantons_Nr = col_double()
+)
+[master 3e902ab] commit from Rstudio
+ 6 files changed, 125 insertions(+), 60 deletions(-)
+ create mode 100644 Output/20210202T141907+0100_flash_impfungen_de.xml
+ rewrite Output/impfdaten.csv (95%)
+ rewrite impfungen_run.Rout (100%)
+To https://github.com/awp-finanznachrichten/impfzahlen.git
+   b1a1278..3e902ab  master -> master
+[1] "New key was saved!"
+Chart 8nBMe succesfully updated.
+Chart 8nBMe published!### Responsive iFrame-code: ###
+<iframe title="Stand der Impfungen in der Schweiz" aria-label="Karte" id="datawrapper-chart-8nBMe" src="https://datawrapper.dwcdn.net/8nBMe/29/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="570"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/8nBMe/29/
+Chart Ty61K succesfully updated.
+Chart Ty61K published!### Responsive iFrame-code: ###
+<iframe title="Le point sur la vaccination en Suisse" aria-label="map" id="datawrapper-chart-Ty61K" src="https://datawrapper.dwcdn.net/Ty61K/17/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="603"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/Ty61K/17/
+Chart OmzDG succesfully updated.
+Chart OmzDG published!### Responsive iFrame-code: ###
+<iframe title="Il punto sulle vaccinazioni in Svizzera" aria-label="Mappa" id="datawrapper-chart-OmzDG" src="https://datawrapper.dwcdn.net/OmzDG/17/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="572"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/OmzDG/17/
+Warning messages:
+1: In read.table(file = file, header = header, sep = sep, quote = quote,  :
+  incomplete final line found by readTableHeader on 'C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt'
+2: Closing open result sets 
+3: Closing open result sets 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+   3.62    0.43   24.98 
