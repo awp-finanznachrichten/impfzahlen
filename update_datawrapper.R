@@ -27,7 +27,7 @@ last_date_string <- format(last_date,"%d.%m.%Y")
 
 long_verimpft_aktuell <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date,]
 long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,]
-long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-10,]
+long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-11,]
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
 
@@ -85,6 +85,8 @@ for (y in 1:nrow(impfdaten_dw)) {
  }
   
 }  
+
+View(impfdaten_dw)
 
 #Create_Text
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang pro 100 Einwohner <b>",
