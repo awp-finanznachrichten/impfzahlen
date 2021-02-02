@@ -11,6 +11,16 @@ download.file(link,temp)
 data_geliefert <- read.csv(unz(temp,"data/COVID19VaccDosesDelivered.csv"))
 data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
 
+unlink(temp)
+
+data_geliefert$date <- as.Date(data_geliefert$date)
+data_verimpft$date <- as.Date(data_verimpft$date)
+
+data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert,]
+data_verimpft <- data_geliefert[data_geliefert$date == date_verabreicht,]
+
+if ( (nrow(data_geliefert) == 29) & (nrow(data_verimpft) == 29) ) {
+
 data_geliefert <- data_geliefert[order(data_geliefert$geoRegion),]
 data_verimpft <- data_verimpft[order(data_verimpft$geoRegion),]
 
@@ -91,4 +101,19 @@ rs <- dbSendQuery(mydb, sql_qry)
 
 dbDisconnectAll()
 
+readin_check <- TRUE
 
+} else {
+
+library(blatr)
+
+blat(f = "robot-notification@awp.ch",
+     to = "robot-notification@awp.ch, redakt@awp.ch",
+     s = "Fehler beim Einlesen der Impfzahlen",
+     body= "Die Impfzahlen zu den Kantonen konnten nicht korrekt eingelesen werden.\n\n
+         AWP-Robot",
+     server = "smtp.juergruettimann.ch",
+     u = "awp-robot@juergruettimann.ch",
+     pw = "SimonWolanin123")
+    
+}  

@@ -15,7 +15,7 @@ impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 
-impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-16 &
+impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-13 &
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 

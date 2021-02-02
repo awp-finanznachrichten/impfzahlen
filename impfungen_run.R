@@ -16,6 +16,7 @@ source("load_data.R")
 
 current_date <- Sys.Date()
 url <- "https://www.covid19.admin.ch/de/overview"
+readin_check <- FALSE
 
 repeat{
   
@@ -40,8 +41,6 @@ if (hour > 22) {
   break  
 }  
 
-
-
 webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 
 #Datum Check ausgeliefert und verabreicht
@@ -63,10 +62,14 @@ source("create_flashes.R", encoding= "UTF-8")
 #Get Data from CSV and read in Database
 source("read_data_website.R", encoding= "UTF-8")
   
+if (readin_check == TRUE) {  
+  
 #Create Meldungen DE/FR
   
 #Update Datawrapper Maps
 source("update_datawrapper.R", encoding = "UTF-8")
+  
+}  
   
 #Send Mail  
   

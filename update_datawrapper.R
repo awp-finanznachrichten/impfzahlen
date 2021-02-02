@@ -86,8 +86,6 @@ for (y in 1:nrow(impfdaten_dw)) {
   
 }  
 
-View(impfdaten_dw)
-
 #Create_Text
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang pro 100 Einwohner <b>",
                               impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgeführt.",
