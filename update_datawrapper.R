@@ -31,6 +31,7 @@ long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & lo
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
 
+
 #Create Data Frame
 impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
                   999,999,999,999,999)
@@ -60,6 +61,8 @@ impfdaten_dw <- rbind(impfdaten_dw,new_data)
   
 }
 
+
+
 #Adapt dw Data
 impfdaten_dw <- impfdaten_dw[-1,]
 impfdaten_dw$Verimpft_pro_Person <- round(impfdaten_dw$Verimpft_pro_Person,1)
@@ -72,6 +75,17 @@ impfdaten_dw$Verimpft_Anteil <- round(impfdaten_dw$Verimpft_Anteil,0)
 
 #Merge mit Kantonsnamen
 impfdaten_dw <- merge(impfdaten_dw,kantone)
+
+
+#Adapt Veränderung
+for (y in 1:nrow(impfdaten_dw)) {
+  
+ if (impfdaten_dw$Veraenderung[y] > 0) {
+  impfdaten_dw$Veraenderung[y] <- paste0("+",impfdaten_dw$Veraenderung[y]) 
+ }
+  
+}  
+
 
 #Create_Text
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang pro 100 Einwohner <b>",

@@ -45,7 +45,6 @@ if (hour > 22) {
 webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 
 #Datum Check ausgeliefert und verabreicht
-
 date_geliefert <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[3]
 date_geliefert <- gsub(",.*","",date_geliefert)
 date_geliefert <- gsub(".*: ","",date_geliefert)

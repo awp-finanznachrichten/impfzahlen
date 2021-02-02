@@ -11,18 +11,11 @@ download.file(link,temp)
 data_geliefert <- read.csv(unz(temp,"data/COVID19VaccDosesDelivered.csv"))
 data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
 
-data_geliefert$date <- as.Date(data_geliefert$date)
-data_verimpft$date <- as.Date(data_verimpft$date)
+data_geliefert <- data_geliefert[order(data_geliefert$geoRegion),]
+data_verimpft <- data_verimpft[order(data_verimpft$geoRegion),]
 
-
-data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert,]
-data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht,]
-
-
-data_geliefert <- data_geliefert[c(28,1:27),]
-data_verimpft <- data_verimpft[c(28,1:27),]
-
-View(data_geliefert)
+data_geliefert <- data_geliefert[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
+data_verimpft <- data_verimpft[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
 
 #Datenbank-Zugriff
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu', encoding="utf8")
