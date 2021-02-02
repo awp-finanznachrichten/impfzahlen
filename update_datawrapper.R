@@ -27,8 +27,7 @@ last_date_string <- format(last_date,"%d.%m.%Y")
 
 long_verimpft_aktuell <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date,]
 long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,] #7
-long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,] #14
-long_verimpft_second_last_week$value <- long_verimpft_second_last_week$value - 1000
+long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-11,] #14
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
 
@@ -39,14 +38,13 @@ impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
 colnames(impfdaten_dw) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
                             "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil")
 
-
 for (i in 1:26) {
 
 kanton_short <- long_verimpft_aktuell$area[i]
 verimpft <- long_verimpft_aktuell$value[i]
 verimpft_pro_person <- long_verimpft_pro_person$value[i]
 verimpft_pro_tag <- (long_verimpft_aktuell$value[i]-long_verimpft_last_week$value[i])/7
-verimpft_pro_tag_vorwoche <- (long_verimpft_last_week$value[i]-long_verimpft_second_last_week$value[i])/7
+verimpft_pro_tag_vorwoche <- (long_verimpft_last_week$value[i]-long_verimpft_second_last_week$value[i])/4 #7
 veraenderung <- (verimpft_pro_tag*100)/verimpft_pro_tag_vorwoche-100  
 geliefert <- long_impfdosen$value[i]
 verimpft_anteil <- (long_verimpft_aktuell$value[i]/long_impfdosen$value[i])*100
@@ -81,7 +79,7 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.",
                               " In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> Personen geimpft.",
-                              #" Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
+                              " Im Vergleich zur Vorwoche eintspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung,"%</b>.",
                               " Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
                               "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil,"%</b> verimpft.<br><br>")
 
@@ -91,7 +89,7 @@ impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>"
                               " Cela représente en tout <b>",impfdaten_dw$Verimpft,"</b> vaccinations.",
                               " La semaine dernière, <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> personnes ont été vaccinées chaque jour en moyenne.",
-                              #" Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.",
+                              " Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.",
                               " Au total, <b>",impfdaten_dw$Geliefert,"</b> doses de vaccin ont été livrées jusqu’ici dans le canton de ",
                               impfdaten_dw$Kanton_f,". Sur ce nombre, <b>",impfdaten_dw$Verimpft_Anteil,
                               "%</b> ont été utilisés.<br><br>")
@@ -100,8 +98,8 @@ impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a quest
                               impfdaten_dw$Verimpft_pro_Person,"</b> iniezioni ogni 100 abitanti.",
                               " In cifre assolute, si tratta di <b>",impfdaten_dw$Verimpft,"</b> vaccinazioni.",
                               " La scorsa settimana, in media <b>",impfdaten_dw$Verimpft_pro_Tag,
-                              "</b> persone sono state vaccinate giornalmente.",
-                              #" (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.",
+                              "</b> persone sono state vaccinate giornalmente",
+                              " (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.",
                               " In totale, fino ad ora al canton ",impfdaten_dw$Kanton_i," sono state consegnate <b>",impfdaten_dw$Geliefert,
                               "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.<br><br>")
 

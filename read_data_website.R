@@ -13,17 +13,22 @@ data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
 
 unlink(temp)
 
+data_geliefert$date <- as.Date(data_geliefert$date)
+data_verimpft$date <- as.Date(data_verimpft$date)
+
+data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert,]
+data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht,]
+
 data_geliefert <- data_geliefert[c(1,4:29,3),]
 data_verimpft <- data_verimpft[c(1,4:29,3),]
-
 
 #Datenbank-Zugriff
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu', encoding="utf8")
 
 #Daten in Datenbank einlesen - Gelieferte Impfdosen
 
-ID <- paste0(format(date_ausgeliefert,"%Y%m%d"),"_a")
-datum <- date_ausgeliefert
+ID <- paste0(format(date_verabreicht,"%Y%m%d"),"_a")
+datum <- date_verabreicht
 Typ <- "Gelieferte Impfdosen"
 
 sql_qry <- "INSERT IGNORE INTO impfungen(ID,datum,Typ,CH,GE,VD,VS,FR,NE,JU,BE,SO,BS,BL,AG,ZH,SH,TG,AR,AI,SG,GL,SZ,ZG,LU,NW,OW,UR,GR,TI,FL) VALUES"
@@ -45,7 +50,7 @@ rs <- dbSendQuery(mydb, sql_qry)
 
 #Daten in Datenbank einlesen - Verimpfte Impfdosen
 
-ID <- paste0(format(date_ausgeliefert,"%Y%m%d"),"_b")
+ID <- paste0(format(date_verabreicht,"%Y%m%d"),"_b")
 datum <- date_verabreicht
 Typ <- "Bislang total verimpft"
 
@@ -68,7 +73,7 @@ rs <- dbSendQuery(mydb, sql_qry)
 
 #Daten in Datenbank einlesen - Anteil pro 100 Einwohner
 
-ID <- paste0(format(date_ausgeliefert,"%Y%m%d"),"_c")
+ID <- paste0(format(date_verabreicht,"%Y%m%d"),"_c")
 datum <- date_verabreicht
 Typ <- "Geimpfte Dosen pro 100 Einwohner"
 
