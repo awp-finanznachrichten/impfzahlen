@@ -46,12 +46,12 @@ webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 
 #Datum Check ausgeliefert und verabreicht
 
-date_geliefert <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[2]
+date_geliefert <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[3]
 date_geliefert <- gsub(",.*","",date_geliefert)
 date_geliefert <- gsub(".*: ","",date_geliefert)
 date_geliefert <- as.Date(date_geliefert,format="%d.%m.%Y")
 
-date_verabreicht <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[3]
+date_verabreicht <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))[4]
 date_verabreicht <- gsub(",.*","",date_verabreicht)
 date_verabreicht <- gsub(".*: ","",date_verabreicht)
 date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
