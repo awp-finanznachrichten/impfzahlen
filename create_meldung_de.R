@@ -127,4 +127,9 @@ cat(vorlage,file=paste0(date_and_time,"_impfungen_de_p.xml"))
 ftpUpload(paste0(date_and_time,"_impfungen_de_p.xml"), "ftp://ftp2.awp.ch/impfungen_de_p.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
+
+#Output für SDA
+text_sda <- gsub("<p>","\n",text_einleitung)
+text_sda <- gsub("</p>","",text_sda)
+text_sda <- paste0(title,"\n",text_sda)
                           
