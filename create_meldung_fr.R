@@ -40,7 +40,7 @@ text_einleitung <- paste0("<p>Bern (awp) - ",format(impfungen_letzte_woche,big.m
                           " doses de vaccin administrées sur 100 habitants en Suisse et au Liechenstein.",
                           " Une personne doit recevoir deux doses de vaccin afin d'être protégée du coronavirus.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " de doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été emplyées.\n</p>")
+                          " de doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.\n</p>")
 
 
 #Create Tabelle
@@ -131,6 +131,15 @@ cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_p.xml"))
 ftpUpload(paste0(date_and_time,"_impfungen_fr_p.xml"), "ftp://ftp2.awp.ch/impfungen_fr_p.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
+
+#Output für SDA
+text_sda_fr <- gsub("<p>","\n",text_einleitung)
+text_sda_fr <- gsub("</p>","",text_sda_fr)
+text_sda_fr <- paste0(title,"\n",text_sda_fr)
+
+text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr)
+
+cat(text_sda,file="text_sda.txt")
 
 
                           
