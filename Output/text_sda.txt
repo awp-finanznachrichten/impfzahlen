@@ -1,5 +1,4 @@
-"x"
-"1""Suisse: 117'665 nouveaux vaccinations en 7 jours (OFSP)
+Suisse: 117'665 nouveaux vaccinations en 7 jours (OFSP)
 
 Bern (awp) - 117'665 doses de vaccin contre le Covid-19 ont été administréés en Suisse jusqu'à Wednesday comparé à la semaine précédente, selon les données publiées Monday sur le site internet de l'Office fédéral de la santé publique (OFSP).
 
@@ -20,4 +19,3 @@ En moyenne, 16'809 vaccinations ont été effectuées par jour. Compare à la semain
 Au total, 315'033 vaccinations ont été réalisées jusqu'à Monday. Cela represente 3,6 doses de vaccin administrées sur 100 habitants en Suisse et au Liechenstein. Une personne doit recevoir deux doses de vaccin afin d'être protégée du coronavirus.
 
 Quelque 202'592 de doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été emplyées.
-"

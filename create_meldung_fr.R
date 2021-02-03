@@ -139,7 +139,7 @@ text_sda_fr <- paste0(title,"\n",text_sda_fr)
 
 text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr)
 
-cat(text_sda,file="text_sda.txt")
+cat(text_sda,file="Output/text_sda.txt")
 
 
                           
