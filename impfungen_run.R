@@ -68,14 +68,30 @@ source("create_flashes.R", encoding= "UTF-8")
 source("read_data_website.R", encoding= "UTF-8")
   
 if (readin_check == TRUE) {  
-  
-#Create Meldungen DE/FR
 
+#Prepare Data  
+source("prepare_data.R", encoding = "UTF-8")
+
+#Create Meldungen DE/FR
+source("create_meldung_de.R", encoding = "UTF-8")
+source("create_meldung_fr.R", encoding = "UTF-8")
   
 #Update Datawrapper Maps
 source("update_datawrapper.R", encoding = "UTF-8")
   
-#Send Mail   
+#Send Mail
+
+  library(blatr)
+  
+  blat(f = "robot-notification@awp.ch",
+       to = "robot-notification@awp.ch",
+       s = "Neue Impf-Zahlen gefunden",
+       body= "Die neuen Zahlen auf der BAG-Seite wurden erfolgreich erfasst. Die Meldungen wurden publiziert und die Datawrapper-Karte aktualisiert.\n\n
+         AWP-Robot",
+       server = "smtp.juergruettimann.ch",
+       u = "awp-robot@juergruettimann.ch",
+       pw = "SimonWolanin123")
+  
   
 }  
   

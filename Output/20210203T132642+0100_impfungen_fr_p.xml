@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210203T132642+0100</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>5100</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210203T132642+0100</DateId>
+       <NewsItemId>5100</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210203T132642+0100:5100:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210203T132642+0100</FirstCreated>
+    <ThisRevisionCreated>20210203T132642+0100</ThisRevisionCreated>
+    <Status FormalName="Withheld"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 117'665 nouveaux vaccinations en 7 jours (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Bern (awp) - 117'665 doses de vaccin contre le Covid-19 ont été administréés en Suisse jusqu'à Wednesday comparé à la semaine précédente, selon les données publiées Monday sur le site internet de l'Office fédéral de la santé publique (OFSP).
+</p><p>En moyenne, 16'809 vaccinations ont été effectuées par jour. Compare à la semaine précédente, le rythme des vaccinations s'est accélére de 327%.
+</p><p>Au total, 315'033 vaccinations ont été réalisées jusqu'à Monday. Cela represente 3,6 doses de vaccin administrées sur 100 habitants en Suisse et au Liechenstein. Une personne doit recevoir deux doses de vaccin afin d'être protégée du coronavirus.
+</p><p>Quelque 202'592 de doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été emplyées.
+</p><pre>
+[[
+                                    7 derniers jours   semaine prec.   total
+
+Doses administrées                  117'665            27'585          315'033
+Nombre vaccinations/100 habitants   1.4                0.3             3.6
+
+(2 doses de vaccin nécessaires par personne)
+
+Données par cantons:
+
+         vaccinations/100 habit.  variation       total vaccinations/
+         7 derniers jours         semaine préc.   100 habit.
+
+ZH       1.3                      &gt;+500%          3.0
+BE       1.0                      +259%           2.4
+BS       1.5                      &gt;+500%          7.0
+SG       2.0                      &gt;+500%          3.8
+AG       1.0                      &gt;+500%          2.9
+LU       1.7                      +219%           4.4
+GE       1.2                      &gt;+500%          3.6
+VD       1.5                      +389%           3.5
+
+]]</pre><p/>
+
+<p>Sources: Office fédéral de la santé publique (OFS) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>

@@ -1,3 +1,5 @@
+setwd("C:/Automatisierungen/impfzahlen/")
+
 #Get Data for Flashes
 data_check <- html_text(html_nodes(webpage,"h3"))
 
@@ -11,11 +13,11 @@ if  ( (impfungen_check == TRUE) & (text_check == TRUE) ) {
 data <- html_text(html_nodes(webpage,"td"))  
 impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[18]))
 
-impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &
+impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-10 &   #9
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 
-impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-16 &
+impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-14 &  #16
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 
@@ -80,18 +82,46 @@ ftpUpload(paste0(date_and_time,"_flash_impfungen_de.xml"), "ftp://ftp2.awp.ch/fl
 setwd("..")
 
 ###Create Flash FR
+flash <- paste0("OFSP: ",format(impfungen_letzte_woche,big.mark = "'")," vaccinations en 7 jours, ",
+                impfungen_veraenderung," sur une semaine")
 
-#E-Mail verschicken
-library(blatr)
+flash <- gsub("stabil","stable",flash)
 
-blat(f = "robot-notification@awp.ch",
-     to = "robot-notification@awp.ch",
-     s = "Neue Impf-Zahlen gefunden",
-     body= "Die neuen Zahlen auf der BAG-Seite wurden erfolgreich erfasst. Der Flash wurde publiziert.\n\n
-         AWP-Robot",
-     server = "smtp.juergruettimann.ch",
-     u = "awp-robot@juergruettimann.ch",
-     pw = "SimonWolanin123")
+#ID erzeugen
+ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
+ID <- as.numeric(ID)
+ID_new <- ID+1
+cat(ID_new, file="C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt")
+
+
+#Flash-Vorlage laden
+vorlage <- read_file("./Vorlage_Flashes/Vorlage_Flashes.txt")
+
+#Datum und Zeit
+date_and_time <- format(Sys.time(), "%Y%m%dT%H%M%S%z")
+
+#Daten einfügen
+vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
+vorlage <- gsub("Insert_ID",ID,vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
+vorlage <- gsub("Insert_Language","fr",vorlage)
+vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
+vorlage <- gsub("Insert_Companies","<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>", vorlage)
+vorlage <- gsub("Insert_Channel","P", vorlage)
+vorlage <- gsub("Insert_Relations","<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>\n", vorlage)
+
+
+#Flash einfügen
+vorlage <- gsub("Insert_Headline",flash,vorlage)
+
+#Datei speichern
+setwd("./Output")
+cat(vorlage,file=paste0(date_and_time,"_flash_impfungen_fr.xml"))
+
+###FTP-Upload
+ftpUpload(paste0(date_and_time,"_flash_impfungen_fr.xml"), "ftp://ftp2.awp.ch/flash_impfungen_fr.xml",userpwd="awprobot:awp32Feed43")
+
+setwd("..")
 
 } else {
   
