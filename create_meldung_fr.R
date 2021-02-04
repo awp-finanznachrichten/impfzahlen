@@ -3,23 +3,23 @@ setwd("C:/Automatisierungen/impfzahlen/")
 #Wochentage
 wochentag <- weekdays(Sys.Date())
 
-wochentag <- gsub("Montag","lundi",wochentag)
-wochentag <- gsub("Dienstag","mardi",wochentag)
-wochentag <- gsub("Mittwoch","mercredi",wochentag)
-wochentag <- gsub("Donnerstag","jeudi",wochentag)
-wochentag <- gsub("Freitag","vendredi",wochentag)
-wochentag <- gsub("Samstag","samedi",wochentag)
-wochentag <- gsub("Sonntag","dimanche",wochentag)
+wochentag <- gsub("Monday","lundi",wochentag)
+wochentag <- gsub("Tuesday","mardi",wochentag)
+wochentag <- gsub("Wednesday","mercredi",wochentag)
+wochentag <- gsub("Thursday","jeudi",wochentag)
+wochentag <- gsub("Friday","vendredi",wochentag)
+wochentag <- gsub("Saturday","samedi",wochentag)
+wochentag <- gsub("Sunday","dimanche",wochentag)
 
 wochentag_publish <- weekdays(Sys.Date()-2)
 
-wochentag_publish <- gsub("Montag","lundi",wochentag_publish)
-wochentag_publish <- gsub("Dienstag","mardi",wochentag_publish)
-wochentag_publish <- gsub("Mittwoch","mercredi",wochentag_publish)
-wochentag_publish <- gsub("Donnerstag","jeudi",wochentag_publish)
-wochentag_publish <- gsub("Freitag","vendredi",wochentag_publish)
-wochentag_publish <- gsub("Samstag","samedi",wochentag_publish)
-wochentag_publish <- gsub("Sonntag","dimanche",wochentag_publish)
+wochentag_publish <- gsub("Monday","lundi",wochentag_publish)
+wochentag_publish <- gsub("Tuesday","mardi",wochentag_publish)
+wochentag_publish <- gsub("Wednesday","mercredi",wochentag_publish)
+wochentag_publish <- gsub("Thursday","jeudi",wochentag_publish)
+wochentag_publish <- gsub("Friday","vendredi",wochentag_publish)
+wochentag_publish <- gsub("Saturday","samedi",wochentag_publish)
+wochentag_publish <- gsub("Sunday","dimanche",wochentag_publish)
 
 tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des vaccinations s'est accélére de",tendenz)
 tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des vaccinations a ralenti de",tendenz_fr)
@@ -88,7 +88,9 @@ tabelle <- str_replace_all(tabelle,"&", "&amp;")
 tabelle <- str_replace_all(tabelle,"<", "&lt;")
 tabelle <- str_replace_all(tabelle,">", "&gt;")
 
-
+tabelle <- str_replace_all(tabelle,"[.]",",")
+tabelle <- str_replace_all(tabelle,"habit,","habit.")
+tabelle <- str_replace_all(tabelle,"préc,","prec.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
                "<p>Sources: Office fédéral de la santé publique (OFS) et Base logistique de l'Armée (BLA)",

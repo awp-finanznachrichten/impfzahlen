@@ -13,11 +13,11 @@ if  ( (impfungen_check == TRUE) & (text_check == TRUE) ) {
 data <- html_text(html_nodes(webpage,"td"))  
 impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[18]))
 
-impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-10 &   #9
+impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &   #9
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 
-impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-14 &  #16
+impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-16 &  #16
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 
@@ -131,7 +131,7 @@ library(blatr)
   blat(f = "robot-notification@awp.ch",
        to = "robot-notification@awp.ch",
        s = "Problem beim Einlesen der Impfzahlen",
-       body= "Die Impfzahlen konnten heute auf der BAG-Seite nicht korrekt erfasst werden.\n\n
+       body= "Die Impfzahlen für den Flash konnten heute auf der BAG-Seite nicht korrekt erfasst werden.\n\n
          AWP-Robot",
        server = "smtp.juergruettimann.ch",
        u = "awp-robot@juergruettimann.ch",

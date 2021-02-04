@@ -19,7 +19,7 @@ data_geliefert$date <- as.Date(data_geliefert$date)
 data_verimpft$date <- as.Date(data_verimpft$date)
 
 data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert,]
-data_verimpft <- data_geliefert[data_geliefert$date == date_verabreicht,]
+data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht,]
 
 if ( (nrow(data_geliefert) == 29) & (nrow(data_verimpft) == 29) ) {
 

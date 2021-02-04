@@ -80,11 +80,15 @@ strrep(" ",15-impfdaten_meldung$char_count_change[3]),impfdaten_meldung$Verimpft
 )
 
 #Sonderzeichen anpassen
+
 tabelle <- str_replace_all(tabelle,"&", "&amp;")
 tabelle <- str_replace_all(tabelle,"<", "&lt;")
 tabelle <- str_replace_all(tabelle,">", "&gt;")
 
-
+tabelle <- str_replace_all(tabelle,"[.]",",")
+tabelle <- str_replace_all(tabelle,"Einw,","Einw.")
+tabelle <- str_replace_all(tabelle,"Impf,","Impf.")
+tabelle <- str_replace_all(tabelle,"ggü,","ggü.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
                "<p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA)",

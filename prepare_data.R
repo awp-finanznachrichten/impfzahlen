@@ -20,12 +20,12 @@ last_date <- long$datum[nrow(long)]
 last_date_string <- format(last_date,"%d.%m.%Y")
 
 long_verimpft_aktuell <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date,]
-long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,] #7
-long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-11,] #14
+long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,]
+long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-14,] #14
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
 long_verimpft_pro_person_last_week <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date-7,]
-long_verimpft_pro_person_second_last_week <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date-11,] #14
+long_verimpft_pro_person_second_last_week <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date-14,] #14
 
 #Create Data Frame
 impfdaten_meldung <- data.frame("Kanton_short","Datum",999,999,
@@ -143,7 +143,7 @@ last_date_string <- format(last_date,"%d.%m.%Y")
 
 long_verimpft_aktuell <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date,]
 long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-7,]
-long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-11,] #14
+long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-14,] #14
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
 
@@ -161,7 +161,7 @@ for (i in 1:26) {
   verimpft <- long_verimpft_aktuell$value[i]
   verimpft_pro_person <- long_verimpft_pro_person$value[i]
   verimpft_pro_tag <- (long_verimpft_aktuell$value[i]-long_verimpft_last_week$value[i])/7
-  verimpft_pro_tag_vorwoche <- (long_verimpft_last_week$value[i]-long_verimpft_second_last_week$value[i])/4 #7
+  verimpft_pro_tag_vorwoche <- (long_verimpft_last_week$value[i]-long_verimpft_second_last_week$value[i])/7 #7
   veraenderung <- (verimpft_pro_tag*100)/verimpft_pro_tag_vorwoche-100  
   geliefert <- long_impfdosen$value[i]
   verimpft_anteil <- (long_verimpft_aktuell$value[i]/long_impfdosen$value[i])*100
