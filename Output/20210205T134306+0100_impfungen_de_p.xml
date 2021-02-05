@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210205T134306+0100</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>5163</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210205T134306+0100</DateId>
+       <NewsItemId>5163</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210205T134306+0100:5163:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210205T134306+0100</FirstCreated>
+    <ThisRevisionCreated>20210205T134306+0100</ThisRevisionCreated>
+    <Status FormalName="Withheld"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>BAG registriert 107'004 neue Impfungen in den letzten 7 Tagen</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="de"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Bern (awp) - Bis und mit Mittwoch sind in der Schweiz innert Wochenfrist 107'004 Impfdosen gegen Covid-19 verabreicht worden. Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) heute Freitag auf seiner Website veröffentlicht hat.
+</p><p>Pro Tag wurden damit durchschnittlich 15'286 Impfungen durchgeführt. Im Vergleich zur Woche davor stieg die Impfkadenz um 16 Prozent.
+</p><p>Insgesamt wurden bis Mittwoch 369'085 Impfungen durchgeführt. Aktuell sind damit pro 100 Einwohner in der Schweiz und in Liechtenstein 4,3 Impfdosen verabreicht worden. Um gegen eine Erkrankung an Covid-19 optimal geschützt zu sein, sind pro Person zwei Impfdosen notwendig.
+</p><p>Bereits an die Kantone ausgeliefert, aber noch nicht verimpft sind momentan 180'940 Impfdosen.
+</p><pre>
+[[
+                              Letzte 7 Tage    Woche davor     Total
+
+Verimpfte Dosen               107'004          92'298          369'085
+Impfungen pro 100 Einwohner   1,2              1,1             4,3
+
+(pro Person sind zwei Impfungen notwendig)
+
+Daten aus ausgewählten Kantonen:
+
+         Zahl Impf./100 Einw.   Veränderung     Total Impf./
+         letzte 7 Tage          ggü. Vorwoche   100 Einw.
+
+ZH       1,2                    +95%            3,5
+BE       1,1                    +31%            3,0
+BS       0,7                    -41%            7,5
+SG       2,2                    +102%           4,7
+AG       1,2                    +75%            3,6
+LU       1,3                    -12%            5,1
+GE       0,8                    -28%            4,0
+VD       1,5                    +26%            4,3
+
+]]</pre><p/>
+
+<p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA) auf www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>

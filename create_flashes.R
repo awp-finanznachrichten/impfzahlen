@@ -77,7 +77,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_flash_impfungen_de.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_flash_impfungen_de.xml"), "ftp://ftp2.awp.ch/flash_impfungen_de.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_flash_impfungen_de.xml"), "ftp://ftp.awp.ch/flash_impfungen_de.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
@@ -119,7 +119,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_flash_impfungen_fr.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_flash_impfungen_fr.xml"), "ftp://ftp2.awp.ch/flash_impfungen_fr.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_flash_impfungen_fr.xml"), "ftp://ftp.awp.ch/flash_impfungen_fr.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 

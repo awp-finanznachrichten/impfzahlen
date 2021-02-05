@@ -128,7 +128,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_de_p.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_de_p.xml"), "ftp://ftp2.awp.ch/impfungen_de_p.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_de_p.xml"), "ftp://ftp.awp.ch/impfungen_de_p.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 

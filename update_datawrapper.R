@@ -27,7 +27,7 @@ impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a quest
                               impfdaten_dw$Verimpft_pro_Person,"</b> iniezioni ogni 100 abitanti.",
                               " In cifre assolute, si tratta di <b>",impfdaten_dw$Verimpft,"</b> vaccinazioni.",
                               " La scorsa settimana, in media <b>",impfdaten_dw$Verimpft_pro_Tag,
-                              "</b> persone sono state vaccinate giornalmente.",
+                              "</b> persone sono state vaccinate giornalmente ",
                               " (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.",
                               " In totale, fino ad ora al canton ",impfdaten_dw$Kanton_i," sono state consegnate <b>",impfdaten_dw$Geliefert,
                               "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.<br><br>")
