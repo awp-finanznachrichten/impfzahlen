@@ -2,16 +2,16 @@ setwd("C:/Automatisierungen/impfzahlen/")
 
 #Get Data for Flashes
 data_check <- html_text(html_nodes(webpage,"h3"))
-
 impfungen_check <- grepl("Impfungen",data_check[5])
 
-text_check <- grepl("Verabreichte Impfdosen",html_text(html_nodes(webpage,"th"))[18])
+text_check <- grepl("Verabreichte Impfdosen",html_text(html_nodes(webpage,"th"))[19])
 
 if  ( (impfungen_check == TRUE) & (text_check == TRUE) ) {
   
 #Get Data  
 data <- html_text(html_nodes(webpage,"td"))  
-impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[18]))
+impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[19]))
+impfungen_erhalten <- as.numeric(gsub("[^0-9.]", "",data[17]))
 
 impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &   #9
                                               impfdaten$Typ == "Bislang total verimpft",

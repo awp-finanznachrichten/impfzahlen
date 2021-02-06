@@ -35,9 +35,10 @@ text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sin
                           gsub("[.]",",",format(impfdaten_meldung$Verimpft_pro_person[1],big.mark="'")),
                           " Impfdosen verabreicht worden. Um gegen eine Erkrankung an Covid-19 optimal geschützt zu sein,",
                           " sind pro Person zwei Impfdosen notwendig.\n</p>",
-                          "<p>Bereits an die Kantone ausgeliefert, aber noch nicht verimpft sind momentan ",
+                          "<p>Bereits an die Kantone ausgeliefert, aber noch nicht verimpft, sind momentan ",
                           format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " Impfdosen.\n</p>")
+                          " Impfdosen. Zudem sind noch ", 
+                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.\n</p>")
 
 #Create Tabelle
 tabelle <- paste0("                              Letzte 7 Tage    Woche davor     Total\n\n",

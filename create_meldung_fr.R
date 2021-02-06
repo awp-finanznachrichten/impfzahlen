@@ -21,27 +21,27 @@ wochentag_publish <- gsub("Friday","vendredi",wochentag_publish)
 wochentag_publish <- gsub("Saturday","samedi",wochentag_publish)
 wochentag_publish <- gsub("Sunday","dimanche",wochentag_publish)
 
-tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des vaccinations s'est accélére de",tendenz)
+tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des vaccinations s'est accéléré de",tendenz)
 tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des vaccinations a ralenti de",tendenz_fr)
 tendenz_fr <- gsub(" Prozent","%",tendenz_fr)
 tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des vaccinations reste inchangé",tendenz_fr)
 
-title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouveaux vaccinations en 7 jours (OFSP)")
+title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
 
-text_einleitung <- paste0("<p>Bern (awp) - ",format(impfungen_letzte_woche,big.mark = "'"),
-                          " doses de vaccin contre le Covid-19 ont été administrées en Suisse jusqu'à ",
-                          wochentag," comparé à la semaine précédente, selon les données publiées ",
-                          wochentag_publish," sur le site internet de l'Office fédéral de la santé publique (OFSP).\n</p>",
+text_einleitung <- paste0("<p>Bern (awp) - Sur une semaine et jusqu'à ",wochentag_publish," ",
+                          format(impfungen_letzte_woche,big.mark = "'"),
+                          " doses de vaccin contre la Covid-19 ont été administrées en Suisse ",
+                          "comparé à la semaine précédente, selon les données publiées ",
+                          wochentag," sur le site internet de l'Office fédéral de la santé publique (OFSP).\n</p>",
                           "<p>En moyenne, ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
-                          " vaccinations ont été effectuées par jour. Compare à la semaine précédente, ",tendenz_fr,"\n</p>",
+                          " vaccinations ont été effectuées par jour. Comparé à la semaine précédente, ",tendenz_fr,"\n</p>",
                           "<p>Au total, ",format(impfdaten_meldung$Verimpft[1],big.mark="'"), 
                           " vaccinations ont été réalisées jusqu'à ",wochentag_publish,".",
                           " Cela represente ",gsub("[.]",",",impfdaten_meldung$Verimpft_pro_person[1]),
                           " doses de vaccin administrées sur 100 habitants en Suisse et au Liechenstein.",
-                          " Une personne doit recevoir deux doses de vaccin afin d'être protégée du coronavirus.\n</p>",
+                          " Une personne doit recevoir deux doses de vaccin afin d'être protégée au mieux contre le coronavirus.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " de doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.\n</p>")
-
 
 #Create Tabelle
 tabelle <- paste0("                                    7 derniers jours   semaine prec.   total\n\n",

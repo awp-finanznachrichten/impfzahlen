@@ -1,3 +1,27 @@
+counter <- 0
+
+repeat {
+  
+Sys.sleep(10)
+counter <- counter + 1
+
+if (counter > 30 ) {
+  
+  library(blatr)
+  
+  blat(f = "robot-notification@awp.ch",
+       to = "robot-notification@awp.ch",
+       s = "Fehler beim Einlesen der Impfzahlen",
+       body= "Die Impfzahlen zu den Kantonen konnten nicht korrekt eingelesen werden.\n\n
+         AWP-Robot",
+       server = "smtp.juergruettimann.ch",
+       u = "awp-robot@juergruettimann.ch",
+       pw = "SimonWolanin123")
+  
+  break  
+  
+}  
+
 #Get CSV link
 link <- webpage %>%
   html_nodes(xpath = "//li/a") %>%
@@ -15,15 +39,10 @@ data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
 
 unlink(temp)
 
-#data_geliefert <- data_geliefert[-28,]
-
 data_geliefert$date <- as.Date(data_geliefert$date)
 data_verimpft$date <- as.Date(data_verimpft$date)
 
-data_geliefert <- data_geliefert[-28,]
-
-
-data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert,]
+data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert & data_geliefert$type == "COVID19VaccDosesDelivered",]
 data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht,]
 
 if ( (nrow(data_geliefert) == 29) & (nrow(data_verimpft) == 29) ) {
@@ -33,7 +52,6 @@ data_verimpft <- data_verimpft[order(data_verimpft$geoRegion),]
 
 data_geliefert <- data_geliefert[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
 data_verimpft <- data_verimpft[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
-
 
 #Datenbank-Zugriff
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu', encoding="utf8")
@@ -111,17 +129,12 @@ dbDisconnectAll()
 
 readin_check <- TRUE
 
+break
+
 } else {
-
-library(blatr)
-
-blat(f = "robot-notification@awp.ch",
-     to = "robot-notification@awp.ch, redakt@awp.ch",
-     s = "Fehler beim Einlesen der Impfzahlen",
-     body= "Die Impfzahlen zu den Kantonen konnten nicht korrekt eingelesen werden.\n\n
-         AWP-Robot",
-     server = "smtp.juergruettimann.ch",
-     u = "awp-robot@juergruettimann.ch",
-     pw = "SimonWolanin123")
+  
+print("Problem beim Einlesen der Impfzahlen")
     
 }  
+
+}

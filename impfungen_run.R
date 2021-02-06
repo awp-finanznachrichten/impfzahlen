@@ -45,16 +45,15 @@ webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 
 #Datum Check ausgeliefert und verabreicht
 datum_extract <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))
+correct_datum_1 <- which(grepl("Quelle: BAG",datum_extract))
+correct_datum_2 <- correct_datum_1-1
 
-correct_datum_1 <- which(grepl("Quelle: LBA",datum_extract))
-correct_datum_2 <- correct_datum_1+1
-
-date_geliefert <- datum_extract[correct_datum_1]
+date_geliefert <- datum_extract[correct_datum_2]
 date_geliefert <- gsub(",.*","",date_geliefert)
 date_geliefert <- gsub(".*: ","",date_geliefert)
 date_geliefert <- as.Date(date_geliefert,format="%d.%m.%Y")
 
-date_verabreicht <- datum_extract[correct_datum_2]
+date_verabreicht <- datum_extract[correct_datum_1]
 date_verabreicht <- gsub(",.*","",date_verabreicht)
 date_verabreicht <- gsub(".*: ","",date_verabreicht)
 date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
@@ -92,6 +91,16 @@ source("update_datawrapper.R", encoding = "UTF-8")
        u = "awp-robot@juergruettimann.ch",
        pw = "SimonWolanin123")
   
+  blat(f = "robot-notification@awp.ch",
+       to = "robot-notification@awp.ch",
+       s = "Neue Impf-Zahlen gefunden - automatisierte Meldung steht bereit",
+       body= paste0("Die neuen Zahlen auf der BAG-Seite wurden erfolgreich erfasst und die Datawrapper-Karten aktualisiert.\n\n",
+                    "Ihr findet die aktuelle Meldung auf Deutsch und Französisch hier:\n https://github.com/awp-finanznachrichten/impfzahlen/blob/master/Output/text_sda.txt\n\n",
+                    "Liebe Grüsse\n\n",
+                    "AWP-Robot"),
+       server = "smtp.juergruettimann.ch",
+       u = "awp-robot@juergruettimann.ch",
+       pw = "SimonWolanin123")
   
 }  
   
