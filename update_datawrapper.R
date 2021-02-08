@@ -57,3 +57,7 @@ dw_publish_chart("Ty61K")
 
 dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state effettuate <b>",impfungen_anteil_ch,"</b> iniezioni ogni 100 abitanti. In cifre assolute, si tratta di <b>",impfungen_ch,"</b> vaccinazioni. Per und protezione vaccinale ottimale, due dosi sone necessaire."), annotate=paste0("Stato: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("OmzDG")
+
+dw_edit_chart("6thMk",intro=paste0("Stand: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("6thMk")
+

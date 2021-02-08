@@ -28,20 +28,20 @@ tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des vac
 
 title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
 
-text_einleitung <- paste0("<p>Bern (awp) - Sur une semaine et jusqu'à ",wochentag_publish," ",
+text_einleitung <- paste0("<p>Bern (awp) - Sur une semaine et jusqu'à ",wochentag_publish,", ",
                           format(impfungen_letzte_woche,big.mark = "'"),
                           " doses de vaccin contre la Covid-19 ont été administrées en Suisse ",
-                          "comparé à la semaine précédente, selon les données publiées ",
-                          wochentag," sur le site internet de l'Office fédéral de la santé publique (OFSP).\n</p>",
+                          "par rapport à la semaine précédente, selon les données publiées ",
+                          wochentag," sur le site de l'Office fédéral de la santé publique (OFSP).\n</p>",
                           "<p>En moyenne, ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " vaccinations ont été effectuées par jour. Comparé à la semaine précédente, ",tendenz_fr,"\n</p>",
                           "<p>Au total, ",format(impfdaten_meldung$Verimpft[1],big.mark="'"), 
                           " vaccinations ont été réalisées jusqu'à ",wochentag_publish,".",
-                          " Cela represente ",gsub("[.]",",",impfdaten_meldung$Verimpft_pro_person[1]),
-                          " doses de vaccin administrées sur 100 habitants en Suisse et au Liechenstein.",
+                          " Cela représente ",gsub("[.]",",",impfdaten_meldung$Verimpft_pro_person[1]),
+                          " doses de vaccin administrées sur 100 habitants en Suisse et au Liechtenstein.",
                           " Une personne doit recevoir deux doses de vaccin afin d'être protégée au mieux contre le coronavirus.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " de doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.\n</p>")
+                          " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.\n</p>")
 
 #Create Tabelle
 tabelle <- paste0("                                    7 derniers jours   semaine prec.   total\n\n",
@@ -135,13 +135,17 @@ ftpUpload(paste0(date_and_time,"_impfungen_fr_p.xml"), "ftp://ftp.awp.ch/impfung
 setwd("..")
 
 #Output für SDA
+
+title_sda <- paste0("Coronavirus: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours en Suisse (OFSP)")
+
 text_sda_fr <- gsub("<p>","\n",text_einleitung)
 text_sda_fr <- gsub("</p>","",text_sda_fr)
-text_sda_fr <- paste0(title,"\n",text_sda_fr)
+text_sda_fr <- paste0(title_sda,"\n",text_sda_fr)
+
+text_sda_fr <- gsub("la Covid","le Covid",text_sda_fr)
 
 text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr)
 
 cat(text_sda,file="Output/text_sda.txt", fileEncoding = "UTF-8")
-
 
                           

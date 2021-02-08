@@ -92,10 +92,12 @@ source("update_datawrapper.R", encoding = "UTF-8")
        pw = "SimonWolanin123")
   
   blat(f = "robot-notification@awp.ch",
-       to = "robot-notification@awp.ch",
+       to = "robot-notification@awp.ch, inland@keystone-sda.ch, suisse@keystone-ats.ch, redazione@keystone-ats.ch, federico.bragagnini@keystone-ats.ch, thomas.oswald@keystone-sda.ch, nicola.wenger@keystone-ats.ch",
        s = "Neue Impf-Zahlen gefunden - automatisierte Meldung steht bereit",
-       body= paste0("Die neuen Zahlen auf der BAG-Seite wurden erfolgreich erfasst und die Datawrapper-Karten aktualisiert.\n\n",
+       body= paste0("Liebes SDA-Team,\n\n",
+                    "Die neuen Zahlen auf der BAG-Seite wurden erfolgreich erfasst und die Datawrapper-Karten aktualisiert.\n\n",
                     "Ihr findet die aktuelle Meldung auf Deutsch und Französisch hier:\n https://github.com/awp-finanznachrichten/impfzahlen/blob/master/Output/text_sda.txt\n\n",
+                    "Eine Übersicht über den Stand aller Kantone gibt es hier: https://datawrapper.dwcdn.net/6thMk\n\n",
                     "Liebe Grüsse\n\n",
                     "AWP-Robot"),
        server = "smtp.juergruettimann.ch",

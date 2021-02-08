@@ -128,12 +128,13 @@ rs <- dbSendQuery(mydb, sql_qry)
 dbDisconnectAll()
 
 readin_check <- TRUE
+print("Impfdaten erfolgreich eingelesen")
 
 break
 
 } else {
   
-print("Problem beim Einlesen der Impfzahlen")
+print("Problem beim Einlesen der Impfdaten")
     
 }  
 

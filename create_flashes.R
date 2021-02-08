@@ -5,8 +5,9 @@ data_check <- html_text(html_nodes(webpage,"h3"))
 impfungen_check <- grepl("Impfungen",data_check[5])
 
 text_check <- grepl("Verabreichte Impfdosen",html_text(html_nodes(webpage,"th"))[19])
+text_check_2 <- grepl("Erhaltene Impfdosen",html_text(html_nodes(webpage,"th"))[17])
 
-if  ( (impfungen_check == TRUE) & (text_check == TRUE) ) {
+if  ( (impfungen_check == TRUE) & (text_check == TRUE) & (text_check_2 == TRUE) ) {
   
 #Get Data  
 data <- html_text(html_nodes(webpage,"td"))  
@@ -43,7 +44,6 @@ impfungen_veraenderung <- paste0(impfungen_veraenderung,"%")
 ###Create Flash DE
 flash <- paste0("BAG: ",format(impfungen_letzte_woche,big.mark = "'")," Impfungen in den letzten 7 Tagen, ",
                 impfungen_veraenderung," ggü. Vorwoche")
-
 
 #ID erzeugen
 ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
