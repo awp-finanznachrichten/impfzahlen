@@ -112,7 +112,7 @@ vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
 ###Daten einf?gen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Withheld",vorlage)
+vorlage <- gsub("Insert_Status","Usable",vorlage)
 vorlage <- gsub("Insert_Storytype","T",vorlage)
 vorlage <- gsub("Insert_Language","de",vorlage)
 vorlage <- gsub("Insert_Country","CH",vorlage)
@@ -137,4 +137,6 @@ setwd("..")
 text_sda <- gsub("<p>","\n",text_einleitung)
 text_sda <- gsub("</p>","",text_sda)
 text_sda <- paste0(title,"\n",text_sda)
+
+text_sda <- gsub("awp","awp/sda",text_sda)
                           

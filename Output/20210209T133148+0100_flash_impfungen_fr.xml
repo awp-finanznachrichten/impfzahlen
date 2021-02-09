@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210209T133148+0100</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>5207</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210209T133148+0100</DateId>
+       <NewsItemId>5207</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210209T133148+0100:5207:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210209T133148+0100</FirstCreated>
+    <ThisRevisionCreated>20210209T133148+0100</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="1"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>OFSP: 98'665 vaccinations en 7 jours, -16% sur une semaine</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText></NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+<Property FormalName='Country' Value='CH'>
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/>
+<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p/></body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>

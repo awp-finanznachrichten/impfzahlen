@@ -28,7 +28,7 @@ tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des vac
 
 title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
 
-text_einleitung <- paste0("<p>Bern (awp) - Sur une semaine et jusqu'à ",wochentag_publish,", ",
+text_einleitung <- paste0("<p>Berne (awp) - Sur une semaine et jusqu'à ",wochentag_publish,", ",
                           format(impfungen_letzte_woche,big.mark = "'"),
                           " doses de vaccin contre la Covid-19 ont été administrées en Suisse ",
                           "par rapport à la semaine précédente, selon les données publiées ",
@@ -41,7 +41,9 @@ text_einleitung <- paste0("<p>Bern (awp) - Sur une semaine et jusqu'à ",wochent
                           " doses de vaccin administrées sur 100 habitants en Suisse et au Liechtenstein.",
                           " Une personne doit recevoir deux doses de vaccin afin d'être protégée au mieux contre le coronavirus.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.\n</p>")
+                          " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.",
+                          " Par ailleurs, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
+                          " doses de vaccin sont stockées par la Confédération.\n</p>")
 
 #Create Tabelle
 tabelle <- paste0("                                    7 derniers jours   semaine prec.   total\n\n",
@@ -97,7 +99,6 @@ text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
                " sur www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")
 
-
 #Meldung erzeugen
 date_and_time <- format(Sys.time(), "%Y%m%dT%H%M%S%z")
 
@@ -113,7 +114,7 @@ vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
 ###Daten einfügen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Withheld",vorlage)
+vorlage <- gsub("Insert_Status","Usable",vorlage)
 vorlage <- gsub("Insert_Storytype","T",vorlage)
 vorlage <- gsub("Insert_Language","fr",vorlage)
 vorlage <- gsub("Insert_Country","CH",vorlage)
@@ -143,9 +144,8 @@ text_sda_fr <- gsub("</p>","",text_sda_fr)
 text_sda_fr <- paste0(title_sda,"\n",text_sda_fr)
 
 text_sda_fr <- gsub("la Covid","le Covid",text_sda_fr)
+text_sda_fr <- gsub("awp","awp/ats",text_sda_fr)
 
 text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr)
 
 cat(text_sda,file="Output/text_sda.txt", fileEncoding = "UTF-8")
-
-                          
