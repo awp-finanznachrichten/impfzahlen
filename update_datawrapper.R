@@ -61,3 +61,9 @@ dw_publish_chart("OmzDG")
 dw_edit_chart("6thMk",intro=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("6thMk")
 
+dw_edit_chart("d7vmx",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen. Für einen optimalen Schutz sind zwei Impfdosen pro Person nötig."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("d7vmx")
+
+dw_edit_chart("TeJmy",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations. Pour garantir une protection optimale, deux doses de vaccin sont nécessaires."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("TeJmy")
+

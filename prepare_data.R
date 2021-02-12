@@ -85,6 +85,8 @@ if (impfdaten_meldung$impfungen_change[1] > 0) {
   
 }    
 
+tendenz <- gsub("[-]","",tendenz)
+
 #Adapt
 impfdaten_meldung$Verimpft_pro_person <- format(impfdaten_meldung$Verimpft_pro_person, nsmall=1)
 impfdaten_meldung$personen_last_week <- format(impfdaten_meldung$personen_last_week, nsmall=1)

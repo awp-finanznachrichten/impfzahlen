@@ -46,7 +46,7 @@ text_einleitung <- paste0("<p>Berne (awp) - Sur une semaine et jusqu'à ",wochen
                           " doses de vaccin sont stockées par la Confédération.\n</p>")
 
 #Create Tabelle
-tabelle <- paste0("                                    7 derniers jours   semaine prec.   total\n\n",
+tabelle <- paste0("                                    7 derniers jours   semaine préc.   total\n\n",
 "Doses administrées                  ",format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"),
 strrep(" ",19-nchar(format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"))),
 format(impfdaten_meldung$impfungen_second_last_week[1],big.mark = "'"),
@@ -54,7 +54,7 @@ strrep(" ",16-nchar(format(impfdaten_meldung$impfungen_second_last_week[1],big.m
 ,format(impfdaten_meldung$Verimpft[1],big.mark = "'"),"\n",
 "Nombre vaccinations/100 habitants   ",impfdaten_meldung$personen_last_week[1],
 "                ",impfdaten_meldung$personen_second_last_week[1],
-"             ",impfdaten_meldung$Verimpft_pro_person[1],"\n\n",
+"            ",impfdaten_meldung$Verimpft_pro_person[1],"\n\n",
 "(2 doses de vaccin nécessaires par personne)\n\n",
 "Données par cantons:\n\n",
 "         vaccinations/100 habit.  variation       total vaccinations/\n",
@@ -92,10 +92,11 @@ tabelle <- str_replace_all(tabelle,">", "&gt;")
 
 tabelle <- str_replace_all(tabelle,"[.]",",")
 tabelle <- str_replace_all(tabelle,"habit,","habit.")
-tabelle <- str_replace_all(tabelle,"préc,","prec.")
+tabelle <- str_replace_all(tabelle,"préc,","préc.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
-               "<p>Sources: Office fédéral de la santé publique (OFS) et Base logistique de l'Armée (BLA)",
+               "<p>Carte: https://datawrapper.dwcdn.net/TeJmy \n</p>",
+               "<p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA)",
                " sur www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")
 
