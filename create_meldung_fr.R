@@ -30,8 +30,8 @@ title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouve
 
 text_einleitung <- paste0("<p>Berne (awp) - Sur une semaine et jusqu'à ",wochentag_publish,", ",
                           format(impfungen_letzte_woche,big.mark = "'"),
-                          " doses de vaccin contre la Covid-19 ont été administrées en Suisse ",
-                          "par rapport à la semaine précédente, selon les données publiées ",
+                          " doses de vaccin contre la Covid-19 ont été administrées en Suisse",
+                          ", selon les données publiées ",
                           wochentag," sur le site de l'Office fédéral de la santé publique (OFSP).\n</p>",
                           "<p>En moyenne, ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " vaccinations ont été effectuées par jour. Comparé à la semaine précédente, ",tendenz_fr,"\n</p>",

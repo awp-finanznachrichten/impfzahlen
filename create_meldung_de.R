@@ -26,7 +26,7 @@ title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")
 
 text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sind in der Schweiz innert Wochenfrist ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
-                          " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) heute ",wochentag,
+                          " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am ",wochentag,
                           " auf seiner Website veröffentlicht hat.\n</p>",
                           "<p>Pro Tag wurden damit durchschnittlich ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " Impfungen durchgeführt. Im Vergleich zur Woche davor ",tendenz,"\n</p>",
