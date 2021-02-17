@@ -126,8 +126,8 @@ for (i in 1:nrow(impfdaten_meldung)) {
 impfdaten_meldung$char_count_change <- nchar(impfdaten_meldung$impfungen_change)
 
 ###Prepare Data for Datawrapper
-impfungen_ch <- format(impfdaten[nrow(impfdaten)-1,4],big.mark = "'")
-impfungen_anteil_ch <- round(impfdaten[nrow(impfdaten),4],1)
+impfungen_ch <- format(impfdaten[nrow(impfdaten)-2,4],big.mark = "'")
+impfungen_anteil_ch <- round(impfdaten[nrow(impfdaten)-1,4],1)
 impfdaten_datawrapper <- impfdaten[,-c(1,4,31)]
 
 
@@ -148,14 +148,15 @@ long_verimpft_last_week <- long[long$Typ == "Bislang total verimpft" & long$datu
 long_verimpft_second_last_week <- long[long$Typ == "Bislang total verimpft" & long$datum == last_date-14,] #14
 long_impfdosen <- long[long$Typ == "Gelieferte Impfdosen" & long$datum == last_date,]
 long_verimpft_pro_person <- long[long$Typ == "Geimpfte Dosen pro 100 Einwohner" & long$datum == last_date,]
+long_geimpfte_personen <- long[long$Typ == "Komplett geimpfte Personen" & long$datum == last_date,]
 
 
 #Create Data Frame
 impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
-                           999,999,999,999,999)
+                           999,999,999,999,999,999)
 
 colnames(impfdaten_dw) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil")
+                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil","Geimpfte_Personen")
 
 for (i in 1:26) {
   
@@ -167,13 +168,14 @@ for (i in 1:26) {
   veraenderung <- (verimpft_pro_tag*100)/verimpft_pro_tag_vorwoche-100  
   geliefert <- long_impfdosen$value[i]
   verimpft_anteil <- (long_verimpft_aktuell$value[i]/long_impfdosen$value[i])*100
+  geimpfte_personen <- long_geimpfte_personen$value[i]
   
   new_data <- data.frame(kanton_short,last_date_string,verimpft,verimpft_pro_person,
                          verimpft_pro_tag,verimpft_pro_tag_vorwoche,veraenderung,
-                         geliefert,verimpft_anteil)
+                         geliefert,verimpft_anteil,geimpfte_personen)
   
   colnames(new_data) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                          "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil")
+                          "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil","Geimpfte_Personen")
   
   impfdaten_dw <- rbind(impfdaten_dw,new_data)
   
@@ -188,6 +190,7 @@ impfdaten_dw$Verimpft_pro_Tag_Vorwoche <- format(round(impfdaten_dw$Verimpft_pro
 impfdaten_dw$Veraenderung <- round(impfdaten_dw$Veraenderung,0)
 impfdaten_dw$Geliefert <- format(impfdaten_dw$Geliefert,big.mark = "'")
 impfdaten_dw$Verimpft_Anteil <- round(impfdaten_dw$Verimpft_Anteil,0)
+impfdaten_dw$Geimpfte_Personen <- format(impfdaten_dw$Geimpfte_Personen,big.mark = "'")
 
 #Merge mit Kantonsnamen
 impfdaten_dw <- merge(impfdaten_dw,kantone)
@@ -224,3 +227,5 @@ if (impfdaten_dw$Veraenderung[y] > 0 ) {
 
 impfdaten_dw$Veraenderung <- gsub("[+]500","mehr als +500",impfdaten_dw$Veraenderung)
 impfdaten_dw$Veraenderung <- gsub("[-]500","weniger als -500",impfdaten_dw$Veraenderung)
+
+View(impfdaten_dw)

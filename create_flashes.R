@@ -12,6 +12,7 @@ if  ( (impfungen_check == TRUE) & (text_check == TRUE) & (text_check_2 == TRUE) 
 #Get Data  
 data <- html_text(html_nodes(webpage,"td"))  
 impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[19]))
+impfungen_complete <- as.numeric(gsub("[^0-9.]", "",data[20]))
 impfungen_erhalten <- as.numeric(gsub("[^0-9.]", "",data[17]))
 
 impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &   #9

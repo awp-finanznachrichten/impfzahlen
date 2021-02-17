@@ -45,7 +45,7 @@ webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 
 #Datum Check ausgeliefert und verabreicht
 datum_extract <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))
-correct_datum_1 <- which(grepl("Quelle: BAG",datum_extract))
+correct_datum_1 <- which(grepl("Quelle: BAG",datum_extract))[1]
 correct_datum_2 <- correct_datum_1-1
 
 date_geliefert <- datum_extract[correct_datum_2]

@@ -175,7 +175,7 @@ tendenz_it <- gsub("le rythme des vaccinations a ralenti de","è diminuito del",
 tendenz_it <- gsub("le rythme des vaccinations reste inchangé","non è cambiato",tendenz_it)
 
 
-text_einleitung_it <- paste0("Berna (awp) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
+text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
                              number_date_earlier," al ",number_date," ",month,
                           " sono state ",format(impfungen_letzte_woche,big.mark = "'"),
                           ". È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).\n\n",
