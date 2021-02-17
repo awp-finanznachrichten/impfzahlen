@@ -27,7 +27,7 @@ title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")
 text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sind in der Schweiz innert Wochenfrist ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
                           " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am ",wochentag,
-                          " auf seiner Website veröffentlicht hat.\n</p>",
+                          " auf seiner Website veröffentlichte.\n</p>",
                           "<p>Pro Tag wurden damit durchschnittlich ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " Impfungen durchgeführt. Im Vergleich zur Woche davor ",tendenz,"\n</p>",
                           "<p>Insgesamt wurden bis ",wochentag_publish," ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
@@ -35,7 +35,7 @@ text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sin
                           gsub("[.]",",",format(impfdaten_meldung$Verimpft_pro_person[1],big.mark="'")),
                           " Impfdosen verabreicht worden. Um gegen eine Erkrankung an Covid-19 optimal geschützt zu sein,",
                           " sind pro Person zwei Impfdosen notwendig.\n</p>",
-                          "<p>Bereits an die Kantone ausgeliefert, aber noch nicht verimpft, sind momentan ",
+                          "<p>Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan ",
                           format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " Impfdosen. Zudem sind noch ", 
                           format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.\n</p>")
@@ -92,7 +92,7 @@ tabelle <- str_replace_all(tabelle,"Impf,","Impf.")
 tabelle <- str_replace_all(tabelle,"ggü,","ggü.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
-               "<p>Datawrapper-Karte: https://datawrapper.dwcdn.net/d7vmx \n</p>",
+               "<p>Übersichtskarte zur Situation in den einzelnen Kantonen: https://datawrapper.dwcdn.net/d7vmx \n</p>",
                "<p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA)",
                " auf www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")

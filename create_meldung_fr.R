@@ -147,6 +147,55 @@ text_sda_fr <- paste0(title_sda,"\n",text_sda_fr)
 text_sda_fr <- gsub("la Covid","le Covid",text_sda_fr)
 text_sda_fr <- gsub("awp","awp/ats",text_sda_fr)
 
-text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr)
+###Text SDA italienisch
+title_sda_it <- paste0("Coronavirus: UFSP, ",format(impfungen_letzte_woche,big.mark = "'")," nuove vaccinazioni in 7 giorni")
+
+#Zeitspanne
+number_date <- as.numeric(format(date_verabreicht,"%d"))
+number_date_earlier <- as.numeric(format(date_verabreicht-6,"%d"))
+month <- months(date_verabreicht)
+month <- gsub("January","gennaio",month)
+month <- gsub("February","febbraio",month)
+month <- gsub("March","marzo",month)
+month <- gsub("April","aprile",month)
+month <- gsub("May","maggio",month)
+month <- gsub("June","giugno",month)
+month <- gsub("July","luglio",month)
+month <- gsub("August","agosto",month)
+month <- gsub("September","settembre",month)
+month <- gsub("October","ottobre",month)
+month <- gsub("November","novembre",month)
+month <- gsub("December","dicembre",month)
+
+
+
+#Tendenz italienisch
+tendenz_it <- gsub("le rythme des vaccinations s'est accéléré de","è aumentato del",tendenz_fr)
+tendenz_it <- gsub("le rythme des vaccinations a ralenti de","è diminuito del",tendenz_it)
+tendenz_it <- gsub("le rythme des vaccinations reste inchangé","non è cambiato",tendenz_it)
+
+
+text_einleitung_it <- paste0("Berna (awp) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
+                             number_date_earlier," al ",number_date," ",month,
+                          " sono state ",format(impfungen_letzte_woche,big.mark = "'"),
+                          ". È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).\n\n",
+                          "In media, nella Confederazione vengono effettuate ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
+                          " vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni ",tendenz_it,"\n\n",
+                          "In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate ",
+                          format(impfdaten_meldung$Verimpft[1],big.mark="'"),
+                          " dosi di vaccino, per una media di ",gsub("[.]",",",impfdaten_meldung$Verimpft_pro_person[1]),
+                          " dosi ogni 100 abitanti.",
+                          " Per essere protetta al meglio contro il coronavirus, una persona è tenuta a ricevere due dosi.\n\n",
+                          "Attualmente ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
+                          " dosi sono state consegnate ai cantoni, ma non ancora somministrate.",
+                          " Inoltre, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
+                          " dosi sono immagazzinate dalla Confederazione.\n\n",
+                          "Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP) e della Base logistica dell'Esercito (BLEs)"
+                          )
+
+text_sda_it <- paste0(title_sda_it,"\n\n",text_einleitung_it)
+
+text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr,"\n\n\n",text_sda_it)
 
 cat(text_sda,file="Output/text_sda.txt", fileEncoding = "UTF-8")
+

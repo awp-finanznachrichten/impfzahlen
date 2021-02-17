@@ -19,4 +19,29 @@ En moyenne, 18'219 vaccinations ont été effectuées par jour. Comparé à la semain
 Au total, 541'231 vaccinations ont été réalisées jusqu'à dimanche. Cela représente  6,3 doses de vaccin administrées sur 100 habitants en Suisse et au Liechtenstein. Une personne doit recevoir deux doses de vaccin afin d'être protégée au mieux contre le coronavirus.
 
 Quelque 241'444 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 23'350 doses de vaccin sont stockées par la Confédération.
- UTF-8
+
+
+
+Coronavirus: 127'533 nouvelles vaccinations en 7 jours en Suisse (OFSP)
+
+Berne (awp/ats) - Sur une semaine et jusqu'à dimanche, 127'533 doses de vaccin contre le Covid-19 ont été administrées en Suisse, selon les données publiées mardi sur le site de l'Office fédéral de la santé publique (OFSP).
+
+En moyenne, 18'219 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des vaccinations s'est accéléré de 29%.
+
+Au total, 541'231 vaccinations ont été réalisées jusqu'à dimanche. Cela représente  6,3 doses de vaccin administrées sur 100 habitants en Suisse et au Liechtenstein. Une personne doit recevoir deux doses de vaccin afin d'être protégée au mieux contre le coronavirus.
+
+Quelque 241'444 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 23'350 doses de vaccin sont stockées par la Confédération.
+
+
+
+Coronavirus: UFSP, 127'533 nuove vaccinazioni in 7 giorni
+
+Berna (awp) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal 8 al 14 febbraio sono state 127'533. È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).
+
+In media, nella Confederazione vengono effettuate 18'219 vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni è aumentato del 29%.
+
+In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate 541'231 dosi di vaccino, per una media di  6,3 dosi ogni 100 abitanti. Per essere protetta al meglio contro il coronavirus, una persona è tenuta a ricevere due dosi.
+
+Attualmente 241'444 dosi sono state consegnate ai cantoni, ma non ancora somministrate. Inoltre, 23'350 dosi sono immagazzinate dalla Confederazione.
+
+Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP) e della Base logistica dell'Esercito (BLEs) UTF-8
