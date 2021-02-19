@@ -46,7 +46,7 @@ data_personen$date <- as.Date(data_personen$date)
 
 data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert & data_geliefert$type == "COVID19VaccDosesDelivered",]
 data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht & data_verimpft$type =="COVID19VaccDosesAdministered",]
-data_personen <- data_personen[data_personen$date == date_verabreicht & data_personen$type =="COVID19FullyVaccPersons",]
+data_personen <- data_personen[data_personen$date == date_vollstaendig & data_personen$type =="COVID19FullyVaccPersons",]
 
 if ( (nrow(data_geliefert) == 29) & (nrow(data_verimpft) == 29) & (nrow(data_personen) == 29) ) {
 
