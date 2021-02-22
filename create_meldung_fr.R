@@ -37,13 +37,17 @@ text_einleitung <- paste0("<p>Berne (awp) - Sur une semaine et jusqu'à ",wochen
                           " vaccinations ont été effectuées par jour. Comparé à la semaine précédente, ",tendenz_fr,"\n</p>",
                           "<p>Au total, ",format(impfdaten_meldung$Verimpft[1],big.mark="'"), 
                           " vaccinations ont été réalisées jusqu'à ",wochentag_publish,".",
-                          " Cela représente ",gsub("[.]",",",impfdaten_meldung$Verimpft_pro_person[1]),
-                          " doses de vaccin administrées sur 100 habitants en Suisse et au Liechtenstein.",
-                          " Une personne doit recevoir deux doses de vaccin afin d'être protégée au mieux contre le coronavirus.\n</p>",
+                          " Jusqu'ici, ",format(impfungen_complete,big.mark = "'"),
+                          " personnes ont été vaccinées complètement. Cela signifie que ",
+                          gsub("[.]",",",anteil_bevoelkerung),
+                          " pour cent de la population a déjà obtenu deux doses de vaccin. ",
+                          format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
+                          " personnes n’ont reçu que la première injection.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.",
                           " Par ailleurs, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
                           " doses de vaccin sont stockées par la Confédération.\n</p>")
+
 
 #Create Tabelle
 tabelle <- paste0("                                    7 derniers jours   semaine préc.   total\n\n",
@@ -183,9 +187,12 @@ text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Cov
                           " vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni ",tendenz_it,"\n\n",
                           "In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate ",
                           format(impfdaten_meldung$Verimpft[1],big.mark="'"),
-                          " dosi di vaccino, per una media di ",gsub("[.]",",",impfdaten_meldung$Verimpft_pro_person[1]),
-                          " dosi ogni 100 abitanti.",
-                          " Per essere protetta al meglio contro il coronavirus, una persona è tenuta a ricevere due dosi.\n\n",
+                          " dosi di vaccino. Fino ad ora ",format(impfungen_complete,big.mark = "'"),
+                          " persone sono state completamente vaccinate, questo significa che il ",
+                          gsub("[.]",",",anteil_bevoelkerung),
+                          " percento della popolazione ha ricevuto due iniezioni. A ",
+                          format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
+                          "  persone è stata invece somministrata una sola dose.\n\n",
                           "Attualmente ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " dosi sono state consegnate ai cantoni, ma non ancora somministrate.",
                           " Inoltre, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
@@ -199,3 +206,4 @@ text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr,"\n\n\n",text_sda_it)
 
 cat(text_sda,file="Output/text_sda.txt", fileEncoding = "UTF-8")
 
+cat(text_einleitung_it)
