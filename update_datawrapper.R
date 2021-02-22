@@ -2,11 +2,13 @@
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang pro 100 Einwohner <b>",
                               impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgeführt.",
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.",
+                              " <b>",impfdaten_dw$Erstimpfungen_Personen, "</b> Personen oder <b>",
+                              impfdaten_dw$Anteil_Bevoelkerung," Prozent</b> der Bevölkerung sind bereits vollständig geimpft.<br><br>",
                               " In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> Personen geimpft.",
-                              " Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung," Prozent</b>.",
+                              " Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung," Prozent</b>.<br><br>",
                               " Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
-                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil," Prozent</b> verabreicht.<br><br>")
+                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil," Prozent</b> verabreicht.")
 
 #Create_Text
 impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>",
@@ -17,7 +19,7 @@ impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>"
                               " Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.",
                               " Au total, <b>",impfdaten_dw$Geliefert,"</b> doses de vaccin ont été livrées jusqu’ici dans le canton de ",
                               impfdaten_dw$Kanton_f,". Sur ce nombre, <b>",impfdaten_dw$Verimpft_Anteil,
-                              "%</b> ont été utilisés.<br><br>")
+                              "%</b> ont été utilisés.")
 
 impfdaten_dw$Text_f <- gsub("de <b>mehr als ","<b>plus de ",impfdaten_dw$Text_f)
 impfdaten_dw$Text_f <- gsub("de <b>weniger als ","<b>moins de ",impfdaten_dw$Text_f)
@@ -30,7 +32,7 @@ impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a quest
                               "</b> persone sono state vaccinate giornalmente ",
                               " (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.",
                               " In totale, fino ad ora al canton ",impfdaten_dw$Kanton_i," sono state consegnate <b>",impfdaten_dw$Geliefert,
-                              "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.<br><br>")
+                              "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.")
 
 
 impfdaten_dw$Text_i <- gsub("<b>mehr als ","<b>più del ",impfdaten_dw$Text_i)
@@ -50,7 +52,7 @@ gitpush()
 #Change Title of Datawrapper-Chart and publish Charts
 datawrapper_auth("BMcG33cGBCp2FpqF1BSN5lHhKrw2W8Ait4AYbDEjkjVgCiWe07iqoX5pwHXdW36g")
 dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen. <b>",
-                                   format(impfungen_complete,big.mark = "'"),"</b> Personen sind bereits vollständig geimpft. dass heisst <b>",anteil_bevoelkerung,
+                                   format(impfungen_complete,big.mark = "'"),"</b> Personen sind bereits vollständig geimpft, das heisst <b>",round(anteil_bevoelkerung,1),
                                    " Prozent</b> der Bevölkerung haben bereits zwei Impfdosen erhalten."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
@@ -73,3 +75,4 @@ dw_edit_chart("TeJmy",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> in
                                    format(impfungen_complete,big.mark = "'"),"</b> personnes sont déjà entièrement vaccinées. Pour garantir une protection optimale, deux doses de vaccin sont nécessaires."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("TeJmy")
 
+View(impfdaten_dw)
