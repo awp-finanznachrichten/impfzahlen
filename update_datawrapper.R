@@ -2,7 +2,7 @@
 impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislang pro 100 Einwohner <b>",
                               impfdaten_dw$Verimpft_pro_Person,"</b> Impfungen durchgeführt.",
                               " Das entspricht <b>",impfdaten_dw$Verimpft,"</b> Impfungen.",
-                              " <b>",impfdaten_dw$Erstimpfungen_Personen, "</b> Personen oder <b>",
+                              " <b>",impfdaten_dw$Geimpfte_Personen, "</b> Personen oder <b>",
                               impfdaten_dw$Anteil_Bevoelkerung," Prozent</b> der Bevölkerung sind bereits vollständig geimpft.<br><br>",
                               " In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> Personen geimpft.",
