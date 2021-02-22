@@ -38,6 +38,7 @@ impfdaten_dw$Text_i <- gsub("<b>weniger als ","<b>meno del ",impfdaten_dw$Text_i
 
 impfdaten_dw <- excuse_my_french(impfdaten_dw)
 
+View(impfdaten_dw)
 #Write File
 write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE, fileEncoding = "UTF-8")
                            
