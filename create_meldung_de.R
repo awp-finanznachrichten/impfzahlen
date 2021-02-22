@@ -24,6 +24,8 @@ wochentag_publish <- gsub("Sunday","Sonntag",wochentag_publish)
 
 title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")," neue Impfungen in den letzten 7 Tagen")
 
+anteil_bevoelkerung <- round((as.numeric(impfdaten_meldung$Verimpft_pro_person[1])/impfdaten_meldung$Verimpft[1])*impfungen_complete,1)
+
 text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sind in der Schweiz innert Wochenfrist ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
                           " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am ",wochentag,
@@ -31,14 +33,17 @@ text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sin
                           "<p>Pro Tag wurden damit durchschnittlich ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " Impfungen durchgeführt. Im Vergleich zur Woche davor ",tendenz,"\n</p>",
                           "<p>Insgesamt wurden bis ",wochentag_publish," ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
-                          " Impfungen durchgeführt. Aktuell sind damit pro 100 Einwohner in der Schweiz und in Liechtenstein ",
-                          gsub("[.]",",",format(impfdaten_meldung$Verimpft_pro_person[1],big.mark="'")),
-                          " Impfdosen verabreicht worden. Um gegen eine Erkrankung an Covid-19 optimal geschützt zu sein,",
-                          " sind pro Person zwei Impfdosen notwendig.\n</p>",
+                          " Impfungen durchgeführt. Bislang sind ",format(impfungen_complete,big.mark = "'"),
+                          " Personen vollständig geimpft, das heisst ",
+                          gsub("[.]",",",anteil_bevoelkerung),
+                          " Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei ",
+                          format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
+                          " Personen wurden bislang nur die Erstimpfung durchgeführt.\n</p>",
                           "<p>Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan ",
                           format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " Impfdosen. Zudem sind noch ", 
                           format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.\n</p>")
+
 
 #Create Tabelle
 tabelle <- paste0("                              Letzte 7 Tage    Woche davor     Total\n\n",

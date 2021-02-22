@@ -38,7 +38,6 @@ impfdaten_dw$Text_i <- gsub("<b>weniger als ","<b>meno del ",impfdaten_dw$Text_i
 
 impfdaten_dw <- excuse_my_french(impfdaten_dw)
 
-View(impfdaten_dw)
 #Write File
 write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE, fileEncoding = "UTF-8")
                            
@@ -51,7 +50,8 @@ gitpush()
 #Change Title of Datawrapper-Chart and publish Charts
 datawrapper_auth("BMcG33cGBCp2FpqF1BSN5lHhKrw2W8Ait4AYbDEjkjVgCiWe07iqoX5pwHXdW36g")
 dw_edit_chart("8nBMe",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen. <b>",
-                                   format(impfungen_complete,big.mark = "'"),"</b> Personen sind bereits vollständig geimpft. Für einen optimalen Schutz sind zwei Impfdosen pro Person nötig."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
+                                   format(impfungen_complete,big.mark = "'"),"</b> Personen sind bereits vollständig geimpft. dass heisst <b>",anteil_bevoelkerung,
+                                   " Prozent</b> der Bevölkerung haben bereits zwei Impfdosen erhalten."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("8nBMe")
 
 dw_edit_chart("Ty61K",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations. <b>",

@@ -153,10 +153,10 @@ long_geimpfte_personen <- long[long$Typ == "Komplett geimpfte Personen" & long$d
 
 #Create Data Frame
 impfdaten_dw <- data.frame("Kanton_short","Datum",999,999,
-                           999,999,999,999,999,999,999)
+                           999,999,999,999,999,999,999,999)
 
 colnames(impfdaten_dw) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil","Geimpfte_Personen","Erstimpfungen_Personen")
+                            "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil","Geimpfte_Personen","Erstimpfungen_Personen","Anteil_Bevoelkerung")
 
 for (i in 1:26) {
   
@@ -170,13 +170,14 @@ for (i in 1:26) {
   verimpft_anteil <- (long_verimpft_aktuell$value[i]/long_impfdosen$value[i])*100
   geimpfte_personen <- long_geimpfte_personen$value[i]
   erstimpfungen_personen <- long_verimpft_aktuell$value[i]-long_geimpfte_personen$value[i]
+  anteil_bevoelkerung <- (long_verimpft_pro_person$value[i]/long_verimpft_aktuell$value[i])*long_geimpfte_personen$value[i]
   
   new_data <- data.frame(kanton_short,last_date_string,verimpft,verimpft_pro_person,
                          verimpft_pro_tag,verimpft_pro_tag_vorwoche,veraenderung,
-                         geliefert,verimpft_anteil,geimpfte_personen,erstimpfungen_personen)
+                         geliefert,verimpft_anteil,geimpfte_personen,erstimpfungen_personen,anteil_bevoelkerung)
   
   colnames(new_data) <- c("Kanton_Short","Datum","Verimpft","Verimpft_pro_Person",
-                          "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil","Geimpfte_Personen","Erstimpfungen_Personen")
+                          "Verimpft_pro_Tag","Verimpft_pro_Tag_Vorwoche","Veraenderung","Geliefert","Verimpft_Anteil","Geimpfte_Personen","Erstimpfungen_Personen","Anteil_Bevoelkerung")
   
   impfdaten_dw <- rbind(impfdaten_dw,new_data)
   
@@ -193,6 +194,7 @@ impfdaten_dw$Geliefert <- format(impfdaten_dw$Geliefert,big.mark = "'")
 impfdaten_dw$Verimpft_Anteil <- round(impfdaten_dw$Verimpft_Anteil,0)
 impfdaten_dw$Geimpfte_Personen <- format(impfdaten_dw$Geimpfte_Personen,big.mark = "'")
 impfdaten_dw$Erstimpfungen_Personen <- format(impfdaten_dw$Erstimpfungen_Personen,big.mark = "'")
+impfdaten_dw$Anteil_Bevoelkerung <- round(impfdaten_dw$Anteil_Bevoelkerung,1)
 
 #Merge mit Kantonsnamen
 impfdaten_dw <- merge(impfdaten_dw,kantone)
