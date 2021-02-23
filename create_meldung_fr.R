@@ -205,5 +205,3 @@ text_sda_it <- paste0(title_sda_it,"\n\n",text_einleitung_it)
 text_sda <- paste0(text_sda,"\n\n\n",text_sda_fr,"\n\n\n",text_sda_it)
 
 cat(text_sda,file="Output/text_sda.txt", fileEncoding = "UTF-8")
-
-cat(text_einleitung_it)

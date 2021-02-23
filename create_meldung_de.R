@@ -44,7 +44,6 @@ text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sin
                           " Impfdosen. Zudem sind noch ", 
                           format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.\n</p>")
 
-
 #Create Tabelle
 tabelle <- paste0("                              Letzte 7 Tage    Woche davor     Total\n\n",
 "Verimpfte Dosen               ",format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"),
