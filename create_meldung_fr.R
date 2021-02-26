@@ -21,6 +21,15 @@ wochentag_publish <- gsub("Friday","vendredi",wochentag_publish)
 wochentag_publish <- gsub("Saturday","samedi",wochentag_publish)
 wochentag_publish <- gsub("Sunday","dimanche",wochentag_publish)
 
+wochentag_publish_last <- weekdays(Sys.Date()-8)
+wochentag_publish_last <- gsub("Monday","lundi",wochentag_publish_last)
+wochentag_publish_last <- gsub("Tuesday","mardi",wochentag_publish_last)
+wochentag_publish_last <- gsub("Wednesday","mercredi",wochentag_publish_last)
+wochentag_publish_last <- gsub("Thursday","jeudi",wochentag_publish_last)
+wochentag_publish_last <- gsub("Friday","vendredi",wochentag_publish_last)
+wochentag_publish_last <- gsub("Saturday","samedi",wochentag_publish_last)
+wochentag_publish_last <- gsub("Sunday","dimanche",wochentag_publish_last)
+
 tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des vaccinations s'est accéléré de",tendenz)
 tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des vaccinations a ralenti de",tendenz_fr)
 tendenz_fr <- gsub(" Prozent","%",tendenz_fr)
@@ -28,7 +37,7 @@ tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des vac
 
 title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
 
-text_einleitung <- paste0("<p>Berne (awp) - Sur une semaine et jusqu'à ",wochentag_publish,", ",
+text_einleitung <- paste0("<p>Berne (awp) - De ",wochentag_publish_last," à ",wochentag_publish," dernier, ",
                           format(impfungen_letzte_woche,big.mark = "'"),
                           " doses de vaccin contre la Covid-19 ont été administrées en Suisse",
                           ", selon les données publiées ",
@@ -40,14 +49,15 @@ text_einleitung <- paste0("<p>Berne (awp) - Sur une semaine et jusqu'à ",wochen
                           " Jusqu'ici, ",format(impfungen_complete,big.mark = "'"),
                           " personnes ont été vaccinées complètement. Cela signifie que ",
                           gsub("[.]",",",anteil_bevoelkerung),
-                          " pour cent de la population a déjà obtenu deux doses de vaccin. ",
+                          "% de la population a déjà obtenu deux doses de vaccin. ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          " personnes n’ont reçu que la première injection.\n</p>",
+                          " personnes n'ont reçu que la première injection.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.",
                           " Par ailleurs, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
                           " doses de vaccin sont stockées par la Confédération.\n</p>")
 
+text_einleitung <- gsub("De jeudi","Du jeudi",text_einleitung)
 
 #Create Tabelle
 tabelle <- paste0("                                    7 derniers jours   semaine préc.   total\n\n",
