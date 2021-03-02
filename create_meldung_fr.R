@@ -30,10 +30,10 @@ wochentag_publish_last <- gsub("Friday","vendredi",wochentag_publish_last)
 wochentag_publish_last <- gsub("Saturday","samedi",wochentag_publish_last)
 wochentag_publish_last <- gsub("Sunday","dimanche",wochentag_publish_last)
 
-tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des vaccinations s'est accéléré de",tendenz)
-tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des vaccinations a ralenti de",tendenz_fr)
+tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des injections s'est accéléré de",tendenz)
+tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des injections a ralenti de",tendenz_fr)
 tendenz_fr <- gsub(" Prozent","%",tendenz_fr)
-tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des vaccinations reste inchangé",tendenz_fr)
+tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des injections reste inchangé",tendenz_fr)
 
 title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
 
@@ -51,11 +51,11 @@ text_einleitung <- paste0("<p>Berne (awp) - De ",wochentag_publish_last," à ",w
                           gsub("[.]",",",anteil_bevoelkerung),
                           "% de la population a déjà obtenu deux doses de vaccin. ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          " personnes n'ont reçu que la première injection.\n</p>",
+                          " personnes n'ont reçu que la première piqûre.\n</p>",
                           "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.",
                           " Par ailleurs, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
-                          " doses de vaccin sont stockées par la Confédération.\n</p>")
+                          " doses sont stockées par la Confédération.\n</p>")
 
 text_einleitung <- gsub("De jeudi","Du jeudi",text_einleitung)
 
@@ -184,9 +184,9 @@ month <- gsub("December","dicembre",month)
 
 
 #Tendenz italienisch
-tendenz_it <- gsub("le rythme des vaccinations s'est accéléré de","è aumentato del",tendenz_fr)
-tendenz_it <- gsub("le rythme des vaccinations a ralenti de","è diminuito del",tendenz_it)
-tendenz_it <- gsub("le rythme des vaccinations reste inchangé","non è cambiato",tendenz_it)
+tendenz_it <- gsub("le rythme des injections s'est accéléré de","è aumentato del",tendenz_fr)
+tendenz_it <- gsub("le rythme des injections a ralenti de","è diminuito del",tendenz_it)
+tendenz_it <- gsub("le rythme des injections reste inchangé","non è cambiato",tendenz_it)
 
 
 text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
