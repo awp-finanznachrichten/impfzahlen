@@ -1,35 +1,35 @@
-BAG registriert 133'896 neue Impfungen in den letzten 7 Tagen
+BAG registriert 144'005 neue Impfungen in den letzten 7 Tagen
 
-Bern (awp/sda) - Bis und mit Mittwoch sind in der Schweiz innert Wochenfrist 133'896 Impfdosen gegen Covid-19 verabreicht worden. Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am Freitag auf seiner Website veröffentlichte.
+Bern (awp/sda) - Bis und mit Sonntag sind in der Schweiz innert Wochenfrist 144'005 Impfdosen gegen Covid-19 verabreicht worden. Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am Dienstag auf seiner Website veröffentlichte.
 
-Pro Tag wurden damit durchschnittlich 19'128 Impfungen durchgeführt. Im Vergleich zur Woche davor sank die Impfkadenz um 3 Prozent.
+Pro Tag wurden damit durchschnittlich 20'572 Impfungen durchgeführt. Im Vergleich zur Woche davor stieg die Impfkadenz um 9 Prozent.
 
-Insgesamt wurden bis Mittwoch 884'905 Impfungen durchgeführt. Bislang sind 300'568 Personen vollständig geimpft, das heisst 3,5 Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei 283'769 Personen wurden bislang nur die Erstimpfung durchgeführt.
+Insgesamt wurden bis Sonntag 951'804 Impfungen durchgeführt. Bislang sind 332'585 Personen vollständig geimpft, das heisst 3,8 Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei 286'634 Personen wurden bislang nur die Erstimpfung durchgeführt.
 
-Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan 305'395 Impfdosen. Zudem sind noch 117'100 Impfdosen beim Bund gelagert.
-
-
-
-Coronavirus: 133'896 nouvelles vaccinations en 7 jours en Suisse (OFSP)
-
-Berne (awp/ats) - Du jeudi à mercredi dernier, 133'896 doses de vaccin contre le Covid-19 ont été administrées en Suisse, selon les données publiées vendredi sur le site de l'Office fédéral de la santé publique (OFSP).
-
-En moyenne, 19'128 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections a ralenti de 3%.
-
-Au total, 884'905 vaccinations ont été réalisées jusqu'à mercredi. Jusqu'ici, 300'568 personnes ont été vaccinées complètement. Cela signifie que 3,5% de la population a déjà obtenu deux doses de vaccin. 283'769 personnes n'ont reçu que la première piqûre.
-
-Quelque 305'395 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 117'100 doses sont stockées par la Confédération.
+Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan 266'396 Impfdosen. Zudem sind noch 89'200 Impfdosen beim Bund gelagert.
 
 
 
-Coronavirus: UFSP, 133'896 nuove vaccinazioni in 7 giorni
+Coronavirus: 144'005 nouvelles vaccinations en 7 jours en Suisse (OFSP)
 
-Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal 25 al 3 marzo sono state 133'896. È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).
+Berne (awp/ats) - De lundi à dimanche dernier, 144'005 doses de vaccin contre le Covid-19 ont été administrées en Suisse, selon les données publiées mardi sur le site de l'Office fédéral de la santé publique (OFSP).
 
-In media, nella Confederazione vengono effettuate 19'128 vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni è diminuito del 3%.
+En moyenne, 20'572 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections s'est accéléré de 9%.
 
-In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate 884'905 dosi di vaccino. Fino ad ora 300'568 persone sono state completamente vaccinate, questo significa che il 3,5 percento della popolazione ha ricevuto due iniezioni. A 283'769  persone è stata invece somministrata una sola dose.
+Au total, 951'804 vaccinations ont été réalisées jusqu'à dimanche. Jusqu'ici, 332'585 personnes ont été vaccinées complètement. Cela signifie que 3,8% de la population a déjà obtenu deux doses de vaccin. 286'634 personnes n'ont reçu que la première piqûre.
 
-Attualmente 305'395 dosi sono state consegnate ai cantoni, ma non ancora somministrate. Inoltre, 117'100 dosi sono immagazzinate dalla Confederazione.
+Quelque 266'396 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 89'200 doses sont stockées par la Confédération.
+
+
+
+Coronavirus: UFSP, 144'005 nuove vaccinazioni in 7 giorni
+
+Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal 1 al 7 marzo sono state 144'005. È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).
+
+In media, nella Confederazione vengono effettuate 20'572 vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni è aumentato del 9%.
+
+In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate 951'804 dosi di vaccino. Fino ad ora 332'585 persone sono state completamente vaccinate, questo significa che il 3,8 percento della popolazione ha ricevuto due iniezioni. A 286'634  persone è stata invece somministrata una sola dose.
+
+Attualmente 266'396 dosi sono state consegnate ai cantoni, ma non ancora somministrate. Inoltre, 89'200 dosi sono immagazzinate dalla Confederazione.
 
 Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP) e della Base logistica dell'Esercito (BLEs) UTF-8

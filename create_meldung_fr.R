@@ -114,7 +114,7 @@ text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
                " sur www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")
 
-#Meldung erzeugen
+#Meldung erzeugen P
 date_and_time <- format(Sys.time(), "%Y%m%dT%H%M%S%z")
 
 #ID erzeugen
@@ -143,10 +143,50 @@ vorlage <- str_replace_all(vorlage,"Insert_Text",text)
 
 #Datei speichern
 setwd("./Output")
-cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_p.xml"))
+cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_a.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_fr_p.xml"), "ftp://ftp.awp.ch/impfungen_fr_p.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_fr_a.xml"), "ftp://ftp.awp.ch/impfungen_fr_a.xml",userpwd="awprobot:awp32Feed43")
+
+setwd("..")
+
+#Meldung erzeugen B
+date_and_time <- format(Sys.time(), "%Y%m%dT%H%M%S%z")
+
+#ID erzeugen
+ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
+ID <- as.numeric(ID)
+ID_new <- ID+1
+cat(ID_new, file="C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt")
+
+#Vorlage laden
+vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
+
+###Daten einfügen
+vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
+vorlage <- gsub("Insert_ID",ID,vorlage)
+vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Storytype","T",vorlage)
+vorlage <- gsub("Insert_Language","fr",vorlage)
+vorlage <- gsub("Insert_Country","CH",vorlage)
+vorlage <- gsub("Insert_Companies","<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>", vorlage)
+vorlage <- gsub("Insert_Channel","B", vorlage)
+vorlage <- gsub("Insert_Relations","<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>\n", vorlage)
+
+#Text für B
+text_b <- paste0(text_einleitung,"<p/>\n\n",
+                 "<p>awp-robot/sw/</p>")
+
+#Titel und Text einfügen
+vorlage <- str_replace_all(vorlage,"Insert_Headline",title)
+vorlage <- str_replace_all(vorlage,"Insert_Text",text_b)
+
+#Datei speichern
+setwd("./Output")
+cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_b.xml"))
+
+###FTP-Upload
+ftpUpload(paste0(date_and_time,"_impfungen_fr_b.xml"), "ftp://ftp.awp.ch/impfungen_fr_b.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
