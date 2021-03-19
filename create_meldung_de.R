@@ -21,12 +21,46 @@ wochentag_publish <- gsub("Friday","Freitag",wochentag_publish)
 wochentag_publish <- gsub("Saturday","Samstag",wochentag_publish)
 wochentag_publish <- gsub("Sunday","Sonntag",wochentag_publish)
 
+#Datum
+number_date <- as.numeric(format(date_verabreicht,"%d"))
+number_date_earlier <- as.numeric(format(date_verabreicht-6,"%d"))
+
+#Monat
+month <- months(date_verabreicht)
+month <- gsub("January","Januar",month)
+month <- gsub("February","Februar",month)
+month <- gsub("March","März",month)
+month <- gsub("April","April",month)
+month <- gsub("May","Mai",month)
+month <- gsub("June","Juni",month)
+month <- gsub("July","Juli",month)
+month <- gsub("August","August",month)
+month <- gsub("September","September",month)
+month <- gsub("October","Oktober",month)
+month <- gsub("November","November",month)
+month <- gsub("December","Dezember",month)
+
+#Monat vor einer Woche
+month_earlier <- months(date_verabreicht-6)
+month_earlier <- gsub("January","Januar",month_earlier)
+month_earlier <- gsub("February","Februar",month_earlier)
+month_earlier <- gsub("March","März",month_earlier)
+month_earlier <- gsub("April","April",month_earlier)
+month_earlier <- gsub("May","Mai",month_earlier)
+month_earlier <- gsub("June","Juni",month_earlier)
+month_earlier <- gsub("July","Juli",month_earlier)
+month_earlier <- gsub("August","August",month_earlier)
+month_earlier <- gsub("September","September",month_earlier)
+month_earlier <- gsub("October","Oktober",month_earlier)
+month_earlier <- gsub("November","November",month_earlier)
+month_earlier <- gsub("December","Dezember",month_earlier)
+
 
 title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")," neue Impfungen in den letzten 7 Tagen")
 
 anteil_bevoelkerung <- round((as.numeric(impfdaten_meldung$Verimpft_pro_person[1])/impfdaten_meldung$Verimpft[1])*impfungen_complete,1)
 
-text_einleitung <- paste0("<p>Bern (awp) - Bis und mit ",wochentag_publish," sind in der Schweiz innert Wochenfrist ",
+text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_earlier," bis ",number_date,". ",month," sind in der Schweiz ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
                           " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am ",wochentag,
                           " auf seiner Website veröffentlichte.\n</p>",

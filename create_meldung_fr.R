@@ -30,6 +30,38 @@ wochentag_publish_last <- gsub("Friday","vendredi",wochentag_publish_last)
 wochentag_publish_last <- gsub("Saturday","samedi",wochentag_publish_last)
 wochentag_publish_last <- gsub("Sunday","dimanche",wochentag_publish_last)
 
+#Monat
+month <- months(date_verabreicht)
+month <- gsub("January","janvier",month)
+month <- gsub("February","février",month)
+month <- gsub("March","mars",month)
+month <- gsub("April","avril",month)
+month <- gsub("May","mai",month)
+month <- gsub("June","juin",month)
+month <- gsub("July","juillet",month)
+month <- gsub("August","août",month)
+month <- gsub("September","septembre",month)
+month <- gsub("October","octobre",month)
+month <- gsub("November","novembre",month)
+month <- gsub("December","décembre",month)
+
+#Monat vor einer Woche
+month_earlier <- months(date_verabreicht-6)
+month_earlier <- gsub("January","janvier",month_earlier)
+month_earlier <- gsub("February","février",month_earlier)
+month_earlier <- gsub("March","mars",month_earlier)
+month_earlier <- gsub("April","avril",month_earlier)
+month_earlier <- gsub("May","mai",month_earlier)
+month_earlier <- gsub("June","juin",month_earlier)
+month_earlier <- gsub("July","juillet",month_earlier)
+month_earlier <- gsub("August","août",month_earlier)
+month_earlier <- gsub("September","septembre",month_earlier)
+month_earlier <- gsub("October","octobre",month_earlier)
+month_earlier <- gsub("November","novembre",month_earlier)
+month_earlier <- gsub("December","décembre",month_earlier)
+
+
+
 tendenz_fr <- gsub("stieg die Impfkadenz um","le rythme des injections s'est accéléré de",tendenz)
 tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des injections a ralenti de",tendenz_fr)
 tendenz_fr <- gsub(" Prozent","%",tendenz_fr)
@@ -37,7 +69,7 @@ tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des inj
 
 title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
 
-text_einleitung <- paste0("<p>Berne (awp) - De ",wochentag_publish_last," à ",wochentag_publish," dernier, ",
+text_einleitung <- paste0("<p>Berne (awp) - Du ",number_date_earlier," ",month_earlier," au ",number_date," ",month,", ",
                           format(impfungen_letzte_woche,big.mark = "'"),
                           " doses de vaccin contre la Covid-19 ont été administrées en Suisse",
                           ", selon les données publiées ",
@@ -204,9 +236,7 @@ text_sda_fr <- gsub("awp","awp/ats",text_sda_fr)
 ###Text SDA italienisch
 title_sda_it <- paste0("Coronavirus: UFSP, ",format(impfungen_letzte_woche,big.mark = "'")," nuove vaccinazioni in 7 giorni")
 
-#Zeitspanne
-number_date <- as.numeric(format(date_verabreicht,"%d"))
-number_date_earlier <- as.numeric(format(date_verabreicht-6,"%d"))
+#Monat
 month <- months(date_verabreicht)
 month <- gsub("January","gennaio",month)
 month <- gsub("February","febbraio",month)
@@ -221,7 +251,20 @@ month <- gsub("October","ottobre",month)
 month <- gsub("November","novembre",month)
 month <- gsub("December","dicembre",month)
 
-
+#Monat vor einer Woche
+month_earlier <- months(date_verabreicht-6)
+month_earlier <- gsub("January","gennaio",month_earlier)
+month_earlier <- gsub("February","febbraio",month_earlier)
+month_earlier <- gsub("March","marzo",month_earlier)
+month_earlier <- gsub("April","aprile",month_earlier)
+month_earlier <- gsub("May","maggio",month_earlier)
+month_earlier <- gsub("June","giugno",month_earlier)
+month_earlier <- gsub("July","luglio",month_earlier)
+month_earlier <- gsub("August","agosto",month_earlier)
+month_earlier <- gsub("September","settembre",month_earlier)
+month_earlier <- gsub("October","ottobre",month_earlier)
+month_earlier <- gsub("November","novembre",month_earlier)
+month_earlier <- gsub("December","dicembre",month_earlier)
 
 #Tendenz italienisch
 tendenz_it <- gsub("le rythme des injections s'est accéléré de","è aumentato del",tendenz_fr)
@@ -230,7 +273,7 @@ tendenz_it <- gsub("le rythme des injections reste inchangé","non è cambiato",
 
 
 text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
-                             number_date_earlier," al ",number_date," ",month,
+                             number_date_earlier," ",month_earlier," al ",number_date," ",month,
                           " sono state ",format(impfungen_letzte_woche,big.mark = "'"),
                           ". È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).\n\n",
                           "In media, nella Confederazione vengono effettuate ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
