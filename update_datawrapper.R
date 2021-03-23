@@ -74,9 +74,18 @@ dw_edit_chart("OmzDG",intro=paste0("In Svizzera fino a questo momento sono state
                           " percento</b> della popolazione ha ricevuto due iniezioni."), annotate=paste0("Stato: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("OmzDG")
 
+#Tabellen SDA
 dw_edit_chart("6thMk",intro=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("6thMk")
 
+dw_edit_chart("ILXgH",intro=paste0("Etat: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("ILXgH")
+
+dw_edit_chart("mfQwr",intro=paste0("Stato: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("mfQwr")
+
+
+#Karten AWP
 dw_edit_chart("d7vmx",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen. <b>",
                                    format(impfungen_complete,big.mark = "'"),"</b> Personen sind bereits vollständig geimpft, das heisst <b>",round(anteil_bevoelkerung,1),
                                    " Prozent</b> der Bevölkerung haben bereits zwei Impfdosen erhalten."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
@@ -85,5 +94,3 @@ dw_publish_chart("d7vmx")
 dw_edit_chart("TeJmy",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations. <b>",
                                    format(impfungen_complete,big.mark = "'"),"</b> personnes sont déjà entièrement vaccinées. Pour garantir une protection optimale, deux doses de vaccin sont nécessaires."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("TeJmy")
-
-View(impfdaten_dw)

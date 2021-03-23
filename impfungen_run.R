@@ -103,8 +103,10 @@ source("update_datawrapper.R", encoding = "UTF-8")
        s = "Neue Impf-Zahlen gefunden - automatisierte Meldung steht bereit",
        body= paste0("Liebes SDA-Team,\n\n",
                     "Die neuen Zahlen auf der BAG-Seite wurden erfolgreich erfasst und die Datawrapper-Karten aktualisiert.\n\n",
-                    "Ihr findet die aktuelle Meldung auf Deutsch, Französisch und Italienisch hier:\n https://github.com/awp-finanznachrichten/impfzahlen/blob/master/Output/text_sda.txt\n\n",
-                    "Eine Uebersicht über den Stand aller Kantone gibt es hier: https://datawrapper.dwcdn.net/6thMk\n\n",
+                    "Ihr findet die aktuelle Meldung auf Deutsch, Französisch und Italienisch hier:\nhttps://github.com/awp-finanznachrichten/impfzahlen/blob/master/Output/text_sda.txt\n\n",
+                    "Eine Uebersicht über den Stand aller Kantone gibt es hier:\nhttps://datawrapper.dwcdn.net/6thMk (DE)\n",
+                    "https://datawrapper.dwcdn.net/ILXgH (FR)\n",
+                    "https://datawrapper.dwcdn.net/mfQwr (IT)\n\n",
                     "Liebe Grüsse\n\n",
                     "AWP-Robot"),
        server = "smtp.juergruettimann.ch",
@@ -124,4 +126,3 @@ print("Keine aktuellen Impfdaten gefunden")
 }  
 
 }
-
