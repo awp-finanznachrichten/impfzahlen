@@ -228,9 +228,11 @@ title_sda <- paste0("Coronavirus: ",format(impfungen_letzte_woche,big.mark = "'"
 
 text_sda_fr <- gsub("<p>","\n",text_einleitung)
 text_sda_fr <- gsub("</p>","",text_sda_fr)
-text_sda_fr <- paste0(title_sda,"\n\n",
-                      "Note: La dépêche a été générée automatiquement sur la base des données de l’Office fédéral de la santé publique (OFSP) et de la Base logistique de l’Armée (BLA). Elle a été relue avant diffusion.\n",
-                      text_sda_fr)
+text_sda_fr <- paste0(title_sda,"\n",
+                      text_sda_fr,"\n",
+                      "https://datawrapper.dwcdn.net/ILXgH ","\n\n",
+                      "Note: La dépêche a été générée automatiquement sur la base des données de l’Office fédéral de la santé publique (OFSP) et de la Base logistique de l’Armée (BLA). Elle a été relue avant diffusion."
+                      )
 
 text_sda_fr <- gsub("la Covid","le Covid",text_sda_fr)
 text_sda_fr <- gsub("awp","awp/ats",text_sda_fr)
@@ -292,6 +294,7 @@ text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Cov
                           " dosi sono state consegnate ai cantoni, ma non ancora somministrate.",
                           " Inoltre, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
                           " dosi sono immagazzinate dalla Confederazione.\n\n",
+                          "https://datawrapper.dwcdn.net/mfQwr","\n\n",
                           "Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP) e della Base logistica dell'Esercito (BLEs)"
                           )
 
