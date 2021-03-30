@@ -77,6 +77,8 @@ if (readin_check == TRUE) {
 
 #Prepare Data  
 source("prepare_data.R", encoding = "UTF-8")
+  
+#Check Data and create special Flashes (if needed)
 
 #Create Meldungen DE/FR
 source("create_meldung_de.R", encoding = "UTF-8")
