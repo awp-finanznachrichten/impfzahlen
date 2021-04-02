@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210402T153126+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>6481</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210402T153126+0200</DateId>
+       <NewsItemId>6481</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210402T153126+0200:6481:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210402T153126+0200</FirstCreated>
+    <ThisRevisionCreated>20210402T153126+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 194'546 nouvelles vaccinations en 7 jours (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Berne (awp) - Du 25 mars au 31 mars, 194'546 doses de vaccin contre la Covid-19 ont été administrées en Suisse, selon les données publiées vendredi sur le site de l'Office fédéral de la santé publique (OFSP).
+</p><p>En moyenne, 27'792 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections s'est accéléré de 17%.
+</p><p>Au total, 1'542'286 vaccinations ont été réalisées jusqu'à mercredi. Jusqu'ici, 576'511 personnes ont été vaccinées complètement. Cela signifie que 6,7% de la population a déjà obtenu deux doses de vaccin. 389'264 personnes n'ont reçu que la première piqûre.
+</p><p>Quelque 521'264 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 168'825 doses sont stockées par la Confédération.
+</p><pre>
+[[
+                                    7 derniers jours   semaine préc.   total
+
+Doses administrées                  194'546            166'650         1'542'286
+Nombre vaccinations/100 habitants   2,2                1,9            17,8
+
+(2 doses de vaccin nécessaires par personne)
+
+Données par cantons:
+
+         vaccinations/100 habit.  variation       total vaccinations/
+         7 derniers jours         semaine préc.   100 habit.
+
+ZH       1,3                      -15%            14,5
+BE       1,8                      +2%             17,2
+BS       2,4                      +21%            18,7
+SG       2,4                      +6%             18,9
+AG       2,6                      +29%            18,4
+LU       2,4                      +34%            16,9
+GE       3,1                      +19%            20,9
+VD       2,4                      -1%             18,7
+
+]]</pre><p/>
+
+<p>Carte: https://datawrapper.dwcdn.net/TeJmy 
+</p><p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>

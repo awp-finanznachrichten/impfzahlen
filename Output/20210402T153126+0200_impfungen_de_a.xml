@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210402T153126+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>6479</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210402T153126+0200</DateId>
+       <NewsItemId>6479</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210402T153126+0200:6479:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210402T153126+0200</FirstCreated>
+    <ThisRevisionCreated>20210402T153126+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>BAG registriert 194'546 neue Impfungen in den letzten 7 Tagen</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="de"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Bern (awp) - Vom 25. März bis 31. März sind in der Schweiz 194'546 Impfdosen gegen Covid-19 verabreicht worden. Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am Freitag auf seiner Website veröffentlichte.
+</p><p>Pro Tag wurden damit durchschnittlich 27'792 Impfungen durchgeführt. Im Vergleich zur Woche davor stieg die Impfkadenz um 17 Prozent.
+</p><p>Insgesamt wurden bis Mittwoch 1'542'286 Impfungen durchgeführt. Bislang sind 576'511 Personen vollständig geimpft, das heisst 6,7 Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei 389'264 Personen wurden bislang nur die Erstimpfung durchgeführt.
+</p><p>Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan 521'264 Impfdosen. Zudem sind noch 168'825 Impfdosen beim Bund gelagert.
+</p><pre>
+[[
+                              Letzte 7 Tage    Woche davor     Total
+
+Verimpfte Dosen               194'546          166'650         1'542'286
+Impfungen pro 100 Einwohner   2,2              1,9            17,8
+
+(pro Person sind zwei Impfungen notwendig)
+
+Daten aus ausgewählten Kantonen:
+
+         Zahl Impf./100 Einw.   Veränderung     Total Impf./
+         letzte 7 Tage          ggü. Vorwoche   100 Einw.
+
+ZH       1,3                    -15%            14,5
+BE       1,8                    +2%             17,2
+BS       2,4                    +21%            18,7
+SG       2,4                    +6%             18,9
+AG       2,6                    +29%            18,4
+LU       2,4                    +34%            16,9
+GE       3,1                    +19%            20,9
+VD       2,4                    -1%             18,7
+
+]]</pre><p/>
+
+<p>Übersichtskarte zur Situation in den einzelnen Kantonen: https://datawrapper.dwcdn.net/d7vmx 
+</p><p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA) auf www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>

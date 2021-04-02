@@ -25,7 +25,7 @@ Sys.sleep(2)
 hour <- format(Sys.time(),"%H")
 hour <- as.numeric(hour)
 
-if (hour > 22) {
+if (hour > 16) {
   
   library(blatr)
   
@@ -79,6 +79,7 @@ if (readin_check == TRUE) {
 source("prepare_data.R", encoding = "UTF-8")
   
 #Check Data and create special Flashes (if needed)
+source("create_special_flashes.R", encoding= "UTF-8")
 
 #Create Meldungen DE/FR
 source("create_meldung_de.R", encoding = "UTF-8")
