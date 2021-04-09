@@ -23,7 +23,7 @@ if (impfdaten_meldung$impfungen_last_week[1] > 200000 ) {
   vorlage <- gsub("Insert_Status","Usable",vorlage)
   vorlage <- gsub("Insert_Language","de",vorlage)
   vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
-  vorlage <- gsub("Insert_Companies","<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>", vorlage)
+  vorlage <- gsub("Insert_Companies","<Property FormalName='ShortName' Value='BAG'/>", vorlage)
   vorlage <- gsub("Insert_Channel","P", vorlage)
   vorlage <- gsub("Insert_Relations","<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>\n", vorlage)
   
@@ -63,7 +63,7 @@ if (impfdaten_meldung$impfungen_last_week[1] > 200000 ) {
   vorlage <- gsub("Insert_Status","Usable",vorlage)
   vorlage <- gsub("Insert_Language","fr",vorlage)
   vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
-  vorlage <- gsub("Insert_Companies","<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>", vorlage)
+  vorlage <- gsub("Insert_Companies","<Property FormalName='ShortName' Value='BAG'/>", vorlage)
   vorlage <- gsub("Insert_Channel","P", vorlage)
   vorlage <- gsub("Insert_Relations","<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>\n", vorlage)
   
@@ -127,7 +127,7 @@ if (anteil_bevoelkerung > 10 ) {
   vorlage <- gsub("Insert_Status","Usable",vorlage)
   vorlage <- gsub("Insert_Language","de",vorlage)
   vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
-  vorlage <- gsub("Insert_Companies","<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>", vorlage)
+  vorlage <- gsub("Insert_Companies","<Property FormalName='ShortName' Value='BAG'/>", vorlage)
   vorlage <- gsub("Insert_Channel","P", vorlage)
   vorlage <- gsub("Insert_Relations","<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>\n", vorlage)
   
@@ -165,7 +165,7 @@ if (anteil_bevoelkerung > 10 ) {
   vorlage <- gsub("Insert_Status","Usable",vorlage)
   vorlage <- gsub("Insert_Language","fr",vorlage)
   vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
-  vorlage <- gsub("Insert_Companies","<Property FormalName='Relation.Name' Value='Bundesamt für Gesundheit (BAG)'/>", vorlage)
+  vorlage <- gsub("Insert_Companies","<Property FormalName='ShortName' Value='BAG'/>", vorlage)
   vorlage <- gsub("Insert_Channel","P", vorlage)
   vorlage <- gsub("Insert_Relations","<Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>\n", vorlage)
   
