@@ -88,7 +88,7 @@ if (impfdaten_meldung$impfungen_last_week[1] > 200000 ) {
        to = "robot-notification@awp.ch, inland@keystone-sda.ch, suisse@keystone-ats.ch, redazione@keystone-ats.ch, federico.bragagnini@keystone-ats.ch, thomas.oswald@keystone-sda.ch, nicola.wenger@keystone-ats.ch",
        s = "Erstmals mehr als 200'000 Impfungen innert 7 Tagen",
        body= paste0("Liebes SDA-Team,\n\n",
-                    "Die Impffrequenz nimmt Fahrt auf: Erstmals wurden in der Schweiz innerhalb einer Woche über 200'000 Impfdosen verabereicht.\n\n",
+                    "Die Impffrequenz nimmt Fahrt auf: Erstmals wurden in der Schweiz innerhalb einer Woche über 200'000 Impfdosen verabreicht.\n\n",
                     "Liebe Grüsse\n\n",
                     "AWP-Robot"),
        server = "smtp.juergruettimann.ch",

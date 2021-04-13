@@ -137,6 +137,5 @@ library(blatr)
        server = "smtp.juergruettimann.ch",
        u = "awp-robot@juergruettimann.ch",
        pw = "SimonWolanin123")
-  
 }  
 
