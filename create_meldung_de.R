@@ -72,7 +72,7 @@ text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_
                           gsub("[.]",",",anteil_bevoelkerung),
                           " Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          " Personen wurden bislang nur die Erstimpfung durchgeführt.\n</p>",
+                          " Personen wurde bislang nur die Erstimpfung durchgeführt.\n</p>",
                           "<p>Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan ",
                           format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
                           " Impfdosen. Zudem sind noch ", 

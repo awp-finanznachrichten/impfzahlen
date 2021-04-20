@@ -85,6 +85,9 @@ source("create_special_flashes.R", encoding= "UTF-8")
 source("create_meldung_de.R", encoding = "UTF-8")
 source("create_meldung_fr.R", encoding = "UTF-8")
   
+#Create Entwicklungschart
+source("chart_entwicklung.R", encoding = "UTF-8")
+  
 #Update Datawrapper Maps
 source("update_datawrapper.R", encoding = "UTF-8")
   
