@@ -87,7 +87,7 @@ strrep(" ",16-nchar(format(impfdaten_meldung$impfungen_second_last_week[1],big.m
 ,format(impfdaten_meldung$Verimpft[1],big.mark = "'"),"\n",
 "Impfungen pro 100 Einwohner   ",impfdaten_meldung$personen_last_week[1],
 "              ",impfdaten_meldung$personen_second_last_week[1],
-"            ",impfdaten_meldung$Verimpft_pro_person[1],"\n\n",
+"             ",impfdaten_meldung$Verimpft_pro_person[1],"\n\n",
 "(pro Person sind zwei Impfungen notwendig)\n\n",
 "Daten aus ausgewählten Kantonen:\n\n",
 "         Zahl Impf./100 Einw.   Veränderung     Total Impf./\n",
