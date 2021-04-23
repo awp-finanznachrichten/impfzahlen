@@ -94,3 +94,15 @@ dw_publish_chart("d7vmx")
 dw_edit_chart("TeJmy",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> injections pour 100 habitants ont été réalisées jusqu'ici. Cela représente en tout <b>",impfungen_ch,"</b> vaccinations. <b>",
                                    format(impfungen_complete,big.mark = "'"),"</b> personnes sont déjà entièrement vaccinées. Pour garantir une protection optimale, deux doses de vaccin sont nécessaires."), annotate=paste0("Etat: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("TeJmy")
+
+#Impfentwicklung Chart
+dw_publish_chart("bnIJk")
+
+#Chart SDA
+dw_edit_chart("pyMze",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
+dw_publish_chart("pyMze")
+
+#Bild speichern
+#library(magick)
+#map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=10, width=400, height=910)
+#image_write(map,path="chart_sda_2.jpeg",format="jpeg")
