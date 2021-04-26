@@ -29,6 +29,7 @@ for (c in 2:ncol(impfdaten_entwicklung)) {
 impfdaten_entwicklung <- impfdaten_entwicklung[-c(1:2),]
 
 impfdaten_entwicklung$week <- paste0("KW ",isoweek(impfdaten_entwicklung$datum),"\n (",format(impfdaten_entwicklung$datum-6,"%d.%m"),"-",format(impfdaten_entwicklung$datum,"%d.%m"),")")
+impfdaten_entwicklung$week_fr <- paste0(format(impfdaten_entwicklung$datum-6,"%d.%m"),"-",format(impfdaten_entwicklung$datum,"%d.%m"))
 
 write.csv(impfdaten_entwicklung,"Output/chart_entwicklung_impfungen.csv",row.names = FALSE)
 
