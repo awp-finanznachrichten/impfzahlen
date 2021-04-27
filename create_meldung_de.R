@@ -130,7 +130,8 @@ tabelle <- str_replace_all(tabelle,"Impf,","Impf.")
 tabelle <- str_replace_all(tabelle,"ggü,","ggü.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
-               "<p>Übersichtskarte zur Situation in den einzelnen Kantonen: https://datawrapper.dwcdn.net/d7vmx \n</p>",
+               "<p>Übersichtskarte zur Situation in den einzelnen Kantonen: https://datawrapper.dwcdn.net/d7vmx </p>",
+               "<p>Grafik zur Impfgeschwindigkeit in der Schweiz: https://datawrapper.dwcdn.net/bNIJk \n</p>",
                "<p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA)",
                " auf www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")

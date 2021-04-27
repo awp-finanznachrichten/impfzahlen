@@ -141,7 +141,8 @@ tabelle <- str_replace_all(tabelle,"habit,","habit.")
 tabelle <- str_replace_all(tabelle,"préc,","préc.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
-               "<p>Carte: https://datawrapper.dwcdn.net/TeJmy \n</p>",
+               "<p>Carte le point sur la vaccine en suisse: https://datawrapper.dwcdn.net/TeJmy </p>",
+               "<p>Le taux de vaccination en Suisse: https://datawrapper.dwcdn.net/XjYhi \n</p>",
                "<p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA)",
                " sur www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")
