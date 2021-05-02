@@ -104,6 +104,13 @@ dw_edit_chart("pyMze",intro=paste0("In der Schweiz wurden bislang pro 100 Einwoh
 dw_publish_chart("pyMze")
 
 #Bild speichern
-#library(magick)
-#map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=10, width=400, height=910)
-#image_write(map,path="chart_sda_2.jpeg",format="jpeg")
+library(magick)
+
+#Als JPEG
+map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=10, width=400, height=910)
+image_write(map,path="./SDA_Grafik/preview.jpeg",format="jpeg")
+
+#Als EPS
+map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=60, width=400, height=910)
+image_write(map,path="./SDA_Grafik/Impfungen.eps",format="eps")
+
