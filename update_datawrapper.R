@@ -114,3 +114,8 @@ image_write(map,path="./SDA_Grafik/preview.jpeg",format="jpeg")
 map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=60, width=400, height=910)
 image_write(map,path="./SDA_Grafik/Impfungen.eps",format="eps")
 
+#Make Commit
+git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
+gitadd()
+gitcommit()
+gitpush()
