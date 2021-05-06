@@ -102,20 +102,3 @@ dw_publish_chart("XjYhi")
 #Chart SDA
 dw_edit_chart("pyMze",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))
 dw_publish_chart("pyMze")
-
-#Bild speichern
-library(magick)
-
-#Als JPEG
-map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=10, width=400, height=910)
-image_write(map,path="./SDA_Grafik/preview.jpeg",format="jpeg")
-
-#Als EPS
-map <- dw_export_chart("pyMze", scale=4,plain=FALSE, border_width=60, width=400, height=910)
-image_write(map,path="./SDA_Grafik/Impfungen.eps",format="eps")
-
-#Make Commit
-git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
-gitadd()
-gitcommit()
-gitpush()
