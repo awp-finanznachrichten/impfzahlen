@@ -122,7 +122,6 @@ source("update_datawrapper.R", encoding = "UTF-8")
 #Create SDA Grafik
 source("grafik_sda.R", encoding = "UTF-8")
   
-  
 }  
   
 break  

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210507T133034+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>7376</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210507T133034+0200</DateId>
+       <NewsItemId>7376</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210507T133034+0200:7376:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210507T133034+0200</FirstCreated>
+    <ThisRevisionCreated>20210507T133034+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 372'796 nouvelles vaccinations en 7 jours (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Berne (awp) - Du 29 avril au 5 mai, 372'796 doses de vaccin contre la Covid-19 ont été administrées en Suisse, selon les données publiées vendredi sur le site de l'Office fédéral de la santé publique (OFSP).
+</p><p>En moyenne, 53'257 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections s'est accéléré de 4%.
+</p><p>Au total, 3'014'858 vaccinations ont été réalisées jusqu'à mercredi. Jusqu'ici, 1'007'496 personnes ont été vaccinées complètement. Cela signifie que 11,7% de la population a déjà obtenu deux doses de vaccin. 999'866 personnes n'ont reçu que la première piqûre.
+</p><p>Quelque 642'642 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 179'575 doses sont stockées par la Confédération.
+</p><pre>
+[[
+                                    7 derniers jours   semaine préc.   total
+
+Doses administrées                  372'796            357'624         3'014'858
+Nombre vaccinations/100 habitants   4,3                4,1             34,9
+
+(2 doses de vaccin nécessaires par personne)
+
+Données par cantons:
+
+         vaccinations/100 habit.  variation       total vaccinations/
+         7 derniers jours         semaine préc.   100 habit.
+
+ZH       3,5                      +23%            28,7
+BE       5,8                      +32%            36,9
+BS       3,6                      -35%            34,9
+SG       3,1                      -25%            35,2
+AG       4,0                      +1%             36,1
+LU       4,9                      +18%            33,3
+GE       4,4                      -15%            40,3
+VD       5,0                      +13%            34,8
+
+]]</pre><p/>
+
+<p>Carte le point sur la vaccine en suisse: https://datawrapper.dwcdn.net/TeJmy </p><p>Le taux de vaccination en Suisse: https://datawrapper.dwcdn.net/XjYhi 
+</p><p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>
