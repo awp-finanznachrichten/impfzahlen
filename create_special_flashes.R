@@ -1,8 +1,8 @@
 ###Check Impffrequenz
-if (impfdaten_meldung$impfungen_last_week[1] > 500000 ) {
+if (impfdaten_meldung$impfungen_last_week[1] > 600000 ) {
 
   ###Create Flash DE
-  flash <- "BAG: Erstmals mehr als 500'000 Impfungen innert 7 Tagen"
+  flash <- "BAG: Erstmals mehr als 600'000 Impfungen innert 7 Tagen"
   
   #ID erzeugen
   ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
@@ -42,7 +42,7 @@ if (impfdaten_meldung$impfungen_last_week[1] > 500000 ) {
   
   
   ###Create Flash FR
-  flash <- "OFSP: cap franchi des 500'000 vaccinations en 7 jours"
+  flash <- "OFSP: cap franchi des 600'000 vaccinations en 7 jours"
   
   #ID erzeugen
   ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
@@ -86,9 +86,9 @@ if (impfdaten_meldung$impfungen_last_week[1] > 500000 ) {
   
   blat(f = "robot-notification@awp.ch",
        to = "robot-notification@awp.ch, inland@keystone-sda.ch, suisse@keystone-ats.ch, redazione@keystone-ats.ch, federico.bragagnini@keystone-ats.ch, thomas.oswald@keystone-sda.ch, nicola.wenger@keystone-ats.ch",
-       s = "Erstmals mehr als 500'000 Impfungen innert 7 Tagen",
+       s = "Erstmals mehr als 600'000 Impfungen innert 7 Tagen",
        body= paste0("Liebes SDA-Team,\n\n",
-                    "Die Impffrequenz steigt weiter: Erstmals wurden in der Schweiz innerhalb einer Woche über 500'000 Impfdosen verabreicht.\n\n",
+                    "Die Impffrequenz steigt weiter: Erstmals wurden in der Schweiz innerhalb einer Woche über 600'000 Impfdosen verabreicht.\n\n",
                     "Liebe Grüsse\n\n",
                     "AWP-Robot"),
        server = "smtp.juergruettimann.ch",
