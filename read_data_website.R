@@ -36,7 +36,7 @@ temp <- tempfile()
 download.file(link,temp)
 data_geliefert <- read.csv(unz(temp,"data/COVID19VaccDosesDelivered.csv"))
 data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
-data_personen <- read.csv(unz(temp,"data/COVID19FullyVaccPersons.csv"))
+data_personen <- read.csv(unz(temp,"data/COVID19VaccPersons.csv"))
 
 unlink(temp)
 
@@ -155,8 +155,6 @@ sql_qry <- paste0(sql_qry, paste(sprintf("('%s','%s','%s','%s','%s','%s','%s','%
 dbGetQuery(mydb, "SET NAMES 'utf8'")
 rs <- dbSendQuery(mydb, sql_qry)
 
-
-
 dbDisconnectAll()
 
 readin_check <- TRUE
@@ -171,3 +169,5 @@ print("Problem beim Einlesen der Impfdaten")
 }  
 
 }
+
+                       

@@ -64,7 +64,6 @@ date_vollstaendig <- gsub(",.*","",date_vollstaendig)
 date_vollstaendig <- gsub(".*: ","",date_vollstaendig)
 date_vollstaendig <- as.Date(date_vollstaendig,format="%d.%m.%Y")
 
-
 if ( date_verabreicht == current_date-2 ) {
 
 #Get Flash-Data and create Flash DE/FR
