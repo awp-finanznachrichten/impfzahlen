@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210618T133315+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>8288</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210618T133315+0200</DateId>
+       <NewsItemId>8288</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210618T133315+0200:8288:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210618T133315+0200</FirstCreated>
+    <ThisRevisionCreated>20210618T133315+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>BAG registriert 623'008 neue Impfungen in den letzten 7 Tagen</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="de"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Bern (awp) - Vom 10. Juni bis 16. Juni sind in der Schweiz 623'008 Impfdosen gegen Covid-19 verabreicht worden. Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am Freitag auf seiner Website veröffentlichte.
+</p><p>Pro Tag wurden damit durchschnittlich 89'001 Impfungen durchgeführt. Im Vergleich zur Woche davor sank die Impfkadenz um 5 Prozent.
+</p><p>Insgesamt wurden bis Mittwoch 6'433'922 Impfungen durchgeführt. Bislang sind 2'497'599 Personen vollständig geimpft, das heisst 28,9 Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei 1'438'724 Personen wurde bislang nur die Erstimpfung durchgeführt.
+</p><p>Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan 230'303 Impfdosen. Zudem sind noch 97'550 Impfdosen beim Bund gelagert.
+</p><pre>
+[[
+                              Letzte 7 Tage    Woche davor     Total
+
+Verimpfte Dosen               623'008          658'987         6'433'922
+Impfungen pro 100 Einwohner   7,2               7,6             74,4
+
+(pro Person sind zwei Impfungen notwendig)
+
+Daten aus ausgewählten Kantonen:
+
+         Zahl Impf./100 Einw.   Veränderung     Total Impf./
+         letzte 7 Tage          ggü. Vorwoche   100 Einw.
+
+ZH       8,7                    -17%            74,7
+BE       8,1                    +6%             79,9
+BS       6,4                    -28%            81,5
+SG       5,9                    -5%             67,7
+AG       7,0                    -3%             72,7
+LU       7,2                    +12%            72,2
+GE       7,1                    -11%            82,1
+VD       7,2                    -11%            74,6
+
+]]</pre><p/>
+
+<p>Übersichtskarte zur Situation in den einzelnen Kantonen: https://datawrapper.dwcdn.net/d7vmx </p><p>Grafik zur Impfgeschwindigkeit in der Schweiz: https://datawrapper.dwcdn.net/bNIJk 
+</p><p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA) auf www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>
