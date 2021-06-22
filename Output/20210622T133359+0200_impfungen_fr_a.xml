@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210622T133359+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>8347</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210622T133359+0200</DateId>
+       <NewsItemId>8347</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210622T133359+0200:8347:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210622T133359+0200</FirstCreated>
+    <ThisRevisionCreated>20210622T133359+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 611'689 nouvelles vaccinations en 7 jours (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Berne (awp) - Du 14 juin au 20 juin, 611'689 doses de vaccin contre la Covid-19 ont été administrées en Suisse, selon les données publiées mardi sur le site de l'Office fédéral de la santé publique (OFSP).
+</p><p>En moyenne, 87'384 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections a ralenti de 3%.
+</p><p>Au total, 6'731'891 vaccinations ont été réalisées jusqu'à dimanche. Jusqu'ici, 2'648'104 personnes ont été vaccinées complètement. Cela signifie que 30,6% de la population a déjà obtenu deux doses de vaccin. 1'435'683 personnes n'ont reçu que la première piqûre.
+</p><p>Quelque -11'991 doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées. Par ailleurs, 556'675 doses sont stockées par la Confédération.
+</p><pre>
+[[
+                                    7 derniers jours   semaine préc.   total
+
+Doses administrées                  611'689            628'962         6'731'891
+Nombre vaccinations/100 habitants   7,1                7,3             77,9
+
+(2 doses de vaccin nécessaires par personne)
+
+Données par cantons:
+
+         vaccinations/100 habit.  variation       total vaccinations/
+         7 derniers jours         semaine préc.   100 habit.
+
+ZH       8,8                      +3%             78,6
+BE       7,6                      -3%             83,2
+BS       6,8                      -4%             85,8
+SG       6,0                      -4%             70,9
+AG       6,2                      -13%            75,6
+LU       7,2                      +11%            75,6
+GE       7,4                      -5%             86,0
+VD       6,7                      -10%            77,7
+
+]]</pre><p/>
+
+<p>Carte le point sur la vaccine en suisse: https://datawrapper.dwcdn.net/TeJmy </p><p>Le taux de vaccination en Suisse: https://datawrapper.dwcdn.net/XjYhi 
+</p><p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>
