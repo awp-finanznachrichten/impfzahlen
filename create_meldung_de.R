@@ -73,11 +73,13 @@ text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_
                           " Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
                           " Personen wurde bislang nur die Erstimpfung durchgeführt.\n</p>",
-                          "<p>Bereits an die Kantone ausgeliefert, aber noch nicht eingesetzt, sind momentan ",
-                          format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " Impfdosen. Zudem sind noch ", 
-                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.\n</p>")
-
+                          "<p>Es wurden bislang ",
+                          format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
+                          " Impfdosen an die Kantone ausgeliefert. Zudem sind noch ",
+                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.",
+                          " Da es regelmässig gelingt, mehr Dosen als ursprünglich von den Herstellern vorgesehen pro Vial zu entnehmen,",
+                          " kann es sein, dass die Kantone mehr Impfdosen verabreichen, als sie gemäss offiziellen Zahlen erhalten haben.\n</p>")
+                          
 #Create Tabelle
 tabelle <- paste0("                              Letzte 7 Tage    Woche davor     Total\n\n",
 "Verimpfte Dosen               ",format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"),

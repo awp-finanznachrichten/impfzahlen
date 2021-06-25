@@ -84,10 +84,12 @@ text_einleitung <- paste0("<p>Berne (awp) - Du ",number_date_earlier," ",month_e
                           "% de la population a déjà obtenu deux doses de vaccin. ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
                           " personnes n'ont reçu que la première piqûre.\n</p>",
-                          "<p>Quelque ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " doses de vaccin ont été livrées aux cantons, mais n'ont pas encore été employées.",
-                          " Par ailleurs, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
-                          " doses sont stockées par la Confédération.\n</p>")
+                          "<p>Au total, ",
+                          format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
+                          " doses de vaccin ont été livrées aux cantons. Quelque ",
+                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," doses de vaccin sont par ailleurs entreposées auprès de la Confédération.",
+                          " Comme il est régulièrement possible d'extraire plu de doses de vaccin des flacons qu'initialement prévu par les fabricants,",
+                          "  il est possible que les cantons administrent plus de doses de vaccin qu'ils n'en ont officiellement reçu.\n</p>")
 
 text_einleitung <- gsub("De jeudi","Du jeudi",text_einleitung)
 
@@ -291,10 +293,12 @@ text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Cov
                           " percento della popolazione ha ricevuto due iniezioni. A ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
                           "  persone è stata invece somministrata una sola dose.\n\n",
-                          "Attualmente ",format(impfdaten_meldung$Impfdosen[1]-impfdaten_meldung$Verimpft[1],big.mark = "'"),
-                          " dosi sono state consegnate ai cantoni, ma non ancora somministrate.",
-                          " Inoltre, ",format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'"),
-                          " dosi sono immagazzinate dalla Confederazione.\n\n",
+                          "In totale sono state consegnate ai Cantoni ",
+                          format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
+                          " dosi di vaccino. La Confederazione è inoltre ancora in possesso di ",
+                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," dosi.",
+                          " Siccome spesso si riescono a estrarre più vaccini del previsto da una fiala,",
+                          " può accadere che in alcuni Cantoni le somministrazioni risultino superiori al numero ufficiale ricevuto.\n\n",
                           "https://datawrapper.dwcdn.net/mfQwr","\n\n",
                           "Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP) e della Base logistica dell'Esercito (BLEs)"
                           )

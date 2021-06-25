@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210625T133055+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>8430</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210625T133055+0200</DateId>
+       <NewsItemId>8430</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210625T133055+0200:8430:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210625T133055+0200</FirstCreated>
+    <ThisRevisionCreated>20210625T133055+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 579'006 nouvelles vaccinations en 7 jours (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Berne (awp) - Du 17 juin au 23 juin, 579'006 doses de vaccin contre la Covid-19 ont été administrées en Suisse, selon les données publiées vendredi sur le site de l'Office fédéral de la santé publique (OFSP).
+</p><p>En moyenne, 82'715 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections a ralenti de 7%.
+</p><p>Au total, 7'012'928 vaccinations ont été réalisées jusqu'à mercredi. Jusqu'ici, 2'794'266 personnes ont été vaccinées complètement. Cela signifie que 32,3% de la population a déjà obtenu deux doses de vaccin. 1'424'396 personnes n'ont reçu que la première piqûre.
+</p><p>Au total, 7'211'350 doses de vaccin ont été livrées aux cantons. Quelque 160'775 doses de vaccin sont par ailleurs entreposées auprès de la Confédération. Comme il est régulièrement possible d'extraire plu de doses de vaccin des flacons qu'initialement prévu par les fabricants,  il est possible que les cantons administrent plus de doses de vaccin qu'ils n'en ont officiellement reçu.
+</p><pre>
+[[
+                                    7 derniers jours   semaine préc.   total
+
+Doses administrées                  579'006            623'008         7'012'928
+Nombre vaccinations/100 habitants   6,7                7,2             81,1
+
+(2 doses de vaccin nécessaires par personne)
+
+Données par cantons:
+
+         vaccinations/100 habit.  variation       total vaccinations/
+         7 derniers jours         semaine préc.   100 habit.
+
+ZH       8,3                      -5%             82,9
+BE       5,9                      -27%            85,9
+BS       7,6                      +18%            89,2
+SG       6,1                      +5%             73,8
+AG       5,5                      -21%            78,2
+LU       6,6                      -7%             78,8
+GE       7,8                      +10%            89,9
+VD       6,3                      -12%            80,9
+
+]]</pre><p/>
+
+<p>Carte le point sur la vaccine en suisse: https://datawrapper.dwcdn.net/TeJmy </p><p>Le taux de vaccination en Suisse: https://datawrapper.dwcdn.net/XjYhi 
+</p><p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>
