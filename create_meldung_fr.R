@@ -88,7 +88,7 @@ text_einleitung <- paste0("<p>Berne (awp) - Du ",number_date_earlier," ",month_e
                           format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
                           " doses de vaccin ont été livrées aux cantons. Quelque ",
                           format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," doses de vaccin sont par ailleurs entreposées auprès de la Confédération.",
-                          " Comme il est régulièrement possible d'extraire plu de doses de vaccin des flacons qu'initialement prévu par les fabricants,",
+                          " Comme il est régulièrement possible d'extraire plus de doses de vaccin des flacons qu'initialement prévu par les fabricants,",
                           "  il est possible que les cantons administrent plus de doses de vaccin qu'ils n'en ont officiellement reçu.\n</p>")
 
 text_einleitung <- gsub("De jeudi","Du jeudi",text_einleitung)
