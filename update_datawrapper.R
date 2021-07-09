@@ -51,7 +51,7 @@ write.csv(impfdaten_dw,"Output/impfdaten.csv", row.names=FALSE, fileEncoding = "
 token <- read.csv("C:/Automatisierungen/Github_Token/token.txt",header=FALSE)[1,1]
 
 git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
-git2r::cred_token(token)
+try(git2r::cred_token(token))
 gitadd()
 gitcommit()
 gitpush()
