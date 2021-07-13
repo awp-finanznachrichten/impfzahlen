@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210713T133012+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>8792</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210713T133012+0200</DateId>
+       <NewsItemId>8792</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210713T133012+0200:8792:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210713T133012+0200</FirstCreated>
+    <ThisRevisionCreated>20210713T133012+0200</ThisRevisionCreated>
+    <Status FormalName="Usable"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 427'725 nouvelles vaccinations en 7 jours (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="B"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Berne (awp) - Du 5 juillet au 11 juillet, 427'725 doses de vaccin contre la Covid-19 ont été administrées en Suisse, selon les données publiées mardi sur le site de l'Office fédéral de la santé publique (OFSP).
+</p><p>En moyenne, 61'104 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections a ralenti de 10%.
+</p><p>Au total, 8'169'730 vaccinations ont été réalisées jusqu'à dimanche. Jusqu'ici, 3'605'836 personnes ont été vaccinées complètement. Cela signifie que 41,7% de la population a déjà obtenu deux doses de vaccin. 958'058 personnes n'ont reçu que la première piqûre.
+</p><p>Au total, 8'341'400 doses de vaccin ont été livrées aux cantons. Quelque 818'275 doses de vaccin sont par ailleurs entreposées auprès de la Confédération. Comme il est régulièrement possible d'extraire plus de doses de vaccin des flacons qu'initialement prévu par les fabricants,  il est possible que les cantons administrent plus de doses de vaccin qu'ils n'en ont officiellement reçu.
+</p><p/>
+
+<p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>
