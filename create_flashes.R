@@ -2,18 +2,19 @@ setwd("C:/Automatisierungen/impfzahlen/")
 
 #Get Data for Flashes
 data_check <- html_text(html_nodes(webpage,"h3"))
-impfungen_check <- grepl("Impfungen",data_check[5])
+impfungen_check <- grepl("Impfungen",data_check[7])
 
-text_check <- grepl("Verabreichte Impfdosen",html_text(html_nodes(webpage,"th"))[19])
-text_check_2 <- grepl("Erhaltene Impfdosen",html_text(html_nodes(webpage,"th"))[17])
+text_check <- grepl("Verabreichte Impfdosen",html_text(html_nodes(webpage,"th"))[25])
+text_check_2 <- grepl("Erhaltene Impfdosen",html_text(html_nodes(webpage,"th"))[23])
 
 if  ( (impfungen_check == TRUE) & (text_check == TRUE) & (text_check_2 == TRUE) ) {
   
 #Get Data  
 data <- html_text(html_nodes(webpage,"td"))  
-impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[19]))
-impfungen_complete <- as.numeric(gsub("[^0-9.]", "",data[20]))
-impfungen_erhalten <- as.numeric(gsub("[^0-9.]", "",data[17]))
+
+impfungen_verabreicht <- as.numeric(gsub("[^0-9.]", "",data[24]))
+impfungen_complete <- 3722255 #as.numeric(gsub("[^0-9.]", "",data[23]))
+impfungen_erhalten <- as.numeric(gsub("[^0-9.]", "",data[22]))
 
 impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &   #9
                                               impfdaten$Typ == "Bislang total verimpft",
@@ -62,7 +63,7 @@ date_and_time <- format(Sys.time(), "%Y%m%dT%H%M%S%z")
 #Daten einfügen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
 vorlage <- gsub("Insert_Language","de",vorlage)
 vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
 vorlage <- gsub("Insert_Companies","<Property FormalName='ShortName' Value='BAG'/>", vorlage)
@@ -104,7 +105,7 @@ date_and_time <- format(Sys.time(), "%Y%m%dT%H%M%S%z")
 #Daten einfügen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
 vorlage <- gsub("Insert_Language","fr",vorlage)
 vorlage <- gsub("Insert_Countries","<Property FormalName='Country' Value='CH'>",vorlage)
 vorlage <- gsub("Insert_Companies","<Property FormalName='ShortName' Value='BAG'/>", vorlage)

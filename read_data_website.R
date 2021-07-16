@@ -38,15 +38,15 @@ data_geliefert <- read.csv(unz(temp,"data/COVID19VaccDosesDelivered.csv"))
 data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
 data_personen <- read.csv(unz(temp,"data/COVID19VaccPersons.csv"))
 
-unlink(temp)
+
 
 data_geliefert$date <- as.Date(data_geliefert$date)
 data_verimpft$date <- as.Date(data_verimpft$date)
 data_personen$date <- as.Date(data_personen$date)
 
 data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert & data_geliefert$type == "COVID19VaccDosesDelivered",]
-data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht & data_verimpft$type =="COVID19VaccDosesAdministered",]
-data_personen <- data_personen[data_personen$date == date_vollstaendig & data_personen$type =="COVID19FullyVaccPersons",]
+data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht-2 & data_verimpft$type =="COVID19VaccDosesAdministered",]
+data_personen <- data_personen[data_personen$date == date_vollstaendig-2 & data_personen$type =="COVID19FullyVaccPersons",]
 
 if ( (nrow(data_geliefert) == 29) & (nrow(data_verimpft) == 29) & (nrow(data_personen) == 29) ) {
 
