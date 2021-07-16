@@ -103,10 +103,10 @@ if (impfdaten_meldung$impfungen_last_week[1] > 700000 ) {
 ###Check total verimpfte Personen
 anteil_bevoelkerung <- (as.numeric(impfdaten_meldung$Verimpft_pro_person[1])/impfdaten_meldung$Verimpft[1])*impfungen_complete
 
-if (anteil_bevoelkerung > 40 ) {
+if (anteil_bevoelkerung > 50 ) {
   
   ###Create Flash DE
-  flash <- "BAG: Über 40 Prozent der Schweizer Bevölkerung vollständig geimpft"
+  flash <- "BAG: Über die Hälfte der Schweizer Bevölkerung vollständig geimpft"
   
   #ID erzeugen
   ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
@@ -144,7 +144,7 @@ if (anteil_bevoelkerung > 40 ) {
   setwd("..")
   
   ###Create Flash FR
-  flash <- "OFSP: 40% de la population suisse complètement vaccinée"
+  flash <- "OFSP: 50% de la population suisse complètement vaccinée"
   
   #ID erzeugen
   ID <- read.delim("C:/Automatisierungen/ID_Meldungen/ID_Meldungen.txt", header=FALSE)
@@ -187,9 +187,9 @@ if (anteil_bevoelkerung > 40 ) {
   
   blat(f = "robot-notification@awp.ch",
        to = "robot-notification@awp.ch, inland@keystone-sda.ch, suisse@keystone-ats.ch, redazione@keystone-ats.ch, federico.bragagnini@keystone-ats.ch, thomas.oswald@keystone-sda.ch, nicola.wenger@keystone-ats.ch",
-       s = "Über 40 Prozent der Bevölkerung vollständig geimpft",
+       s = "Über die Hälfte der Bevölkerung vollständig geimpft",
        body= paste0("Liebes SDA-Team,\n\n",
-                    "Ein nächster Meilenstein ist erreicht: Über 40 Prozent der Schweizer Bevölkerung haben bereits zwei Impfdosen erhalten und sind damit vollständig geimpft.\n\n",
+                    "Ein nächster Meilenstein ist erreicht: Über 50 Prozent der Schweizer Bevölkerung haben bereits zwei Impfdosen erhalten und sind damit vollständig geimpft.\n\n",
                     "Liebe Grüsse\n\n",
                     "AWP-Robot"),
        server = "smtp.juergruettimann.ch",
