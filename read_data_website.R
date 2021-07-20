@@ -36,17 +36,21 @@ temp <- tempfile()
 download.file(link,temp)
 data_geliefert <- read.csv(unz(temp,"data/COVID19VaccDosesDelivered.csv"))
 data_verimpft <- read.csv(unz(temp,"data/COVID19VaccDosesAdministered.csv"))
-data_personen <- read.csv(unz(temp,"data/COVID19VaccPersons.csv"))
+data_personen <- read.csv(unz(temp,"data/COVID19VaccPersons_v2.csv"))
 
+#Filter Personendaten
+data_personen <- data_personen[grepl("all|unknown|neighboring",data_personen$geoRegion) == FALSE,]
 
 
 data_geliefert$date <- as.Date(data_geliefert$date)
 data_verimpft$date <- as.Date(data_verimpft$date)
 data_personen$date <- as.Date(data_personen$date)
 
+
+
 data_geliefert <- data_geliefert[data_geliefert$date == date_geliefert & data_geliefert$type == "COVID19VaccDosesDelivered",]
-data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht-2 & data_verimpft$type =="COVID19VaccDosesAdministered",]
-data_personen <- data_personen[data_personen$date == date_vollstaendig-2 & data_personen$type =="COVID19FullyVaccPersons",]
+data_verimpft <- data_verimpft[data_verimpft$date == date_verabreicht & data_verimpft$type =="COVID19VaccDosesAdministered",]
+data_personen <- data_personen[data_personen$date == date_vollstaendig & data_personen$type =="COVID19FullyVaccPersons",]
 
 if ( (nrow(data_geliefert) == 29) & (nrow(data_verimpft) == 29) & (nrow(data_personen) == 29) ) {
 
@@ -57,6 +61,7 @@ data_personen <- data_personen[order(data_personen$geoRegion),]
 data_geliefert <- data_geliefert[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
 data_verimpft <- data_verimpft[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
 data_personen <- data_personen[c(8,11,26,27,10,16,14,4,21,6,5,1,29,20,23,3,2,19,12,22,28,15,17,18,25,13,24,9),]
+
 
 #Datenbank-Zugriff
 mydb <- dbConnect(MySQL(), user='awp', password='rs71MR3!', dbname='covid', host='32863.hostserv.eu', encoding="utf8")

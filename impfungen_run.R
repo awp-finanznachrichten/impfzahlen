@@ -47,27 +47,27 @@ webpage <- retry(read_html(url),maxErrors = 5,sleep = 10)
 datum_extract <- html_text(html_nodes(webpage,".bag-key-value-list__entry-key-description"))
 correct_datum_1 <- which(grepl("Quelle: BAG",datum_extract))[1]
 correct_datum_2 <- correct_datum_1-1
-correct_datum_3 <- correct_datum_1+1
+#correct_datum_3 <- correct_datum_1+1
 
 date_geliefert <- datum_extract[correct_datum_2]
 date_geliefert <- gsub(",.*","",date_geliefert)
 date_geliefert <- gsub(".*: ","",date_geliefert)
 date_geliefert <- as.Date(date_geliefert,format="%d.%m.%Y")
 
-date_verabreicht <- datum_extract[correct_datum_1]
-date_verabreicht <- gsub(",.*","",date_verabreicht)
-date_verabreicht <- gsub(".*: ","",date_verabreicht)
-date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
 
-date_vollstaendig <- datum_extract[correct_datum_3]
-date_vollstaendig <- gsub(",.*","",date_vollstaendig)
-date_vollstaendig <- gsub(".*: ","",date_vollstaendig)
-date_vollstaendig <- as.Date(date_vollstaendig,format="%d.%m.%Y")
+date_verabreicht <- date_geliefert
+#date_verabreicht <- datum_extract[correct_datum_1]
+#date_verabreicht <- gsub(",.*","",date_verabreicht)
+#date_verabreicht <- gsub(".*: ","",date_verabreicht)
+#date_verabreicht <- as.Date(date_verabreicht,format="%d.%m.%Y")
+
+date_vollstaendig <- date_geliefert
+#date_vollstaendig <- datum_extract[correct_datum_3]
+#date_vollstaendig <- gsub(",.*","",date_vollstaendig)
+#date_vollstaendig <- gsub(".*: ","",date_vollstaendig)
+#date_vollstaendig <- as.Date(date_vollstaendig,format="%d.%m.%Y")
 
 if ( date_verabreicht == current_date-2 ) {
-
-#Get Flash-Data and create Flash DE/FR
-source("create_flashes.R", encoding= "UTF-8")
     
 #Get Data from CSV and read in Database
 source("read_data_website.R", encoding= "UTF-8")
@@ -76,6 +76,9 @@ if (readin_check == TRUE) {
 
 #Prepare Data  
 source("prepare_data.R", encoding = "UTF-8")
+  
+#Get Flash-Data and create Flash DE/FR
+source("create_flashes.R", encoding= "UTF-8")
   
 #Check Data and create special Flashes (if needed)
 source("create_special_flashes.R", encoding= "UTF-8")
