@@ -1,5 +1,7 @@
 ###Check Impffrequenz
 if (impfdaten_meldung$impfungen_last_week[1] > 700000 ) {
+  
+  View(impfdaten_meldung)
 
   ###Create Flash DE
   flash <- "BAG: Erstmals mehr als 700'000 Impfungen innert 7 Tagen"

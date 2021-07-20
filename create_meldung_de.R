@@ -11,7 +11,7 @@ wochentag <- gsub("Friday","Freitag",wochentag)
 wochentag <- gsub("Saturday","Samstag",wochentag)
 wochentag <- gsub("Sunday","Sonntag",wochentag)
 
-wochentag_publish <- weekdays(Sys.Date()-2)
+wochentag_publish <- weekdays(Sys.Date()-1)
 
 wochentag_publish <- gsub("Monday","Montag",wochentag_publish)
 wochentag_publish <- gsub("Tuesday","Dienstag",wochentag_publish)
@@ -22,11 +22,11 @@ wochentag_publish <- gsub("Saturday","Samstag",wochentag_publish)
 wochentag_publish <- gsub("Sunday","Sonntag",wochentag_publish)
 
 #Datum
-number_date <- as.numeric(format(date_verabreicht,"%d"))
-number_date_earlier <- as.numeric(format(date_verabreicht-6,"%d"))
+number_date <- as.numeric(format(date_verabreicht-1,"%d"))
+number_date_earlier <- as.numeric(format(date_verabreicht-8,"%d"))
 
 #Monat
-month <- months(date_verabreicht)
+month <- months(date_verabreicht-1)
 month <- gsub("January","Januar",month)
 month <- gsub("February","Februar",month)
 month <- gsub("March","März",month)
@@ -41,7 +41,7 @@ month <- gsub("November","November",month)
 month <- gsub("December","Dezember",month)
 
 #Monat vor einer Woche
-month_earlier <- months(date_verabreicht-6)
+month_earlier <- months(date_verabreicht-8)
 month_earlier <- gsub("January","Januar",month_earlier)
 month_earlier <- gsub("February","Februar",month_earlier)
 month_earlier <- gsub("March","März",month_earlier)
@@ -58,67 +58,34 @@ month_earlier <- gsub("December","Dezember",month_earlier)
 
 title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")," neue Impfungen in den letzten 7 Tagen")
 
+
+#Impfanteil vollständing und teilweise geimpft
 anteil_bevoelkerung <- round((as.numeric(impfdaten_meldung$Verimpft_pro_person[1])/impfdaten_meldung$Verimpft[1])*impfungen_complete,1)
+
+
 
 text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_earlier," bis ",number_date,". ",month," sind in der Schweiz ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
+                          " Damit sind neu ", gsub("[.]",",",anteil_bevoelkerung), " Prozent der Bevölkerung vollständig geimpft.",
                           " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am ",wochentag,
                           " auf seiner Website veröffentlichte.\n</p>",
-                          "<p>Pro Tag wurden damit durchschnittlich ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
-                          " Impfungen durchgeführt. Im Vergleich zur Woche davor ",tendenz,"\n</p>",
-                          "<p>Insgesamt wurden bis ",wochentag_publish," ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
-                          " Impfungen durchgeführt. Bislang sind ",format(impfungen_complete,big.mark = "'"),
-                          " Personen vollständig geimpft, das heisst ",
-                          gsub("[.]",",",anteil_bevoelkerung),
-                          " Prozent der Bevölkerung haben bereits zwei Impfdosen erhalten. Bei ",
+                          "<p>Insgesamt wurden ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
+                          " Impfungen verabreicht. ",format(impfungen_complete,big.mark = "'"),
+                          " Personen haben zwei Impfdosen erhalten, bei ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
                           " Personen wurde bislang nur die Erstimpfung durchgeführt.\n</p>",
-                          "<p>Es wurden bislang ",
-                          format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
-                          " Impfdosen an die Kantone ausgeliefert. Zudem sind noch ",
-                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," Impfdosen beim Bund gelagert.",
-                          " Da es regelmässig gelingt, mehr Dosen als ursprünglich von den Herstellern vorgesehen pro Vial zu entnehmen,",
-                          " kann es sein, dass die Kantone mehr Impfdosen verabreichen, als sie gemäss offiziellen Zahlen erhalten haben.\n</p>")
-                          
+                          "<p>Pro Tag wurden letzte Woche durchschnittlich ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
+                          " Impfungen durchgeführt. Im Vergleich zur Woche davor ",tendenz,"\n</p>")
+             
+
 #Create Tabelle
-tabelle <- paste0("                              Letzte 7 Tage    Woche davor     Total\n\n",
-"Verimpfte Dosen               ",format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"),
-strrep(" ",17-nchar(format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"))),
-format(impfdaten_meldung$impfungen_second_last_week[1],big.mark = "'"),
-strrep(" ",16-nchar(format(impfdaten_meldung$impfungen_second_last_week[1],big.mark = "'")))
-,format(impfdaten_meldung$Verimpft[1],big.mark = "'"),"\n",
-"Impfungen pro 100 Einwohner   ",impfdaten_meldung$personen_last_week[1],
-"              ",impfdaten_meldung$personen_second_last_week[1],
-"             ",impfdaten_meldung$Verimpft_pro_person[1],"\n\n",
-"(pro Person sind zwei Impfungen notwendig)\n\n",
-"Daten aus ausgewählten Kantonen:\n\n",
-"         Zahl Impf./100 Einw.   Veränderung     Total Impf./\n",
-"         letzte 7 Tage          ggü. Vorwoche   100 Einw.\n\n",
-"ZH       ",impfdaten_meldung$personen_last_week[13],
-"                    ",impfdaten_meldung$impfungen_change[13],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[13]),impfdaten_meldung$Verimpft_pro_person[13],"\n",
-"BE       ",impfdaten_meldung$personen_last_week[8],
-"                    ",impfdaten_meldung$impfungen_change[8],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[8]),impfdaten_meldung$Verimpft_pro_person[8],"\n",
-"BS       ",impfdaten_meldung$personen_last_week[10],
-"                    ",impfdaten_meldung$impfungen_change[10],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[10]),impfdaten_meldung$Verimpft_pro_person[10],"\n",
-"SG       ",impfdaten_meldung$personen_last_week[18],
-"                    ",impfdaten_meldung$impfungen_change[18],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[18]),impfdaten_meldung$Verimpft_pro_person[18],"\n",
-"AG       ",impfdaten_meldung$personen_last_week[12],
-"                    ",impfdaten_meldung$impfungen_change[12],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[12]),impfdaten_meldung$Verimpft_pro_person[12],"\n",
-"LU       ",impfdaten_meldung$personen_last_week[22],
-"                    ",impfdaten_meldung$impfungen_change[22],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[22]),impfdaten_meldung$Verimpft_pro_person[22],"\n",
-"GE       ",impfdaten_meldung$personen_last_week[2],
-"                    ",impfdaten_meldung$impfungen_change[2],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[2]),impfdaten_meldung$Verimpft_pro_person[2],"\n",
-"VD       ",impfdaten_meldung$personen_last_week[3],
-"                    ",impfdaten_meldung$impfungen_change[3],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[3]),impfdaten_meldung$Verimpft_pro_person[3],"\n"
+tabelle <- paste0("                                       Aktuell    Vor 7 Tagen\n\n",
+"Vollständig geimpfte Personen           ",gsub("[.]",",",anteil_bevoelkerung),
+"         ",gsub("[.]",",",anteil_bevoelkerung),"\n",
+"Personen mit mindestens einer Impfung   ",gsub("[.]",",",anteil_bevoelkerung),
+"         ",gsub("[.]",",",anteil_bevoelkerung),"\n\n"
 )
+
 
 #Sonderzeichen anpassen
 
@@ -154,7 +121,7 @@ vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
 ###Daten einf?gen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
 vorlage <- gsub("Insert_Storytype","T",vorlage)
 vorlage <- gsub("Insert_Language","de",vorlage)
 vorlage <- gsub("Insert_Country","CH",vorlage)
@@ -171,7 +138,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_de_a.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_de_a.xml"), "ftp://ftp.awp.ch/impfungen_de_a.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_de_a.xml"), "ftp://ftp2.awp.ch/impfungen_de_a.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
@@ -190,7 +157,7 @@ vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
 ###Daten einf?gen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
 vorlage <- gsub("Insert_Storytype","T",vorlage)
 vorlage <- gsub("Insert_Language","de",vorlage)
 vorlage <- gsub("Insert_Country","CH",vorlage)
@@ -212,7 +179,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_de_b.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_de_b.xml"), "ftp://ftp.awp.ch/impfungen_de_b.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_de_b.xml"), "ftp://ftp2.awp.ch/impfungen_de_b.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 

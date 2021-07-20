@@ -15,11 +15,11 @@ impfungen_erhalten <- as.numeric(gsub("[^0-9.]", "",data[22]))
 impfungen_verabreicht <- impfdaten$CH[nrow(impfdaten)-2]
 impfungen_complete <- impfdaten$CH[nrow(impfdaten)]
 
-impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-9 &   #9
+impfungen_verabreicht_vorwoche <- impfdaten[impfdaten$datum == current_date-7 &   #9
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 
-impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-16 &  #16
+impfungen_verabreicht_zweiwochen <- impfdaten[impfdaten$datum == current_date-14 &  #16
                                               impfdaten$Typ == "Bislang total verimpft",
                                             4]
 

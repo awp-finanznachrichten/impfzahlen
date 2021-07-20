@@ -3830,3 +3830,130 @@ The following object is masked from 'package:base':
  rewrite Output/impfdaten.csv (86%)
  create mode 100644 create_flashes_old.R
  rewrite impfungen_run.Rout (100%)
+To https://github.com/awp-finanznachrichten/impfzahlen.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/awp-finanznachrichten/impfzahlen.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[1] "New key was saved!"
+Chart 8nBMe succesfully updated.
+Chart 8nBMe published!### Responsive iFrame-code: ###
+<iframe title="Stand der Impfungen in der Schweiz" aria-label="Karte" id="datawrapper-chart-8nBMe" src="https://datawrapper.dwcdn.net/8nBMe/98/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="572"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/8nBMe/98/
+Chart Ty61K succesfully updated.
+Chart Ty61K published!### Responsive iFrame-code: ###
+<iframe title="Le point sur la vaccination en Suisse" aria-label="map" id="datawrapper-chart-Ty61K" src="https://datawrapper.dwcdn.net/Ty61K/79/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="603"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/Ty61K/79/
+Chart OmzDG succesfully updated.
+Chart OmzDG published!### Responsive iFrame-code: ###
+<iframe title="Il punto sulle vaccinazioni in Svizzera" aria-label="Mappa" id="datawrapper-chart-OmzDG" src="https://datawrapper.dwcdn.net/OmzDG/80/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="605"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/OmzDG/80/
+Chart 6thMk succesfully updated.
+Chart 6thMk published!### Responsive iFrame-code: ###
+<iframe title="Stand der Impfungen in der Schweiz" aria-label="table" id="datawrapper-chart-6thMk" src="https://datawrapper.dwcdn.net/6thMk/65/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="955"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/6thMk/65/
+Chart ILXgH succesfully updated.
+Chart ILXgH published!### Responsive iFrame-code: ###
+<iframe title="Le point sur la vaccination en Suisse" aria-label="table" id="datawrapper-chart-ILXgH" src="https://datawrapper.dwcdn.net/ILXgH/43/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="965"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/ILXgH/43/
+Chart mfQwr succesfully updated.
+Chart mfQwr published!### Responsive iFrame-code: ###
+<iframe title="Il punto sulle vaccinazioni in Svizzera" aria-label="table" id="datawrapper-chart-mfQwr" src="https://datawrapper.dwcdn.net/mfQwr/42/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="980"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/mfQwr/42/
+Chart d7vmx succesfully updated.
+Chart d7vmx published!### Responsive iFrame-code: ###
+<iframe title="Stand der Impfungen in der Schweiz" aria-label="Karte" id="datawrapper-chart-d7vmx" src="https://datawrapper.dwcdn.net/d7vmx/60/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="588"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/d7vmx/60/
+Chart TeJmy succesfully updated.
+Chart TeJmy published!### Responsive iFrame-code: ###
+<iframe title="Le point sur la vaccination en Suisse" aria-label="map" id="datawrapper-chart-TeJmy" src="https://datawrapper.dwcdn.net/TeJmy/57/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="616"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/TeJmy/57/
+Chart bnIJk published!### Responsive iFrame-code: ###
+<iframe title="Die Impfgeschwindigkeit in der Schweiz" aria-label="Säulen" id="datawrapper-chart-bNIJk" src="https://datawrapper.dwcdn.net/bNIJk/39/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/bNIJk/39/
+Chart XjYhi published!### Responsive iFrame-code: ###
+<iframe title="rythme de vaccination en Suisse" aria-label="Graphique en colonnes" id="datawrapper-chart-XjYhi" src="https://datawrapper.dwcdn.net/XjYhi/29/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/XjYhi/29/
+Chart pyMze succesfully updated.
+Chart pyMze published!### Responsive iFrame-code: ###
+<iframe title="COVID-19-Impfungen in der Schweiz" aria-label="table" id="datawrapper-chart-pyMze" src="https://datawrapper.dwcdn.net/pyMze/38/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="929"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+### Chart-URL:###
+https://datawrapper.dwcdn.net/pyMze/38/
+Blat v3.2.3 (build : Oct 19 2014 15:35:00)
+64-bit Windows, Full, Unicode
+
+Sending stdin.txt to robot-notification@awp.ch
+Subject: Neue Impf-Zahlen gefunden
+Login name is robot-notification@awp.ch
+Blat v3.2.3 (build : Oct 19 2014 15:35:00)
+64-bit Windows, Full, Unicode
+
+Sending stdin.txt to robot-notification@awp.ch, inland@keystone-sda.ch, suisse@keystone-ats.ch, redazione@keystone-ats.ch, federico.bragagnini@keystone-ats.ch, thomas.oswald@keystone-sda.ch, nicola.wenger@keystone-ats.ch
+Subject: Neue Impf-Zahlen gefunden - automatisierte Meldung steht bereit
+Login name is robot-notification@awp.ch
+Linking to ImageMagick 6.9.12.3
+Enabled features: cairo, freetype, fftw, ghostscript, heic, lcms, pango, raw, rsvg, webp
+Disabled features: fontconfig, x11
+
+Attaching package: 'zip'
+
+The following objects are masked from 'package:utils':
+
+    unzip, zip
+
+warning: LF will be replaced by CRLF in SDA_Grafik/Impfungen.eps.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in impfungen_run.Rout.
+The file will have its original line endings in your working directory
+[master bd0a28b] commit from Rstudio
+ 5 files changed, 9978 insertions(+), 6146 deletions(-)
+ rewrite SDA_Grafik/Impfungen_DEU.zip (92%)
+ rewrite SDA_Grafik/preview.jpeg (89%)
+To https://github.com/awp-finanznachrichten/impfzahlen.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/awp-finanznachrichten/impfzahlen.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+There were 14 warnings (use warnings() to see them)
+> 
+> proc.time()
+   user  system elapsed 
+1492.39   37.92 9168.89 

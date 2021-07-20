@@ -232,3 +232,5 @@ if (impfdaten_dw$Veraenderung[y] > 0 ) {
 impfdaten_dw$Veraenderung <- gsub("[+]500","mehr als +500",impfdaten_dw$Veraenderung)
 impfdaten_dw$Veraenderung <- gsub("[-]500","weniger als -500",impfdaten_dw$Veraenderung)
 
+
+
