@@ -6,9 +6,7 @@ impfdaten_dw$Text_d <- paste0("Im Kanton ",impfdaten_dw$Kanton_d," wurden bislan
                               impfdaten_dw$Anteil_Bevoelkerung," Prozent</b> der Bevölkerung sind bereits vollständig geimpft.<br><br>",
                               " In der vergangenen Woche wurden pro Tag durchschnittlich <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> Personen geimpft.",
-                              " Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung," Prozent</b>.<br><br>",
-                              " Insgesamt wurden in den Kanton ",impfdaten_dw$Kanton_d," bislang <b>",impfdaten_dw$Geliefert,
-                              "</b> Impfdosen geliefert. Davon wurden bereits <b>",impfdaten_dw$Verimpft_Anteil," Prozent</b> verabreicht.")
+                              " Im Vergleich zur Vorwoche entspricht dies einer Veränderung von <b>",impfdaten_dw$Veraenderung," Prozent</b>.")
 
 #Create_Text
 impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>",
@@ -18,10 +16,7 @@ impfdaten_dw$Text_f <- paste0("Dans le canton de ",impfdaten_dw$Kanton_f,", <b>"
                               impfdaten_dw$Anteil_Bevoelkerung," pour cent</b> de la population) ont été vaccinées complètement.<br><br>",
                               " La semaine dernière, <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> personnes ont été vaccinées chaque jour en moyenne.",
-                              " Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.<br><br>",
-                              " Au total, <b>",impfdaten_dw$Geliefert,"</b> doses de vaccin ont été livrées jusqu’ici dans le canton de ",
-                              impfdaten_dw$Kanton_f,". Sur ce nombre, <b>",impfdaten_dw$Verimpft_Anteil,
-                              "%</b> ont été utilisés.")
+                              " Cela représente une variation de <b>",impfdaten_dw$Veraenderung,"%</b> par rapport à la semaine précédente.")
 
 impfdaten_dw$Text_f <- gsub("de <b>mehr als ","<b>plus de ",impfdaten_dw$Text_f)
 impfdaten_dw$Text_f <- gsub("de <b>weniger als ","<b>moins de ",impfdaten_dw$Text_f)
@@ -34,9 +29,7 @@ impfdaten_dw$Text_i <- paste0("Nel canton ",impfdaten_dw$Kanton_i," fino a quest
                               impfdaten_dw$Anteil_Bevoelkerung," percento</b> della popolazione sono completamente vaccinati.<br><br>",
                               " La scorsa settimana, in media <b>",impfdaten_dw$Verimpft_pro_Tag,
                               "</b> persone sono state vaccinate giornalmente ",
-                              " (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.<br><br>",
-                              " In totale, fino ad ora al canton ",impfdaten_dw$Kanton_i," sono state consegnate <b>",impfdaten_dw$Geliefert,
-                              "</b> dosi di vaccino. Quota di utilizzo: <b>",impfdaten_dw$Verimpft_Anteil,"%</b>.")
+                              " (variazione rispetto alla settimana precedente: <b>",impfdaten_dw$Veraenderung,"%)</b>.")
 
 
 impfdaten_dw$Text_i <- gsub("<b>mehr als ","<b>più del ",impfdaten_dw$Text_i)

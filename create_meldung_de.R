@@ -60,9 +60,19 @@ title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")
 
 
 #Impfanteil vollständing und teilweise geimpft
+
+impfungen_complete <- impfdaten[impfdaten$datum == date_verabreicht,]
+impfungen_complete <- impfungen_complete$CH[4]
 anteil_bevoelkerung <- round((as.numeric(impfdaten_meldung$Verimpft_pro_person[1])/impfdaten_meldung$Verimpft[1])*impfungen_complete,1)
 
 
+impfungen_complete_last_week <- impfdaten[impfdaten$datum == date_verabreicht-7,]
+impfungen_complete_last_week <- impfungen_complete_last_week$CH[4]
+anteil_bevoelkerung_last_week <- round((as.numeric(impfdaten_meldung$Verimpft_pro_Person_last_week[1])/impfdaten_meldung$Verimpft_last_week[1])*impfungen_complete_last_week,1)
+
+
+
+             
 
 text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_earlier," bis ",number_date,". ",month," sind in der Schweiz ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
@@ -73,19 +83,18 @@ text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_
                           " Impfungen verabreicht. ",format(impfungen_complete,big.mark = "'"),
                           " Personen haben zwei Impfdosen erhalten, bei ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          " Personen wurde bislang nur die Erstimpfung durchgeführt.\n</p>",
+                          " Personen wurde bislang nur die Erstimpfung vorgenommen.\n</p>",
                           "<p>Pro Tag wurden letzte Woche durchschnittlich ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " Impfungen durchgeführt. Im Vergleich zur Woche davor ",tendenz,"\n</p>")
              
 
 #Create Tabelle
-tabelle <- paste0("                                       Aktuell    Vor 7 Tagen\n\n",
-"Vollständig geimpfte Personen           ",gsub("[.]",",",anteil_bevoelkerung),
-"         ",gsub("[.]",",",anteil_bevoelkerung),"\n",
-"Personen mit mindestens einer Impfung   ",gsub("[.]",",",anteil_bevoelkerung),
-"         ",gsub("[.]",",",anteil_bevoelkerung),"\n\n"
+tabelle <- paste0("                                       Aktuell      Vor 7 Tagen\n\n",
+"Vollständig geimpfte Personen in %     ",gsub("[.]",",",anteil_bevoelkerung),
+"         ",gsub("[.]",",",anteil_bevoelkerung_last_week),"\n\n",
+"Verabreichte Impfdosen                 ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
+"    ",format(impfdaten_meldung$Verimpft_last_week[1],big.mark="'"),"\n\n"
 )
-
 
 #Sonderzeichen anpassen
 
