@@ -196,7 +196,7 @@ text_sda <- gsub("<p>","\n",text_einleitung)
 text_sda <- gsub("</p>","",text_sda)
 text_sda <- paste0(title,"\n",text_sda,"\n",
                    "https://datawrapper.dwcdn.net/6thMk","\n\n",
-                   "Die Meldung wurde automatisch auf Basis der Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA) erstellt. Sie wurde vor der Publikation überprüft."
+                   "Die Meldung wurde automatisch auf Basis der Daten des Bundesamts für Gesundheit (BAG) erstellt. Sie wurde vor der Publikation überprüft."
                    )
 
 text_sda <- gsub("awp","awp/sda",text_sda)

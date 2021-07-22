@@ -145,7 +145,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_a.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_fr_a.xml"), "ftp://ftp2.awp.ch/impfungen_fr_a.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_fr_a.xml"), "ftp://ftp.awp.ch/impfungen_fr_a.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
@@ -185,13 +185,13 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_b.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_fr_b.xml"), "ftp://ftp2.awp.ch/impfungen_fr_b.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_fr_b.xml"), "ftp://ftp.awp.ch/impfungen_fr_b.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
 #Output für SDA
 
-title_sda <- paste0("Coronavirus: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours en Suisse (OFSP)")
+title_sda <- paste0("Coronavirus: ",gsub("[.]",",",anteil_bevoelkerung),"% de la population entièrement vaccinée (OFSP)")
 
 text_sda_fr <- gsub("<p>","\n",text_einleitung)
 text_sda_fr <- gsub("</p>","",text_sda_fr)
@@ -205,7 +205,7 @@ text_sda_fr <- gsub("la Covid","le Covid",text_sda_fr)
 text_sda_fr <- gsub("awp","awp/ats",text_sda_fr)
 
 ###Text SDA italienisch
-title_sda_it <- paste0("Coronavirus: UFSP, ",format(impfungen_letzte_woche,big.mark = "'")," nuove vaccinazioni in 7 giorni")
+title_sda_it <-  paste0("UFSP: ",gsub("[.]",",",anteil_bevoelkerung),"percento della popolazione completamente vaccinata")
 
 #Monat
 month <- months(date_verabreicht-1)
@@ -243,19 +243,18 @@ tendenz_it <- gsub("le rythme des injections a ralenti de","è diminuito del",te
 tendenz_it <- gsub("le rythme des injections reste inchangé","non è cambiato",tendenz_it)
 
 
-text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
-                             number_date_earlier," ",month_earlier," al ",number_date," ",month,
-                          " sono state ",format(impfungen_letzte_woche,big.mark = "'"),
-                          ". Questo significa che il ",
-                          gsub("[.]",",",anteil_bevoelkerung),
-                          " percento della popolazione ha ricevuto due iniezioni.",
-                          " È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).\n\n",
-                          "In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate ",
+text_einleitung_it <- paste0("Berna (awp/ats) - Fra il ",
+                          number_date_earlier," ",month_earlier," e il ",number_date," ",month,
+                          " in Svizzera sono state somministrate ",format(impfungen_letzte_woche,big.mark = "'"),
+                          " dosi di vaccino anti-Covid 19.",
+                          " Ora il ",gsub("[.]",",",anteil_bevoelkerung),
+                          "%  della popolazione è completamente vaccinata, secondo i dati pubblicati dall’Ufficio federale della sanità pubblica (UFSP).\n\n",
+                          "In totale sono stati somministrati ",
                           format(impfdaten_meldung$Verimpft[1],big.mark="'"),
-                          " dosi di vaccino. Fino ad ora ",format(impfungen_complete,big.mark = "'"),
-                          " persone sono state completamente vaccinate. A ",
+                          " vaccini. ",format(impfungen_complete,big.mark = "'"),
+                          " di persone hanno ricevuto due iniezioni e altre ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          " persone è stata invece somministrata una sola dose.\n\n",
+                          " hanno fino ad ora ricevuto solo la prima dose.\n\n",
                           "In media, nella Confederazione vengono effettuate ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
                           " vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni ",tendenz_it,"\n\n",
                           "https://datawrapper.dwcdn.net/mfQwr","\n\n",
