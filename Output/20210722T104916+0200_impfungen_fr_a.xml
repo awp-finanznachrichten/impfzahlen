@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210722T104916+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>9147</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210722T104916+0200</DateId>
+       <NewsItemId>9147</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210722T104916+0200:9147:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210722T104916+0200</FirstCreated>
+    <ThisRevisionCreated>20210722T104916+0200</ThisRevisionCreated>
+    <Status FormalName="Withheld"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 44,8% de la population entièrement vaccinée (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Bern (awp) - Vom 13. Juli bis 19. Juli sind in der Schweiz 356'565 Impfdosen gegen Covid-19 verabreicht worden. Damit sind neu 44,8 Prozent der Bevölkerung vollständig geimpft. Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am Mittwoch auf seiner Website veröffentlichte.
+</p><p>Insgesamt wurden 8'593'483 Impfungen verabreicht. 3'872'596 Personen haben zwei Impfdosen erhalten, bei 848'291 Personen wurde bislang nur die Erstimpfung vorgenommen.
+</p><p>Pro Tag wurden letzte Woche durchschnittlich 50'938 Impfungen durchgeführt. Im Vergleich zur Woche davor sank die Impfkadenz um 13 Prozent.
+</p><pre>
+[[
+                                       actuellement   il y a 7 jours
+
+Personnes entièrement vaccinées (%)   44,8         41,6
+
+Doses de vaccin administrées                 8'593'483    8'236'918
+
+
+]]</pre><p/>
+
+<p>Carte le point sur la vaccine en Suisse: https://datawrapper.dwcdn.net/TeJmy </p><p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>

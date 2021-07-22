@@ -92,8 +92,8 @@ dw_edit_chart("TeJmy",intro=paste0("En Suisse, <b>",impfungen_anteil_ch,"</b> in
 dw_publish_chart("TeJmy")
 
 #Impfentwicklung Chart d & fr
-dw_publish_chart("bnIJk")
-dw_publish_chart("XjYhi")
+#dw_publish_chart("bnIJk")
+#dw_publish_chart("XjYhi")
 
 #Chart SDA
 dw_edit_chart("pyMze",intro=paste0("In der Schweiz wurden bislang pro 100 Einwohner <b>",impfungen_anteil_ch,"</b> Impfdosen verabreicht. Das entspricht <b>",impfungen_ch,"</b> Impfungen."), annotate=paste0("Stand: ",impfdaten_dw$Datum[1]))

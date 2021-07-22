@@ -11,7 +11,7 @@ wochentag <- gsub("Friday","vendredi",wochentag)
 wochentag <- gsub("Saturday","samedi",wochentag)
 wochentag <- gsub("Sunday","dimanche",wochentag)
 
-wochentag_publish <- weekdays(Sys.Date()-2)
+wochentag_publish <- weekdays(Sys.Date()-1)
 
 wochentag_publish <- gsub("Monday","lundi",wochentag_publish)
 wochentag_publish <- gsub("Tuesday","mardi",wochentag_publish)
@@ -31,7 +31,7 @@ wochentag_publish_last <- gsub("Saturday","samedi",wochentag_publish_last)
 wochentag_publish_last <- gsub("Sunday","dimanche",wochentag_publish_last)
 
 #Monat
-month <- months(date_verabreicht)
+month <- months(date_verabreicht-1)
 month <- gsub("January","janvier",month)
 month <- gsub("February","février",month)
 month <- gsub("March","mars",month)
@@ -46,7 +46,7 @@ month <- gsub("November","novembre",month)
 month <- gsub("December","décembre",month)
 
 #Monat vor einer Woche
-month_earlier <- months(date_verabreicht-6)
+month_earlier <- months(date_verabreicht-7)
 month_earlier <- gsub("January","janvier",month_earlier)
 month_earlier <- gsub("February","février",month_earlier)
 month_earlier <- gsub("March","mars",month_earlier)
@@ -67,71 +67,36 @@ tendenz_fr <- gsub("sank die Impfkadenz um","le rythme des injections a ralenti 
 tendenz_fr <- gsub(" Prozent","%",tendenz_fr)
 tendenz_fr <- gsub("hat sich die Impfkadenz nicht verändert","le rythme des injections reste inchangé",tendenz_fr)
 
-title <- paste0("Suisse: ",format(impfungen_letzte_woche,big.mark = "'")," nouvelles vaccinations en 7 jours (OFSP)")
+title <- paste0("Suisse: ",gsub("[.]",",",anteil_bevoelkerung),"% de la population entièrement vaccinée (OFSP)")
 
 text_einleitung <- paste0("<p>Berne (awp) - Du ",number_date_earlier," ",month_earlier," au ",number_date," ",month,", ",
                           format(impfungen_letzte_woche,big.mark = "'"),
-                          " doses de vaccin contre la Covid-19 ont été administrées en Suisse",
-                          ", selon les données publiées ",
+                          " doses de vaccin contre la Covid-19 ont été administrées en Suisse.",
+                          " Au total, ",gsub("[.]",",",anteil_bevoelkerung),
+                          "% de la population est donc entièrement vaccinée, ",
+                          " selon les données publiées ",
                           wochentag," sur le site de l'Office fédéral de la santé publique (OFSP).\n</p>",
-                          "<p>En moyenne, ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
-                          " vaccinations ont été effectuées par jour. Comparé à la semaine précédente, ",tendenz_fr,"\n</p>",
-                          "<p>Au total, ",format(impfdaten_meldung$Verimpft[1],big.mark="'"), 
-                          " vaccinations ont été réalisées jusqu'à ",wochentag_publish,".",
-                          " Jusqu'ici, ",format(impfungen_complete,big.mark = "'"),
-                          " personnes ont été vaccinées complètement. Cela signifie que ",
-                          gsub("[.]",",",anteil_bevoelkerung),
-                          "% de la population a déjà obtenu deux doses de vaccin. ",
+                          "<p>Depuis le début de la campagne de vaccination, ",format(impfdaten_meldung$Verimpft[1],big.mark="'"), 
+                          " de doses de vaccin ont été administrées. ",
+                          format(impfungen_complete,big.mark = "'"),
+                          " de personnes ont reçu deux doses de sérum et ", 
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          " personnes n'ont reçu que la première piqûre.\n</p>",
-                          "<p>Au total, ",
-                          format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
-                          " doses de vaccin ont été livrées aux cantons. Quelque ",
-                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," doses de vaccin sont par ailleurs entreposées auprès de la Confédération.",
-                          " Comme il est régulièrement possible d'extraire plus de doses de vaccin des flacons qu'initialement prévu par les fabricants,",
-                          "  il est possible que les cantons administrent plus de doses de vaccin qu'ils n'en ont officiellement reçu.\n</p>")
+                          " jusqu'à présent une seule piqûre.\n</p>",
+                          "<p>En moyenne, ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
+                          " vaccinations ont été effectuées par jour. Comparé à la semaine précédente, ",tendenz_fr,"\n</p>")
 
 text_einleitung <- gsub("De jeudi","Du jeudi",text_einleitung)
 
 #Create Tabelle
-tabelle <- paste0("                                    7 derniers jours   semaine préc.   total\n\n",
-"Doses administrées                  ",format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"),
-strrep(" ",19-nchar(format(impfdaten_meldung$impfungen_last_week[1],big.mark = "'"))),
-format(impfdaten_meldung$impfungen_second_last_week[1],big.mark = "'"),
-strrep(" ",16-nchar(format(impfdaten_meldung$impfungen_second_last_week[1],big.mark = "'")))
-,format(impfdaten_meldung$Verimpft[1],big.mark = "'"),"\n",
-"Nombre vaccinations/100 habitants   ",impfdaten_meldung$personen_last_week[1],
-"                ",impfdaten_meldung$personen_second_last_week[1],
-"             ",impfdaten_meldung$Verimpft_pro_person[1],"\n\n",
-"(2 doses de vaccin nécessaires par personne)\n\n",
-"Données par cantons:\n\n",
-"         vaccinations/100 habit.  variation       total vaccinations/\n",
-"         7 derniers jours         semaine préc.   100 habit.\n\n",
-"ZH       ",impfdaten_meldung$personen_last_week[13],
-"                      ",impfdaten_meldung$impfungen_change[13],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[13]),impfdaten_meldung$Verimpft_pro_person[13],"\n",
-"BE       ",impfdaten_meldung$personen_last_week[8],
-"                      ",impfdaten_meldung$impfungen_change[8],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[8]),impfdaten_meldung$Verimpft_pro_person[8],"\n",
-"BS       ",impfdaten_meldung$personen_last_week[10],
-"                      ",impfdaten_meldung$impfungen_change[10],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[10]),impfdaten_meldung$Verimpft_pro_person[10],"\n",
-"SG       ",impfdaten_meldung$personen_last_week[18],
-"                      ",impfdaten_meldung$impfungen_change[18],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[18]),impfdaten_meldung$Verimpft_pro_person[18],"\n",
-"AG       ",impfdaten_meldung$personen_last_week[12],
-"                      ",impfdaten_meldung$impfungen_change[12],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[12]),impfdaten_meldung$Verimpft_pro_person[12],"\n",
-"LU       ",impfdaten_meldung$personen_last_week[22],
-"                      ",impfdaten_meldung$impfungen_change[22],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[22]),impfdaten_meldung$Verimpft_pro_person[22],"\n",
-"GE       ",impfdaten_meldung$personen_last_week[2],
-"                      ",impfdaten_meldung$impfungen_change[2],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[2]),impfdaten_meldung$Verimpft_pro_person[2],"\n",
-"VD       ",impfdaten_meldung$personen_last_week[3],
-"                      ",impfdaten_meldung$impfungen_change[3],"%",
-strrep(" ",15-impfdaten_meldung$char_count_change[3]),impfdaten_meldung$Verimpft_pro_person[3],"\n"
+tabelle <- paste0("                                       actuellement   il y a 7 jours\n\n",
+                  "Personnes entièrement vaccinées (%)    ",gsub("[.]",",",anteil_bevoelkerung),
+                  "           ",gsub("[.]",",",anteil_bevoelkerung_last_week),"\n\n",
+                  "Doses de vaccin administrées           ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
+                  "      ",format(impfdaten_meldung$Verimpft_last_week[1],big.mark="'"),"\n\n"
 )
+
+cat(tabelle)
+
 
 #Sonderzeichen anpassen
 tabelle <- str_replace_all(tabelle,"&", "&amp;")
@@ -144,8 +109,7 @@ tabelle <- str_replace_all(tabelle,"préc,","préc.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
                "<p>Carte le point sur la vaccine en Suisse: https://datawrapper.dwcdn.net/TeJmy </p>",
-               "<p>Le taux de vaccination en Suisse: https://datawrapper.dwcdn.net/XjYhi \n</p>",
-               "<p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA)",
+               "<p>Sources: Office fédéral de la santé publique (OFSP)",
                " sur www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")
 
@@ -164,7 +128,7 @@ vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
 ###Daten einfügen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
 vorlage <- gsub("Insert_Storytype","T",vorlage)
 vorlage <- gsub("Insert_Language","fr",vorlage)
 vorlage <- gsub("Insert_Country","CH",vorlage)
@@ -181,7 +145,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_a.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_fr_a.xml"), "ftp://ftp.awp.ch/impfungen_fr_a.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_fr_a.xml"), "ftp://ftp2.awp.ch/impfungen_fr_a.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
@@ -200,7 +164,7 @@ vorlage <- read_file("C:/Automatisierungen/Vorlage_XML/Vorlage_XML.txt")
 ###Daten einfügen
 vorlage <- gsub("Insert_DateAndTime",date_and_time,vorlage)
 vorlage <- gsub("Insert_ID",ID,vorlage)
-vorlage <- gsub("Insert_Status","Usable",vorlage)
+vorlage <- gsub("Insert_Status","Withheld",vorlage)
 vorlage <- gsub("Insert_Storytype","T",vorlage)
 vorlage <- gsub("Insert_Language","fr",vorlage)
 vorlage <- gsub("Insert_Country","CH",vorlage)
@@ -221,7 +185,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_fr_b.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_fr_b.xml"), "ftp://ftp.awp.ch/impfungen_fr_b.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_fr_b.xml"), "ftp://ftp2.awp.ch/impfungen_fr_b.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
@@ -234,7 +198,7 @@ text_sda_fr <- gsub("</p>","",text_sda_fr)
 text_sda_fr <- paste0(title_sda,"\n",
                       text_sda_fr,"\n",
                       "https://datawrapper.dwcdn.net/ILXgH ","\n\n",
-                      "Note: La dépêche a été générée automatiquement sur la base des données de l’Office fédéral de la santé publique (OFSP) et de la Base logistique de l’Armée (BLA). Elle a été relue avant diffusion."
+                      "Note: La dépêche a été générée automatiquement sur la base des données de l’Office fédéral de la santé publique (OFSP). Elle a été relue avant diffusion."
                       )
 
 text_sda_fr <- gsub("la Covid","le Covid",text_sda_fr)
@@ -244,7 +208,7 @@ text_sda_fr <- gsub("awp","awp/ats",text_sda_fr)
 title_sda_it <- paste0("Coronavirus: UFSP, ",format(impfungen_letzte_woche,big.mark = "'")," nuove vaccinazioni in 7 giorni")
 
 #Monat
-month <- months(date_verabreicht)
+month <- months(date_verabreicht-1)
 month <- gsub("January","gennaio",month)
 month <- gsub("February","febbraio",month)
 month <- gsub("March","marzo",month)
@@ -259,7 +223,7 @@ month <- gsub("November","novembre",month)
 month <- gsub("December","dicembre",month)
 
 #Monat vor einer Woche
-month_earlier <- months(date_verabreicht-6)
+month_earlier <- months(date_verabreicht-7)
 month_earlier <- gsub("January","gennaio",month_earlier)
 month_earlier <- gsub("February","febbraio",month_earlier)
 month_earlier <- gsub("March","marzo",month_earlier)
@@ -282,25 +246,20 @@ tendenz_it <- gsub("le rythme des injections reste inchangé","non è cambiato",
 text_einleitung_it <- paste0("Berna (awp/ats) - Le dosi di vaccino contro il Covid-19 somministrate in Svizzera nella settimana dal ",
                              number_date_earlier," ",month_earlier," al ",number_date," ",month,
                           " sono state ",format(impfungen_letzte_woche,big.mark = "'"),
-                          ". È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).\n\n",
-                          "In media, nella Confederazione vengono effettuate ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
-                          " vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni ",tendenz_it,"\n\n",
+                          ". Questo significa che il ",
+                          gsub("[.]",",",anteil_bevoelkerung),
+                          " percento della popolazione ha ricevuto due iniezioni.",
+                          " È quanto emerge dai dati pubblicati oggi sul sito dell'Ufficio federale della sanità pubblica (UFSP).\n\n",
                           "In totale, indica l'UFSP aggiornando i dati fino a due giorni fa, sono state già somministrate ",
                           format(impfdaten_meldung$Verimpft[1],big.mark="'"),
                           " dosi di vaccino. Fino ad ora ",format(impfungen_complete,big.mark = "'"),
-                          " persone sono state completamente vaccinate, questo significa che il ",
-                          gsub("[.]",",",anteil_bevoelkerung),
-                          " percento della popolazione ha ricevuto due iniezioni. A ",
+                          " persone sono state completamente vaccinate. A ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
-                          "  persone è stata invece somministrata una sola dose.\n\n",
-                          "In totale sono state consegnate ai Cantoni ",
-                          format(impfdaten_meldung$Impfdosen[1],big.mark = "'"),
-                          " dosi di vaccino. La Confederazione è inoltre ancora in possesso di ",
-                          format(impfungen_erhalten - impfdaten_meldung$Impfdosen[1],big.mark = "'")," dosi.",
-                          " Siccome spesso si riescono a estrarre più vaccini del previsto da una fiala,",
-                          " può accadere che in alcuni Cantoni le somministrazioni risultino superiori al numero ufficiale ricevuto.\n\n",
+                          " persone è stata invece somministrata una sola dose.\n\n",
+                          "In media, nella Confederazione vengono effettuate ",format(round(impfungen_letzte_woche/7,0),big.mark = "'"),
+                          " vaccinazioni al giorno. Rispetto alla settimana precedente, il ritmo delle inoculazioni ",tendenz_it,"\n\n",
                           "https://datawrapper.dwcdn.net/mfQwr","\n\n",
-                          "Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP) e della Base logistica dell'Esercito (BLEs)"
+                          "Note: La notizia è stata generata automaticamente sulla base dei dati dell'Ufficio federale della sanità pubblica (UFSP)"
                           )
 
 text_sda_it <- paste0(title_sda_it,"\n\n",text_einleitung_it)

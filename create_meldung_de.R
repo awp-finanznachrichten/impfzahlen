@@ -23,7 +23,7 @@ wochentag_publish <- gsub("Sunday","Sonntag",wochentag_publish)
 
 #Datum
 number_date <- as.numeric(format(date_verabreicht-1,"%d"))
-number_date_earlier <- as.numeric(format(date_verabreicht-8,"%d"))
+number_date_earlier <- as.numeric(format(date_verabreicht-7,"%d"))
 
 #Monat
 month <- months(date_verabreicht-1)
@@ -41,7 +41,7 @@ month <- gsub("November","November",month)
 month <- gsub("December","Dezember",month)
 
 #Monat vor einer Woche
-month_earlier <- months(date_verabreicht-8)
+month_earlier <- months(date_verabreicht-7)
 month_earlier <- gsub("January","Januar",month_earlier)
 month_earlier <- gsub("February","Februar",month_earlier)
 month_earlier <- gsub("March","März",month_earlier)
@@ -56,7 +56,7 @@ month_earlier <- gsub("November","November",month_earlier)
 month_earlier <- gsub("December","Dezember",month_earlier)
 
 
-title <- paste0("BAG registriert ",format(impfungen_letzte_woche,big.mark = "'")," neue Impfungen in den letzten 7 Tagen")
+title <- paste0("BAG: ",gsub("[.]",",",anteil_bevoelkerung)," Prozent der Bevölkerung vollständig geimpft")
 
 
 #Impfanteil vollständing und teilweise geimpft
@@ -76,10 +76,10 @@ anteil_bevoelkerung_last_week <- round((as.numeric(impfdaten_meldung$Verimpft_pr
 
 text_einleitung <- paste0("<p>Bern (awp) - Vom ",number_date_earlier,". ",month_earlier," bis ",number_date,". ",month," sind in der Schweiz ",
                           format(impfungen_letzte_woche,big.mark = "'")," Impfdosen gegen Covid-19 verabreicht worden.",
-                          " Damit sind neu ", gsub("[.]",",",anteil_bevoelkerung), " Prozent der Bevölkerung vollständig geimpft.",
+                          " Damit sind ", gsub("[.]",",",anteil_bevoelkerung), " Prozent der Bevölkerung vollständig geimpft.",
                           " Dies geht aus den Angaben hervor, die das Bundesamt für Gesundheit (BAG) am ",wochentag,
                           " auf seiner Website veröffentlichte.\n</p>",
-                          "<p>Insgesamt wurden ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
+                          "<p>Insgesamt wurden seit Beginn der Impfkampagne ",format(impfdaten_meldung$Verimpft[1],big.mark="'"),
                           " Impfungen verabreicht. ",format(impfungen_complete,big.mark = "'"),
                           " Personen haben zwei Impfdosen erhalten, bei ",
                           format(impfdaten_meldung$Verimpft[1]-(impfungen_complete*2),big.mark = "'"),
@@ -109,8 +109,7 @@ tabelle <- str_replace_all(tabelle,"ggü,","ggü.")
 
 text <- paste0(text_einleitung,"<pre>\n[[\n",tabelle,"\n]]</pre><p/>\n\n",
                "<p>Übersichtskarte zur Situation in den einzelnen Kantonen: https://datawrapper.dwcdn.net/d7vmx </p>",
-               "<p>Grafik zur Impfgeschwindigkeit in der Schweiz: https://datawrapper.dwcdn.net/bNIJk \n</p>",
-               "<p>Quelle: Daten des Bundesamts für Gesundheit (BAG) und der Logistikbasis der Armee (LBA)",
+               "<p>Quelle: Daten des Bundesamts für Gesundheit (BAG)",
                " auf www.covid.admin.ch\n</p>",
                "<p>awp-robot/sw/</p>")
 
@@ -147,7 +146,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_de_a.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_de_a.xml"), "ftp://ftp2.awp.ch/impfungen_de_a.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_de_a.xml"), "ftp://ftp.awp.ch/impfungen_de_a.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 
@@ -188,7 +187,7 @@ setwd("./Output")
 cat(vorlage,file=paste0(date_and_time,"_impfungen_de_b.xml"))
 
 ###FTP-Upload
-ftpUpload(paste0(date_and_time,"_impfungen_de_b.xml"), "ftp://ftp2.awp.ch/impfungen_de_b.xml",userpwd="awprobot:awp32Feed43")
+ftpUpload(paste0(date_and_time,"_impfungen_de_b.xml"), "ftp://ftp.awp.ch/impfungen_de_b.xml",userpwd="awprobot:awp32Feed43")
 
 setwd("..")
 

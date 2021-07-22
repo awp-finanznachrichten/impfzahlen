@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-15" ?>
+<NewsML>
+<NewsEnvelope>
+      <DateAndTime>20210722T105401+0200</DateAndTime>
+      <NewsService FormalName="AWP Robot"/>
+      <TransmissionID>9149</TransmissionID>
+</NewsEnvelope>
+
+<NewsItem>
+  <Identification>
+    <NewsIdentifier>
+       <ProviderId>awp.news</ProviderId>
+       <DateId>20210722T105401+0200</DateId>
+       <NewsItemId>9149</NewsItemId>
+       <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+       <PublicIdentifier>urn:newsml:awp.news:20210722T105401+0200:9149:1</PublicIdentifier>
+    </NewsIdentifier>
+    </Identification>
+
+  <NewsManagement>
+    <NewsItemType FormalName="News"/>
+    <FirstCreated>20210722T105401+0200</FirstCreated>
+    <ThisRevisionCreated>20210722T105401+0200</ThisRevisionCreated>
+    <Status FormalName="Withheld"/>
+    <Urgency FormalName="3"/>
+  </NewsManagement>
+
+ <NewsComponent> 
+<NewsLines>
+    <HeadLine>Suisse: 44,8% de la population entièrement vaccinée (OFSP)</HeadLine>
+<NewsLine><NewsLineType FormalName="StoryType"/><NewsLineText>T</NewsLineText></NewsLine>
+    </NewsLines>
+
+  <AdministrativeMetadata>
+    <Provider>
+       <Party FormalName="AWP"/>
+    </Provider>
+    <Source>
+       <Party FormalName="AWP"/>
+    </Source>
+    </AdministrativeMetadata>
+
+  <DescriptiveMetadata>
+    <Language FormalName="fr"/>
+
+  <Location>
+<!-- Country Structured -->
+    <Property FormalName="Country" Value="CH">
+    </Property>
+    </Location>
+
+<!-- Company Relations -->
+<Property FormalName='ShortName' Value='BAG'/>
+
+<!-- relations -->
+  <Property FormalName="Wire" Value="P"/><Property FormalName='Subject' Value='HEA'/><Property FormalName='Subject' Value='POL'/>
+
+    </DescriptiveMetadata>
+
+<ContentItem>
+			<Format Scheme="IptcFormat" FormalName="NITF"/>
+    <Characteristics>
+    <Property FormalName="FormatVersion" Value="3.1"/>
+    </Characteristics>
+    <DataContent>
+    <nitf>
+    <body>
+    <body.content><p>Berne (awp) - Du 13 juillet au 19 juillet, 356'565 doses de vaccin contre la Covid-19 ont été administrées en Suisse.Au total, 44,8% de la population est donc entièrement vaccinée,  selon les données publiées jeudi sur le site de l'Office fédéral de la santé publique (OFSP).
+</p><p>Depuis le début de la campagne de vaccination, 8'593'483 de doses de vaccin ont été administrées. 3'872'596 de personnes ont reçu deux doses de sérum et 848'291 jusqu'à présent une seule piqûre.
+</p><p>En moyenne, 50'938 vaccinations ont été effectuées par jour. Comparé à la semaine précédente, le rythme des injections a ralenti de 13%.
+</p><pre>
+[[
+                                       actuellement   il y a 7 jours
+
+Personnes entièrement vaccinées (%)   44,8         41,6
+
+Doses de vaccin administrées                 8'593'483    8'236'918
+
+
+]]</pre><p/>
+
+<p>Carte le point sur la vaccine en Suisse: https://datawrapper.dwcdn.net/TeJmy </p><p>Sources: Office fédéral de la santé publique (OFSP) et Base logistique de l'Armée (BLA) sur www.covid.admin.ch
+</p><p>awp-robot/sw/</p>
+</body.content>
+    </body>
+    </nitf>
+    </DataContent>
+    </ContentItem>
+    
+    </NewsComponent>
+    
+    </NewsItem>
+    
+    
+    </NewsML>
